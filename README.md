@@ -14,7 +14,7 @@ A minimal agenda for every day of the year — tasks, notes, contacts, photos, r
 - 12 languages, 9 colour themes, light and dark
 - Desktop dashboard and phone layout
 - Reminders with alarm-style repeating sound and snooze
-- Notes with a 4-colour highlighter, contacts, photo notes
+- Notes with a 4-colour highlighter, contacts with symbols, multi-photo notes, voice notes
 - Trash with restore
 
 ## Privacy
