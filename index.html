@@ -1457,6 +1457,243 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
 }
 
 .dtr-i[hidden] { display: none !important; }
+
+/* mobil: ajanda başlığı büyük ve simetrik (simge üstte, ad altta, yıl en altta; sütunlar eşit) */
+html:not(.desk) .topin:has(.ttl-n) { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); min-height: 68px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl { max-width: 200px; gap: 5px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-l { flex-direction: row; align-items: center; justify-content: center; gap: 9px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-ic { margin: 0; vertical-align: baseline; flex: none; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-ic .ic { width: 26px; height: 26px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-n { font-size: 24px; max-width: 140px; letter-spacing: .05em; text-align: center; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-y { font-size: 13px; }
+/* saat alanı: değer girilince metin sola yaslı, silme düğmesinin altına taşmaz */
+.tmw .tm { text-align: left; }
+.tmw .tm::-webkit-date-and-time-value { text-align: left; margin: 0; min-height: 1.2em; }
+.tmw:not(.e) .tm { padding-right: 46px; min-width: 176px; }
+.tmw .tmx { right: 2px; }
+.tmw { max-width: 100%; }
+
+/* gün hücresi: üç nokta + artı kutuya sığsın */
+.dots.more { gap: 2px; }
+.dots.more i { width: 4px; height: 4px; }
+.dots.more::after, .alldone .dots.more::after { width: 7px; height: 7px; margin-left: 0; background-size: 100% 1.6px, 1.6px 100%; }
+/* iOS: saat alanında değer dikeyde ortalı */
+input[type="time"].fld, .row2 input[type="time"], .tmw .tm { display: flex; align-items: center; -webkit-appearance: none; appearance: none; line-height: normal; padding-top: 0; padding-bottom: 0; }
+input[type="time"]::-webkit-datetime-edit { padding: 0; display: flex; align-items: center; }
+input[type="time"]::-webkit-date-and-time-value { min-height: 0; margin: 0; text-align: left; display: flex; align-items: center; }
+
+/* başlıkta Ş/İ gibi harflerin üst-alt işaretleri kesilmesin */
+.topin .ttl-n { padding: .3em 0 .3em; margin: -.3em 0 -.3em; line-height: 1.15; }
+
+/* yıl, ad ile arama çubuğunun tam ortasında */
+html:not(.desk) .topin:has(.ttl-n) .ttl-y { margin-top: 6.5px; }
+
+/* mobil: başlık (simge+ad+yıl) bir kalıbın içinde, geri ve menü düğmeleriyle aynı eksende */
+html:not(.desk) .topin:has(.ttl-n) .ttl { border: 1px solid var(--line); background: var(--card); border-radius: 22px; padding: 7px 18px 6px; align-self: center; justify-self: center; gap: 3px; box-sizing: border-box; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-l { align-items: center; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-ic { display: inline-grid; place-items: center; height: 26px; margin: 0; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-n { display: block; height: 26px; line-height: 26px; padding: 0; margin: 0; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-y { margin-top: 0; }
+html:not(.desk) .topin:has(.ttl-n) { min-height: 76px; }
+html.desk .fab-ag { display: none; }
+
+html:not(.desk) .topin:has(.ttl-n) .tdl { display: none; }
+html:not(.desk) .topin:has(.ttl-n) .tdi { display: inline-grid; }
+html:not(.desk) .topin:has(.ttl-n) .ttl { padding: 7px 14px 6px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-l { gap: 7px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-ic .ic { width: 24px; height: 24px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-n { font-size: 22px; max-width: 120px; transform: translateY(1px); }
+
+/* başlık kalıbı görünmez: çerçeve/zemin yok, ama simge+ad+yıl tek blok olarak birlikte konumlanır */
+html:not(.desk) .topin:has(.ttl-n) .ttl { border-color: transparent; background: transparent; }
+
+/* başlık bloğu biraz büyük */
+html:not(.desk) .topin:has(.ttl-n) .ttl-ic { height: 28px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-ic .ic { width: 27px; height: 27px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-n { font-size: 24.5px; height: 28px; line-height: 28px; max-width: 125px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-y { font-size: 14px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl-l { gap: 8px; }
+html:not(.desk) .topin:has(.ttl-n) .ttl { transform: translateX(1.25px); }
+
+.bk-row { display: flex; align-items: center; gap: 10px; font: 500 15px/1.35 var(--f-read); color: var(--text); }
+.bk-row input { width: 20px; height: 20px; accent-color: var(--accent, currentColor); flex: none; }
+.bk-h { color: var(--text-2); font: 400 13px/1.45 var(--f-read); }
+.bk-e { color: #d4574f; font: 600 13px/1.4 var(--f-read); text-align: center; }
+
+.mailsvc .mrow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 0; border: 0; }
+.mailsvc .mlink { min-height: 46px; padding: 0 12px; border-radius: 14px; justify-content: flex-start; gap: 10px; min-width: 0; }
+.mailsvc .mlink:nth-child(3) { grid-column: 1 / -1; }
+.mailsvc .mlink .ic { width: 18px; height: 18px; flex: none; }
+.mailsvc .mlink span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.csy-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.csy-pv { width: 48px; height: 48px; border: 0; cursor: pointer; font-size: 19px; transition: transform .15s; }
+.csy-pv:active { transform: scale(.94); }
+.csy-pv svg { width: 27px; height: 27px; }
+.cpal { display: flex; gap: 10px; }
+.csy-g[hidden] { display: none; }
+.csy-g { max-height: 200px; }
+.ct-av.c2 { background: rgb(236, 190, 80); color: #2b2412; }
+.ct-av.c3 { background: rgb(110, 190, 120); color: #14301a; }
+.ct-av.c4 { background: rgb(226, 100, 140); color: #3a1224; }
+.ct-av .cic { width: 28px; height: 28px; stroke-width: 1.7; }
+.csy-pv .cic { width: 32px; height: 32px; }
+.csy-g .icb .ic { width: 30px; height: 30px; stroke-width: 1.5; }
+
+.ct-av { transition: background-color .35s ease, color .35s ease; }
+.ct-av.pop, .csy-pv.pop { animation: csyPop .42s cubic-bezier(.2, 1.4, .4, 1); }
+@keyframes csyPop { 0% { transform: scale(.78); } 60% { transform: scale(1.1); } 100% { transform: scale(1); } }
+.ct-av svg { transition: opacity .25s ease; }
+.csy-w { display: grid; grid-template-rows: 0fr; opacity: 0; margin-top: -14px; visibility: hidden; transition: grid-template-rows .34s cubic-bezier(.3, .9, .3, 1), opacity .25s ease, margin-top .34s cubic-bezier(.3, .9, .3, 1), visibility 0s .34s; }
+.csy-w.open { grid-template-rows: 1fr; opacity: 1; margin-top: 0; visibility: visible; transition-delay: 0s; }
+.csy-gi { min-height: 0; overflow: hidden; }
+.csy-g.swap { animation: csySwap .32s ease backwards; }
+@keyframes csySwap { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.icb { transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .18s cubic-bezier(.2, 1.4, .4, 1); }
+.icb:active { transform: scale(.92); }
+.icb[aria-checked="true"] { transform: scale(1.05); }
+.icb[aria-checked="true"] .ic { animation: csyPop .34s cubic-bezier(.2, 1.4, .4, 1); }
+.hl-d { transition: transform .18s cubic-bezier(.2, 1.4, .4, 1), border-color .2s ease, box-shadow .2s ease; }
+.mf { display: grid; gap: 8px; }
+.mf-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; max-height: 64px; overflow: hidden; animation: mfIn .32s cubic-bezier(.3, .9, .3, 1) backwards; transition: max-height .26s cubic-bezier(.4, 0, .2, 1), opacity .2s ease, transform .26s ease, margin-top .26s ease; }
+.mf-row.init { animation: none; }
+.mf-row.out { max-height: 0; opacity: 0; transform: translateX(16px); margin-top: -8px; pointer-events: none; }
+@keyframes mfIn { from { opacity: 0; max-height: 0; transform: translateY(-8px); } to { opacity: 1; max-height: 64px; transform: none; } }
+.mf-x { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: var(--text-3); border: 1px solid var(--line); background: var(--card-2); overflow: hidden; transition: width .25s ease, opacity .2s ease, margin .25s ease, border-width .25s ease, color .2s ease, transform .15s; }
+.mf-x .ic { width: 16px; height: 16px; }
+.mf-x:active { transform: scale(.9); }
+.mf.one .mf-x { width: 0; opacity: 0; margin-left: -8px; border-width: 0; pointer-events: none; }
+.mf-add { display: inline-flex; align-items: center; gap: 6px; justify-self: start; height: 34px; padding: 0 12px; border-radius: 999px; border: 1px dashed var(--line); color: var(--text-2); font: 600 13px var(--f-body); transition: border-color .2s ease, color .2s ease, transform .15s; }
+.mf-add .ic { width: 15px; height: 15px; transition: transform .25s cubic-bezier(.2, 1.4, .4, 1); }
+.mf-add:active { transform: scale(.96); }
+@media (hover: hover) { .mf-add:hover { border-color: var(--accent); color: var(--text); } .mf-add:hover .ic { transform: rotate(90deg); } }
+.ct-more { flex: none; margin-left: auto; min-width: 28px; height: 24px; padding: 0 8px; border-radius: 999px; background: var(--card-2); border: 1px solid var(--line); color: var(--text-2); font: 700 12px var(--f-body); display: grid; place-items: center; }
+@media (prefers-reduced-motion: reduce) { .csy-w, .mf-row, .mf-x, .mf-add, .mf-add .ic, .icb, .icb .ic, .ct-av, .csy-g, .hl-d { transition: none !important; animation: none !important; } }
+
+/* yumuşak, yavaş geçişler: zıplama yok */
+@keyframes csyPop { 0% { transform: scale(.9); opacity: .55; } 100% { transform: scale(1); opacity: 1; } }
+.ct-av.pop, .csy-pv.pop { animation: csyPop .7s cubic-bezier(.4, 0, .2, 1); }
+.icb[aria-checked="true"] .ic { animation: csyPop .6s cubic-bezier(.4, 0, .2, 1); }
+.ct-av { transition: background-color .6s ease, color .6s ease; }
+.csy-w { transition: grid-template-rows .55s cubic-bezier(.4, 0, .2, 1), opacity .45s ease, margin-top .55s cubic-bezier(.4, 0, .2, 1), visibility 0s .55s; }
+.csy-w.open { transition-delay: 0s; }
+.csy-g.swap { animation: csySwap .55s ease backwards; }
+.icb { transition: background-color .35s ease, border-color .35s ease, color .35s ease, transform .35s cubic-bezier(.4, 0, .2, 1); }
+.hl-d { transition: transform .35s cubic-bezier(.4, 0, .2, 1), border-color .35s ease, box-shadow .35s ease; }
+.mf-row { animation: mfIn .5s cubic-bezier(.4, 0, .2, 1) backwards; transition: max-height .42s cubic-bezier(.4, 0, .2, 1), opacity .35s ease, transform .42s cubic-bezier(.4, 0, .2, 1), margin-top .42s cubic-bezier(.4, 0, .2, 1); }
+.mf-row.init { animation: none; }
+.mf-x { transition: width .4s cubic-bezier(.4, 0, .2, 1), opacity .35s ease, margin .4s cubic-bezier(.4, 0, .2, 1), border-width .4s ease, color .3s ease, transform .3s ease; }
+.mf-add, .mf-add .ic { transition-duration: .35s; transition-timing-function: cubic-bezier(.4, 0, .2, 1); }
+@media (prefers-reduced-motion: reduce) { .csy-w, .mf-row, .mf-x, .mf-add, .mf-add .ic, .icb, .icb .ic, .ct-av, .csy-g, .hl-d { transition: none !important; animation: none !important; } }
+
+.lbn { position: absolute; top: 50%; z-index: 3; width: 48px; height: 48px; margin-top: -24px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: rgba(0, 0, 0, .45); border: 1px solid rgba(255, 255, 255, .28); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: background-color .35s ease, transform .35s cubic-bezier(.4, 0, .2, 1), opacity .35s ease; }
+.lbn .ic { width: 22px; height: 22px; stroke-width: 2; }
+.lbp { left: max(10px, env(safe-area-inset-left, 0px)); } .lbx { right: max(10px, env(safe-area-inset-right, 0px)); }
+.lbn:active { transform: scale(.92); background: rgba(0, 0, 0, .65); }
+@media (hover: hover) { .lbn:hover { background: rgba(255, 255, 255, .22); } .lbp:hover { transform: translateX(-2px); } .lbx:hover { transform: translateX(2px); } }
+.lbk { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 3; padding: 4px 12px; border-radius: 999px; background: rgba(0, 0, 0, .45); color: #fff; font: 700 12px var(--f-body); letter-spacing: .06em; pointer-events: none; transition: opacity .3s ease; }
+.lb.rot .lbn, .lb.rot .lbk { opacity: 0; pointer-events: none; transition: none; }
+.lb .lbc.fadein { animation: lbCapIn .6s ease backwards; }
+@keyframes lbCapIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.lb.nav .lbn { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .lbn, .lbk, .lb .lbc.fadein { transition: none; animation: none; } }
+
+.bk-pick { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 58px; padding: 0 18px; border-radius: 16px; border: 1px solid var(--line); background: var(--card-2); color: var(--text); font: 700 16px var(--f-body); transition: background-color .3s ease, transform .2s ease; }
+.bk-pick .ic { width: 24px; height: 24px; color: var(--accent); }
+.bk-pick:active { transform: scale(.98); }
+.cam { position: fixed; inset: 0; z-index: 10002; background: #000; display: grid; grid-template-rows: auto 1fr auto; justify-items: center; animation: lbIn .3s ease both; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.cam.out { animation: lbOut .26s ease both; pointer-events: none; }
+.cam-top { justify-self: stretch; display: flex; justify-content: flex-start; padding: max(12px, env(safe-area-inset-top, 0px)) max(14px, env(safe-area-inset-left, 0px)) 8px; }
+.cam-v { align-self: center; width: min(100vw, calc(100dvh - 220px)); aspect-ratio: 1; overflow: hidden; background: #111; position: relative; }
+.cam-v video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cam-v video.mir { transform: scaleX(-1); }
+.cam.flash .cam-v::after { content: ""; position: absolute; inset: 0; background: #fff; animation: camFlash .5s ease both; }
+@keyframes camFlash { from { opacity: .85; } to { opacity: 0; } }
+.cam-bar { justify-self: stretch; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 28px 26px; }
+.cam-b { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: rgba(255, 255, 255, .14); border: 0; }
+.cam-b .ic { width: 22px; height: 22px; }
+.cam-fl { justify-self: end; }
+.cam-s { width: 76px; height: 76px; border-radius: 50%; border: 4px solid #fff; background: transparent; display: grid; place-items: center; padding: 0; transition: transform .25s ease; }
+.cam-s i { width: 58px; height: 58px; border-radius: 50%; background: #fff; transition: transform .25s ease; }
+.cam-s:active i { transform: scale(.88); }
+.nau { display: grid; gap: 8px; }
+.nau:empty { display: none; }
+.au-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 10px; padding: 8px 10px 8px 8px; border: 1px solid var(--line); border-radius: 16px; background: var(--card-2); max-height: 72px; overflow: hidden; animation: auIn .5s ease backwards; transition: max-height .4s ease, opacity .35s ease, transform .4s ease, margin-top .4s ease; }
+.au-row.out { max-height: 0; opacity: 0; transform: translateX(16px); margin-top: -8px; padding-top: 0; padding-bottom: 0; pointer-events: none; }
+@keyframes auIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.au-pp { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--accent); color: var(--accent-ink, #111); display: grid; place-items: center; position: relative; transition: transform .25s ease; }
+.au-pp:active { transform: scale(.94); }
+.au-pp .ic { width: 20px; height: 20px; fill: currentColor; stroke-width: 2; }
+.au-pp span { position: absolute; inset: 0; display: grid; place-items: center; transition: opacity .3s ease, transform .3s ease; }
+.au-pp .au-i2 { opacity: 0; transform: scale(.7); }
+.au-row.playing .au-i1 { opacity: 0; transform: scale(.7); }
+.au-row.playing .au-i2 { opacity: 1; transform: none; }
+.au-bw { padding: 16px 0; cursor: pointer; min-width: 0; }
+.au-bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.au-bar i { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 3px; transition: width .35s linear; }
+.au-t { font: 600 13px var(--f-body); color: var(--text-2); font-variant-numeric: tabular-nums; }
+.au-x { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--text-3); display: grid; place-items: center; transition: color .3s ease, border-color .3s ease; }
+.au-x .ic { width: 17px; height: 17px; }
+.au-live { display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 14px; border-radius: 16px; border: 1px solid rgba(255, 90, 90, .55); background: rgba(255, 90, 90, .08); animation: auIn .5s ease backwards; }
+.au-live .sp { flex: 1; }
+.au-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff5a5a; animation: auPulse 1.6s ease-in-out infinite; }
+@keyframes auPulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+.au-tm { font: 700 15px var(--f-body); font-variant-numeric: tabular-nums; }
+.au-live .ghost { margin-top: 0; min-height: 40px; padding: 0 12px; }
+.au-stop { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 0; background: #ff5a5a; color: #fff; font: 700 14px var(--f-body); }
+.au-stop .ic { width: 16px; height: 16px; fill: currentColor; }
+@media (prefers-reduced-motion: reduce) { .au-row, .au-live, .au-dot, .au-pp span, .au-bar i, .cam, .bk-pick { animation: none !important; transition: none !important; } }
+
+.nph .ph-add, .nau .ph-add { width: 100%; height: 46px; justify-content: flex-start; padding: 0 16px; gap: 12px; border-radius: 14px; }
+.nph .ph-add .ic, .nau .ph-add .ic { width: 21px; height: 21px; color: var(--accent); flex: none; }
+.nph .ph-add span, .nau .ph-add span { line-height: 1; }
+.nau .au-rec .ic { stroke-width: 1.9; }
+
+.nmd { display: flex; align-items: center; gap: 10px; }
+.nmd:has(.nph:empty):has(.nau-b:empty) { display: none; }
+.nmd .ph-add.ico { width: 46px; height: 46px; padding: 0; justify-content: center; gap: 0; border-radius: 14px; flex: none; transition: border-color .3s ease, color .3s ease, background-color .3s ease, transform .2s ease; }
+.nmd .ph-add.ico .ic { width: 22px; height: 22px; }
+.nmd .ph-add.ico:active { transform: scale(.94); }
+.nmd .ph-add.rec { border-color: rgba(255, 90, 90, .7); background: rgba(255, 90, 90, .12); }
+.nmd .ph-add.rec .ic { color: #ff5a5a; animation: auPulse 1.6s ease-in-out infinite; }
+.ntf [data-f="pin"] { width: 44px; height: 44px; padding: 0; justify-content: center; gap: 0; border-radius: 50%; }
+.ntf [data-f="pin"] .ic { width: 20px; height: 20px; }
+.ntf [data-f="pin"] span:empty { display: none; }
+
+.au-stop { width: 44px; height: 44px; padding: 0; justify-content: center; border-radius: 50%; }
+.au-stop .ic { width: 18px; height: 18px; }
+.au-live .au-x { width: 44px; height: 44px; }
+.au-live .au-x .ic { width: 19px; height: 19px; }
+
+/* animasyon denetimi: yalnızca yeni öğeler girişte animasyon alır */
+.au-row { animation: none; }
+.au-row.new { animation: auIn .5s ease backwards; }
+.au-live.out { animation: none; max-height: 0; opacity: 0; transform: translateY(-6px); margin-top: -8px; padding-top: 0; padding-bottom: 0; overflow: hidden; transition: max-height .36s ease, opacity .3s ease, transform .36s ease, margin-top .36s ease, padding .36s ease; border-width: 0; }
+.nph > * { animation: auIn .5s ease backwards; }
+.nmd .ph-add.ico .ic { transition: color .35s ease, transform .35s ease; }
+.nmd .ph-add.rec .ic { transform: scale(1.08); }
+.ntf [data-f="pin"] { transition: background-color .35s ease, border-color .35s ease, color .35s ease, transform .2s ease; }
+.ntf [data-f="pin"] .ic { transition: transform .5s cubic-bezier(.4, 0, .2, 1); }
+.ntf [data-f="pin"].on .ic { transform: rotate(32deg); }
+.cam-v video { transition: opacity .3s ease; }
+.cam-v video.sw { opacity: 0; }
+.lbk.tick { animation: lbCapIn .5s ease backwards; }
+.lb.rot .lbn, .lb.rot .lbk { transition: opacity .4s ease; }
+@media (prefers-reduced-motion: reduce) { .nph > *, .au-row.new, .au-live.out, .ntf [data-f="pin"] .ic, .cam-v video, .lbk.tick { animation: none !important; transition: none !important; } }
+
+/* çoklu fotoğraf */
+.nph { flex-wrap: wrap; }
+.nph-i { position: relative; display: inline-block; transition: opacity .35s ease, transform .35s ease, max-width .4s ease, margin .4s ease; }
+.nph-i.out { opacity: 0; transform: scale(.85); pointer-events: none; }
+.nph-x { position: absolute; top: -6px; right: -6px; width: 24px; height: 24px; padding: 0; border-radius: 50%; display: grid; place-items: center; background: var(--card); color: var(--text-2); border: 1px solid var(--line); transition: background-color .3s ease, color .3s ease; }
+.nph-x .ic { width: 12px; height: 12px; stroke-width: 2.4; }
+.nph > *, .nph-i { animation: none; }
+.nph > .new { animation: auIn .5s ease backwards; }
+.ph-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; flex: 1 0 100%; }
+.ph-th.new { animation: auIn .5s ease backwards; }
+.ph-strip .ph-add.ico { width: 56px; height: 56px; padding: 0; justify-content: center; gap: 0; border-radius: 10px; }
+.ph-strip .ph-add.ico .ic { width: 22px; height: 22px; color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .nph-i, .nph > .new, .ph-th.new { animation: none !important; transition: none !important; } }
 </style>
 
 <div id="app"></div>
@@ -1936,10 +2173,13 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     for (const id in o.contacts) {
       const c = o.contacts[id];
       if (!c || typeof c !== 'object') { delete o.contacts[id]; continue; }
-      c.id = id; c.nm = String(c.nm == null ? '' : c.nm).slice(0, 60); c.ph = String(c.ph == null ? '' : c.ph).slice(0, 30); c.em = String(c.em || '').trim().slice(0, 80); c.a = String(c.a || '').slice(0, 40); c.k = c.k === 'o' ? 'o' : 'p'; c.u = c.u || t0; c.tr = c.tr || 0;
+      c.id = id; c.nm = String(c.nm == null ? '' : c.nm).slice(0, 60); c.ph = String(c.ph == null ? '' : c.ph).slice(0, 30); c.em = String(c.em || '').trim().slice(0, 80); c.a = String(c.a || '').slice(0, 40); c.k = c.k === 'o' ? 'o' : 'p'; c.sy = cSy(c.sy); c.co = cCo(c.co); c.ph2 = cLs(c.ph2, 30); c.em2 = cLs(c.em2, 80); c.u = c.u || t0; c.tr = c.tr || 0;
     }
     return o;
   }
+  function cSy(v) { return typeof v === 'string' && /^[a-zA-Z]{2,8}$/.test(v) ? v : ''; }
+  function cLs(v, n) { return Array.isArray(v) ? v.map((x) => String(x == null ? '' : x).trim().slice(0, n)).filter(Boolean).slice(0, 200) : []; }
+  function cCo(v) { v = +v; return v >= 1 && v <= 4 ? v | 0 : 0; }
   let S = (() => {
     try { const r = lsGet(); if (r) { const o = JSON.parse(r); if (o && typeof o === 'object' && o.agendas) return migrate(o); } } catch (e) {}
     return migrate({ v: 2, updatedAt: 0, agendas: {} });
@@ -1968,6 +2208,16 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   for (const k in HLX) if (L[k]) Object.assign(L[k], HLX[k]);
   const FBO = {"tr": "Mail uygulamasında aç", "en": "Open in mail app", "zh": "在邮件应用中打开", "es": "Abrir en la app de correo", "fr": "Ouvrir dans l’app Mail", "pt": "Abrir no app de e-mail", "ru": "Открыть в почте", "de": "In Mail-App öffnen", "ja": "メールアプリで開く", "ko": "메일 앱에서 열기", "it": "Apri nell’app Mail", "nl": "Openen in mail-app"};
   for (const k in FBO) if (L[k]) L[k].fbOpen = FBO[k];
+  const AUX = {"phChoose": {"tr": "Fotoğraf ekle", "en": "Add photo", "zh": "添加照片", "es": "Añadir foto", "fr": "Ajouter une photo", "pt": "Adicionar foto", "ru": "Добавить фото", "de": "Foto hinzufügen", "ja": "写真を追加", "ko": "사진 추가", "it": "Aggiungi foto", "nl": "Foto toevoegen"}, "camTitle": {"tr": "Kamera", "en": "Camera", "zh": "相机", "es": "Cámara", "fr": "Appareil photo", "pt": "Câmera", "ru": "Камера", "de": "Kamera", "ja": "カメラ", "ko": "카메라", "it": "Fotocamera", "nl": "Camera"}, "camGal": {"tr": "Galeri", "en": "Photo library", "zh": "相册", "es": "Fototeca", "fr": "Photothèque", "pt": "Fototeca", "ru": "Галерея", "de": "Fotomediathek", "ja": "ライブラリ", "ko": "사진 보관함", "it": "Libreria foto", "nl": "Fotobibliotheek"}, "camShot": {"tr": "Fotoğraf çek", "en": "Take photo", "zh": "拍照", "es": "Hacer foto", "fr": "Prendre la photo", "pt": "Tirar foto", "ru": "Сделать снимок", "de": "Foto aufnehmen", "ja": "撮影", "ko": "촬영", "it": "Scatta foto", "nl": "Foto maken"}, "camFlip": {"tr": "Kamerayı çevir", "en": "Flip camera"}, "camFail": {"tr": "Kamera bu sürümde açılamadı. Galeri seçeneğiyle fotoğraf çekebilirsin.", "en": "The camera could not be opened here. You can take a photo through the photo library option."}, "auRec": {"tr": "Ses kaydet", "en": "Record audio", "zh": "录音", "es": "Grabar audio", "fr": "Enregistrer", "pt": "Gravar áudio", "ru": "Записать звук", "de": "Aufnehmen", "ja": "録音", "ko": "녹음", "it": "Registra audio", "nl": "Opnemen"}, "auStop": {"tr": "Durdur ve kaydet", "en": "Stop and save", "zh": "停止并保存", "es": "Detener y guardar", "fr": "Arrêter et enregistrer", "pt": "Parar e salvar", "ru": "Стоп и сохранить", "de": "Stoppen und sichern", "ja": "停止して保存", "ko": "중지 및 저장", "it": "Ferma e salva", "nl": "Stoppen en bewaren"}, "auCancel": {"tr": "Vazgeç", "en": "Cancel", "zh": "取消", "es": "Cancelar", "fr": "Annuler", "pt": "Cancelar", "ru": "Отмена", "de": "Abbrechen", "ja": "キャンセル", "ko": "취소", "it": "Annulla", "nl": "Annuleren"}, "auPlay": {"tr": "Oynat / duraklat", "en": "Play / pause"}, "auDel": {"tr": "Kaydı sil", "en": "Delete recording"}, "auNote": {"tr": "Ses kaydı", "en": "Voice note", "zh": "语音笔记", "es": "Nota de voz", "fr": "Note vocale", "pt": "Nota de voz", "ru": "Голосовая заметка", "de": "Sprachnotiz", "ja": "ボイスメモ", "ko": "음성 메모", "it": "Nota vocale", "nl": "Spraaknotitie"}, "auNo": {"tr": "Mikrofon bu sürümde kullanılamıyor ya da izin verilmedi.", "en": "The microphone is unavailable here or permission was not given."}, "auFail": {"tr": "Ses kaydı saklanamadı", "en": "The recording could not be saved"}};
+  for (const k in AUX) for (const l in AUX[k]) if (L[l]) L[l][k] = AUX[k][l];
+  const LBX = {"lbPrev": {"tr": "Önceki fotoğraf", "en": "Previous photo", "zh": "上一张", "es": "Foto anterior", "fr": "Photo précédente", "pt": "Foto anterior", "ru": "Предыдущее фото", "de": "Voriges Foto", "ja": "前の写真", "ko": "이전 사진", "it": "Foto precedente", "nl": "Vorige foto"}, "lbNext": {"tr": "Sonraki fotoğraf", "en": "Next photo", "zh": "下一张", "es": "Foto siguiente", "fr": "Photo suivante", "pt": "Próxima foto", "ru": "Следующее фото", "de": "Nächstes Foto", "ja": "次の写真", "ko": "다음 사진", "it": "Foto successiva", "nl": "Volgende foto"}};
+  for (const k in LBX) for (const l in LBX[k]) if (L[l]) L[l][k] = LBX[k][l];
+  const MFX = {"ctAddPh": {"tr": "Numara ekle", "en": "Add number", "zh": "添加号码", "es": "Añadir número", "fr": "Ajouter un numéro", "pt": "Adicionar número", "ru": "Добавить номер", "de": "Nummer hinzufügen", "ja": "番号を追加", "ko": "번호 추가", "it": "Aggiungi numero", "nl": "Nummer toevoegen"}, "ctAddEm": {"tr": "E-posta ekle", "en": "Add email", "zh": "添加邮箱", "es": "Añadir correo", "fr": "Ajouter un e-mail", "pt": "Adicionar e-mail", "ru": "Добавить e-mail", "de": "E-Mail hinzufügen", "ja": "メールを追加", "ko": "이메일 추가", "it": "Aggiungi e-mail", "nl": "E-mail toevoegen"}};
+  for (const k in MFX) for (const l in MFX[k]) if (L[l]) L[l][k] = MFX[k][l];
+  const CSX = {"tr": "Sembol", "en": "Symbol", "zh": "符号", "es": "Símbolo", "fr": "Symbole", "pt": "Símbolo", "ru": "Символ", "de": "Symbol", "ja": "シンボル", "ko": "기호", "it": "Simbolo", "nl": "Symbool"};
+  for (const k in CSX) if (L[k]) L[k].ctSym = CSX[k];
+  const BKX = {"tr": {"bkExTitle": "Yedeği dışa aktar", "bkExPhotos": "Fotoğrafları dahil et (tam çözünürlük)", "bkExPw": "Parola (isteğe bağlı, en az 8 karakter)", "bkExPwHint": "Parola girersen yedek AES-256 ile şifrelenir. Parolayı unutursan yedek açılamaz; kurtarmanın yolu yoktur.", "bkExGo": "Dışa aktar", "bkCancel": "Vazgeç", "bkPwTitle": "Şifreli yedek", "bkPwPh": "Parola", "bkPwGo": "Aç", "bkWrongPw": "Parola yanlış ya da dosya bozulmuş", "bkPwShort": "Parola en az 8 karakter olmalı", "bkTamper": "Dosya değiştirilmiş ya da bozulmuş, içe aktarılmadı", "bkBusy": "Yedek hazırlanıyor…", "bkFail": "Yedek oluşturulamadı", "importDoneP": "{n} kayıt, {a} ajanda ve {p} fotoğraf eklendi", "bkNote": "İçe aktarma yalnızca eksik olanları ekler, var olan kayıtların üzerine yazmaz. Fotoğraflar tam çözünürlükte yedeklenir; istersen parolayla şifrelenir."}, "en": {"bkExTitle": "Export backup", "bkExPhotos": "Include photos (full resolution)", "bkExPw": "Password (optional, 8+ characters)", "bkExPwHint": "With a password the backup is encrypted with AES-256. If you forget it the backup cannot be opened and there is no recovery.", "bkExGo": "Export", "bkCancel": "Cancel", "bkPwTitle": "Encrypted backup", "bkPwPh": "Password", "bkPwGo": "Open", "bkWrongPw": "Wrong password or damaged file", "bkPwShort": "Password must be at least 8 characters", "bkTamper": "The file was modified or damaged and was not imported", "bkBusy": "Preparing backup…", "bkFail": "Could not create the backup", "importDoneP": "{n} entries, {a} agendas and {p} photos added", "bkNote": "Import only adds what is missing. It never overwrites existing entries. Photos are backed up at full resolution and can be encrypted with a password."}};
+  for (const k in BKX) if (L[k]) Object.assign(L[k], BKX[k]);
   const ALX = {"tr": {"alStop": "Alarmı durdur", "alSnooze": "5 dk ertele", "remNeedAsk": "Hatırlatıcının bildirimle gelmesi için bu site için bildirim izni gerekiyor.", "remDeniedHint": "Bu site için bildirimler engellenmiş. Adres çubuğundaki kilit simgesinden Bildirimler’e izin ver, sonra sayfayı yenile.", "remT": ["{n} dakika önce", "{n} saat önce", "{n} gün önce", "1 hafta önce"]}, "en": {"alStop": "Stop alarm", "alSnooze": "Snooze 5 min", "remNeedAsk": "Notification permission is needed for this site so the reminder can reach you.", "remDeniedHint": "Notifications are blocked for this site. Allow Notifications from the lock icon in the address bar, then reload the page.", "remT": ["{n} minutes before", "{n} hours before", "{n} days before", "1 week before"]}, "zh": {"alStop": "停止闹铃", "alSnooze": "稍后 5 分钟", "remNeedAsk": "需要此网站的通知权限，提醒才能通知到你。", "remDeniedHint": "此网站的通知已被阻止。请在地址栏的锁形图标中允许通知，然后刷新页面。", "remT": ["提前 {n} 分钟", "提前 {n} 小时", "提前 {n} 天", "提前 1 周"]}, "es": {"alStop": "Detener alarma", "alSnooze": "Posponer 5 min", "remNeedAsk": "Se necesita permiso de notificaciones para este sitio para que el recordatorio te llegue.", "remDeniedHint": "Las notificaciones están bloqueadas para este sitio. Permítelas desde el icono del candado en la barra de direcciones y recarga la página.", "remT": ["{n} minutos antes", "{n} horas antes", "{n} días antes", "1 semana antes"]}, "fr": {"alStop": "Arrêter l’alarme", "alSnooze": "Reporter 5 min", "remNeedAsk": "L’autorisation des notifications est nécessaire pour ce site afin que le rappel vous parvienne.", "remDeniedHint": "Les notifications sont bloquées pour ce site. Autorisez-les via l’icône de cadenas dans la barre d’adresse, puis rechargez la page.", "remT": ["{n} minutes avant", "{n} heures avant", "{n} jours avant", "1 semaine avant"]}, "pt": {"alStop": "Parar alarme", "alSnooze": "Adiar 5 min", "remNeedAsk": "É necessária a permissão de notificações para este site para o lembrete chegar até você.", "remDeniedHint": "As notificações estão bloqueadas para este site. Permita-as no ícone de cadeado da barra de endereço e recarregue a página.", "remT": ["{n} minutos antes", "{n} horas antes", "{n} dias antes", "1 semana antes"]}, "ru": {"alStop": "Выключить сигнал", "alSnooze": "Отложить на 5 мин", "remNeedAsk": "Нужно разрешение на уведомления для этого сайта, чтобы напоминание дошло до вас.", "remDeniedHint": "Уведомления для этого сайта заблокированы. Разрешите их через значок замка в адресной строке и обновите страницу.", "remT": ["за {n} мин", "за {n} ч", "за {n} дн.", "за 1 нед."]}, "de": {"alStop": "Alarm stoppen", "alSnooze": "5 Min. später", "remNeedAsk": "Für diese Seite wird die Benachrichtigungsfreigabe benötigt, damit die Erinnerung dich erreicht.", "remDeniedHint": "Benachrichtigungen sind für diese Seite blockiert. Erlaube sie über das Schloss-Symbol in der Adressleiste und lade die Seite neu.", "remT": ["{n} Minuten vorher", "{n} Stunden vorher", "{n} Tage vorher", "1 Woche vorher"]}, "ja": {"alStop": "アラームを止める", "alSnooze": "5分後に再通知", "remNeedAsk": "リマインダーを受け取るには、このサイトの通知の許可が必要です。", "remDeniedHint": "このサイトの通知はブロックされています。アドレスバーの鍵アイコンから通知を許可し、ページを再読み込みしてください。", "remT": ["{n}分前", "{n}時間前", "{n}日前", "1週間前"]}, "ko": {"alStop": "알람 끄기", "alSnooze": "5분 뒤 다시", "remNeedAsk": "알림을 받으려면 이 사이트의 알림 권한이 필요합니다.", "remDeniedHint": "이 사이트의 알림이 차단되어 있습니다. 주소창의 자물쇠 아이콘에서 알림을 허용한 뒤 페이지를 새로고침하세요.", "remT": ["{n}분 전", "{n}시간 전", "{n}일 전", "1주 전"]}, "it": {"alStop": "Ferma sveglia", "alSnooze": "Posticipa 5 min", "remNeedAsk": "Serve il permesso per le notifiche di questo sito perché il promemoria ti raggiunga.", "remDeniedHint": "Le notifiche sono bloccate per questo sito. Consentile dall’icona del lucchetto nella barra degli indirizzi e ricarica la pagina.", "remT": ["{n} minuti prima", "{n} ore prima", "{n} giorni prima", "1 settimana prima"]}, "nl": {"alStop": "Alarm stoppen", "alSnooze": "5 min uitstellen", "remNeedAsk": "Voor deze site is toestemming voor meldingen nodig, zodat de herinnering je bereikt.", "remDeniedHint": "Meldingen zijn voor deze site geblokkeerd. Sta ze toe via het slotje in de adresbalk en laad de pagina opnieuw.", "remT": ["{n} minuten vooraf", "{n} uur vooraf", "{n} dagen vooraf", "1 week vooraf"]}};
   for (const k in ALX) if (L[k]) Object.assign(L[k], ALX[k]);
   const CRED = {"tr": "Agenda bir Mehmet Yiğit Cantürk ürünüdür", "en": "Agenda is a product of Mehmet Yiğit Cantürk", "zh": "Agenda 是 Mehmet Yiğit Cantürk 的产品", "es": "Agenda es un producto de Mehmet Yiğit Cantürk", "fr": "Agenda est un produit de Mehmet Yiğit Cantürk", "pt": "Agenda é um produto de Mehmet Yiğit Cantürk", "ru": "Agenda — продукт Mehmet Yiğit Cantürk", "de": "Agenda ist ein Produkt von Mehmet Yiğit Cantürk", "ja": "Agenda は Mehmet Yiğit Cantürk の製品です", "ko": "Agenda는 Mehmet Yiğit Cantürk의 제품입니다", "it": "Agenda è un prodotto di Mehmet Yiğit Cantürk", "nl": "Agenda is een product van Mehmet Yiğit Cantürk"};
@@ -1975,16 +2225,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   const CRED0 = { en: 'This is a Mehmet Yiğit Cantürk product.', tr: 'Bu bir Mehmet Yiğit Cantürk ürünüdür.', zh: '这是 Mehmet Yiğit Cantürk 的作品。', es: 'Este es un producto de Mehmet Yiğit Cantürk.', fr: 'Ceci est un produit de Mehmet Yiğit Cantürk.', pt: 'Este é um produto de Mehmet Yiğit Cantürk.', ru: 'Это продукт Mehmet Yiğit Cantürk.', de: 'Dies ist ein Produkt von Mehmet Yiğit Cantürk.', ja: 'これは Mehmet Yiğit Cantürk の製品です。', ko: '이것은 Mehmet Yiğit Cantürk의 제품입니다.', it: 'Questo è un prodotto di Mehmet Yiğit Cantürk.', nl: 'Dit is een product van Mehmet Yiğit Cantürk.' };
   const thFix = (t) => PAL[t] ? t : (TH_ALIAS[t] || null);
   let THEME = thFix(S.theme) || 'obs';
-  function syncIcon() {
-    try {
-      const dark = matchMedia('(prefers-color-scheme: dark)').matches;
-      const l = document.querySelector('link[rel="apple-touch-icon"]'); if (l) l.href = 'icons/' + (dark ? 'd' : 'l') + '.png';
-      const m = document.querySelector('meta[name="apple-mobile-web-app-title"]'); if (m) m.content = tt('title');
-    } catch (e) {}
-  }
-  window.__hardRestart = () => { try { flushLocal(); } catch (e) {} location.reload(); };
-  try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => syncIcon()); } catch (e) {}
-  function applyTheme() { root.setAttribute('data-pal', THEME); syncIcon(); }
+  function applyTheme() { root.setAttribute('data-pal', THEME); }
   function setTheme(t) { if (!PAL[t]) return; THEME = t; S.theme = t; S.mu = nextU(); touch(); applyTheme(); render(); if (U.set) paintSettings(); }
   let LANG = L[S.lang] ? S.lang : detectLang();
   let T = L[LANG];
@@ -2001,7 +2242,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     applyStatic(); render(); if (U.key) paintSheet(); if (U.set) paintSettings();
   }
   function applyStatic() {
-    root.lang = LANG === 'zh' ? 'zh-CN' : LANG; syncIcon();
+    root.lang = LANG === 'zh' ? 'zh-CN' : LANG;
     $('#shPrev').setAttribute('aria-label', tt('prevD'));
     $('#shNext').setAttribute('aria-label', tt('nextD'));
     $('#shClose').setAttribute('aria-label', tt('close'));
@@ -2044,7 +2285,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     for (const id in S.tomb.items) { const e = S.tomb.items[id]; if (e.u > (sy['i_' + id] || 0)) out.push(['i_' + id, { a: e.a, k: e.k, d: 1, u: e.u, b: sy['i_' + id] || 0 }]); }
     for (const id in S.notes) { const n = S.notes[id]; if (n.u > (sy['n_' + id] || 0)) out.push(['n_' + id, { t: n.t, pin: n.pin ? 1 : 0, c: n.c, tr: n.tr || 0, u: n.u, d: 0 }]); }
     for (const id in S.tomb.notes) { const u = S.tomb.notes[id]; if (u > (sy['n_' + id] || 0)) out.push(['n_' + id, { d: 1, u }]); }
-    for (const id in S.contacts) { const c = S.contacts[id]; if (c.u > (sy['c_' + id] || 0)) out.push(['c_' + id, { nm: c.nm, ph: c.ph, em: c.em || '', a: c.a || '', k: c.k === 'o' ? 'o' : 'p', tr: c.tr || 0, u: c.u, d: 0 }]); }
+    for (const id in S.contacts) { const c = S.contacts[id]; if (c.u > (sy['c_' + id] || 0)) out.push(['c_' + id, { nm: c.nm, ph: c.ph, em: c.em || '', a: c.a || '', k: c.k === 'o' ? 'o' : 'p', sy: c.sy || '', co: c.co || 0, ph2: c.ph2 || [], em2: c.em2 || [], tr: c.tr || 0, u: c.u, d: 0 }]); }
     for (const id in S.tomb.contacts) { const u = S.tomb.contacts[id]; if (u > (sy['c_' + id] || 0)) out.push(['c_' + id, { d: 1, u }]); }
     return out;
   }
@@ -2210,12 +2451,12 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     }
     if (tb && tb >= ru) return false;
     const nm = String(r.nm == null ? '' : r.nm).slice(0, 60), ph = String(r.ph == null ? '' : r.ph).slice(0, 30), a = String(r.a || '').slice(0, 40), em = String(r.em || '').trim().slice(0, 80);
-    if (!loc) { delete S.tomb.contacts[id]; S.contacts[id] = { id, nm, ph, em, a, k: r.k === 'o' ? 'o' : 'p', u: ru, tr: +r.tr || 0 }; S.sy[key] = ru; return true; }
+    if (!loc) { delete S.tomb.contacts[id]; S.contacts[id] = { id, nm, ph, em, a, k: r.k === 'o' ? 'o' : 'p', sy: cSy(r.sy), co: cCo(r.co), ph2: cLs(r.ph2, 30), em2: cLs(r.em2, 80), u: ru, tr: +r.tr || 0 }; S.sy[key] = ru; return true; }
     if (ru <= loc.u) return false;
     if (loc.u > (S.sy[key] || 0) && (loc.nm !== nm || loc.ph !== ph || (loc.em || '') !== em) && !loc.tr && (loc.nm || loc.ph || loc.em)) {
-      const cid = uid(), cu = nextU(); S.contacts[cid] = { id: cid, nm: loc.nm, ph: loc.ph, em: loc.em || '', a: loc.a || '', k: loc.k || 'p', u: cu, tr: 0 }; conflicts++;
+      const cid = uid(), cu = nextU(); S.contacts[cid] = { id: cid, nm: loc.nm, ph: loc.ph, em: loc.em || '', a: loc.a || '', k: loc.k || 'p', sy: loc.sy || '', co: loc.co || 0, ph2: loc.ph2 || [], em2: loc.em2 || [], u: cu, tr: 0 }; conflicts++;
     }
-    loc.nm = nm; loc.ph = ph; loc.em = em; loc.a = a; loc.k = r.k === 'o' ? 'o' : 'p'; loc.tr = +r.tr || 0; loc.u = ru; S.sy[key] = ru; return true;
+    loc.nm = nm; loc.ph = ph; loc.em = em; loc.a = a; loc.k = r.k === 'o' ? 'o' : 'p'; loc.sy = cSy(r.sy); loc.co = cCo(r.co); loc.ph2 = cLs(r.ph2, 30); loc.em2 = cLs(r.em2, 80); loc.tr = +r.tr || 0; loc.u = ru; S.sy[key] = ru; return true;
   }
   function applyRemote(key, r, fresh) {
     const ru = +r.u || 0; if (!ru) return false;
@@ -2399,8 +2640,8 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   const remOptions = (sel) => REMS.map((v) => `<option value="${v}"${v === sel ? ' selected' : ''}>${esc(remLab(v))}</option>`).join('');
 
   /* ---- yedek: dışa / içe aktarma ---- */
-  function exportJSON() {
-    const out = { app: 'agenda', format: 2, exportedAt: new Date().toISOString(), agendas: {} };
+  function bkCore() {
+    const out = { agendas: {} };
     for (const id in S.agendas) {
       const g = S.agendas[id], o = { kind: g.kind, days: {} };
       if (g.kind === 'year') o.year = g.year; if (g.tr) o.trashed = true; if (g.nm) o.nm = g.nm; if (g.ic) o.ic = g.ic;
@@ -2408,17 +2649,100 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
       out.agendas[id] = o;
     }
     out.contacts = {};
-    for (const id in S.contacts) { const c = S.contacts[id]; out.contacts[id] = { nm: c.nm, ph: c.ph, em: c.em || '', a: c.a || '', k: c.k === 'o' ? 'o' : 'p' }; if (c.tr) out.contacts[id].trashed = true; }
+    for (const id in S.contacts) { const c = S.contacts[id]; out.contacts[id] = { nm: c.nm, ph: c.ph, em: c.em || '', a: c.a || '', k: c.k === 'o' ? 'o' : 'p' }; if (c.sy) out.contacts[id].sy = c.sy; if (c.co) out.contacts[id].co = c.co; if (c.ph2 && c.ph2.length) out.contacts[id].ph2 = c.ph2; if (c.em2 && c.em2.length) out.contacts[id].em2 = c.em2; if (c.tr) out.contacts[id].trashed = true; }
     out.notes = {};
     for (const id in S.notes) { const n = S.notes[id]; out.notes[id] = { t: n.t, pin: n.pin ? 1 : 0, c: n.c }; if (n.tr) out.notes[id].trashed = true; }
-    return JSON.stringify(out, null, 2);
+    return out;
   }
+  const BK_ITER = 250000, BK_MAX_PH = 3000, BK_MAX_IMG = 40e6, BK_MAX_FILE = 600e6;
+  const b64e = (buf) => { const u = new Uint8Array(buf); let s = ''; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000)); return btoa(s); };
+  const b64d = (str) => { const s = atob(str), u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; };
+  const hexOf = (buf) => [...new Uint8Array(buf)].map((x) => x.toString(16).padStart(2, '0')).join('');
+  const sha256 = async (data) => hexOf(await crypto.subtle.digest('SHA-256', data));
+  const bkKey = async (pw, salt, iter) => {
+    const k = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations: iter, hash: 'SHA-256' }, k, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+  };
+  const bkSeal = async (key, bytes, aad) => { const iv = crypto.getRandomValues(new Uint8Array(12)); const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv, additionalData: new TextEncoder().encode(aad) }, key, bytes); return { iv: b64e(iv), ct: b64e(ct) }; };
+  const bkOpen = (key, o, aad) => crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64d(o.iv), additionalData: new TextEncoder().encode(aad) }, key, b64d(o.ct));
+  const imgMime = (u) => u.length > 12 && u[0] === 0xFF && u[1] === 0xD8 && u[2] === 0xFF ? 'image/jpeg'
+    : u[0] === 0x89 && u[1] === 0x50 && u[2] === 0x4E && u[3] === 0x47 ? 'image/png'
+    : u[0] === 0x52 && u[1] === 0x49 && u[2] === 0x46 && u[3] === 0x46 && u[8] === 0x57 && u[9] === 0x45 && u[10] === 0x42 && u[11] === 0x50 ? 'image/webp' : '';
+  const badId = (id) => id === '__proto__' || id === 'constructor' || id === 'prototype';
+
+  async function bkPhotoList() {
+    const keys = (await phReq('readonly', (st) => st.getAllKeys())) || [], ix = buildIdx(), out = [];
+    for (const id of keys) {
+      const bid = phBase(id), live = ix.has(bid) || S.notes[bid], pb = S.pbin && S.pbin[bid];
+      if (!live && !pb) continue;
+      const r = await phGet(id); if (!r || !r.full) continue;
+      const buf = await r.full.arrayBuffer(); if (!buf.byteLength || buf.byteLength > BK_MAX_IMG) continue;
+      const m = imgMime(new Uint8Array(buf, 0, Math.min(16, buf.byteLength))); if (!m) continue;
+      const e = { id, m, t: +r.t || 0, h: await sha256(buf), buf };
+      if (pb && !String(id).includes('~') && S.agendas[pb.a]) e.pb = { a: pb.a, k: pb.k, at: pb.at || 0 };
+      out.push(e); if (out.length >= BK_MAX_PH) break;
+    }
+    return out;
+  }
+  /* seçenekler: {photos:boolean, pw:string} → Blob */
+  async function buildBackup(opt) {
+    const core = bkCore(), ph = opt.photos ? await bkPhotoList() : [];
+    const meta = ph.map((e) => ({ id: e.id, m: e.m, t: e.t, h: e.h, n: e.buf.byteLength, pb: e.pb }));
+    const exportedAt = new Date().toISOString();
+    if (opt.pw) {
+      const salt = crypto.getRandomValues(new Uint8Array(16)), key = await bkKey(opt.pw, salt, BK_ITER);
+      const plain = new TextEncoder().encode(JSON.stringify({ exportedAt, agendas: core.agendas, contacts: core.contacts, notes: core.notes, photos: meta }));
+      const parts = ['{"app":"agenda","format":3,"enc":' + JSON.stringify({ kdf: 'PBKDF2-SHA256', iter: BK_ITER, salt: b64e(salt), alg: 'AES-256-GCM' }) + ',"core":' + JSON.stringify(await bkSeal(key, plain, 'agenda-core')) + ',"photos":['];
+      for (let i = 0; i < ph.length; i++) parts.push((i ? ',' : '') + JSON.stringify({ id: ph[i].id, ...(await bkSeal(key, ph[i].buf, 'agenda-photo:' + ph[i].id)) }));
+      parts.push(']}'); return new Blob(parts, { type: 'application/json' });
+    }
+    const sum = await sha256(new TextEncoder().encode(JSON.stringify({ a: core.agendas, c: core.contacts, n: core.notes, p: meta.map((x) => x.id + ':' + x.h) })));
+    const parts = ['{"app":"agenda","format":3,"exportedAt":' + JSON.stringify(exportedAt) + ',"agendas":' + JSON.stringify(core.agendas) + ',"contacts":' + JSON.stringify(core.contacts) + ',"notes":' + JSON.stringify(core.notes) + ',"photos":['];
+    for (let i = 0; i < ph.length; i++) parts.push((i ? ',' : '') + JSON.stringify({ ...meta[i], d: b64e(ph[i].buf) }));
+    parts.push('],"sum":"' + sum + '"}'); return new Blob(parts, { type: 'application/json' });
+  }
+  function bkDialog(html, onSubmit) {
+    return new Promise((res) => {
+      if (askEl) return res(null);
+      const el = document.createElement('div'); el.className = 'ask'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-labelledby', 'askT');
+      el.innerHTML = `<form class="ask-c bk-c" autocomplete="off">${html}</form>`;
+      askEl = el; app.inert = true; document.body.appendChild(el);
+      const done = (v) => { closeAsk(); res(v); };
+      el.addEventListener('submit', (e) => { e.preventDefault(); const v = onSubmit(el); if (v !== undefined) done(v); });
+      el.addEventListener('click', (e) => { if (e.target.closest('[data-ask="no"]')) done(null); else { const pk = e.target.closest('[data-pick]'); if (pk) done(pk.dataset.pick); } });
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { e.preventDefault(); done(null); }
+        else if (e.key === 'Tab') { const bs = [...el.querySelectorAll('input,button')], i = bs.indexOf(document.activeElement); e.preventDefault(); bs[(i + (e.shiftKey ? -1 : 1) + bs.length) % bs.length].focus(); }
+      });
+      const fm = el.querySelector('form'); fm.tabIndex = -1; fm.focus({ preventScroll: true });
+    });
+  }
+  const bkExportDlg = () => bkDialog(`<h3 id="askT">${esc(tt('bkExTitle'))}</h3>
+    <label class="bk-row"><input type="checkbox" id="bkPh" checked><span>${esc(tt('bkExPhotos'))}</span></label>
+    <input id="bkPw" class="fld" type="password" autocomplete="new-password" maxlength="128" placeholder="${esc(tt('bkExPw'))}" aria-label="${esc(tt('bkExPw'))}">
+    <p class="bk-h">${esc(tt('bkExPwHint'))}</p><p class="bk-e" id="bkErr" role="alert" hidden></p>
+    <div class="ask-b"><button type="button" class="ghost" data-ask="no">${esc(tt('bkCancel'))}</button><button type="submit" class="primary">${esc(tt('bkExGo'))}</button></div>`, (el) => {
+    const pw = el.querySelector('#bkPw').value;
+    if (pw && pw.length < 8) { const e = el.querySelector('#bkErr'); e.textContent = tt('bkPwShort'); e.hidden = false; return undefined; }
+    return { photos: el.querySelector('#bkPh').checked, pw };
+  });
+  const bkPwDlg = (retry) => bkDialog(`<h3 id="askT">${esc(tt('bkPwTitle'))}</h3>
+    <input id="bkPw" class="fld" type="password" autocomplete="current-password" maxlength="128" placeholder="${esc(tt('bkPwPh'))}" aria-label="${esc(tt('bkPwPh'))}">
+    ${retry ? `<p class="bk-e" role="alert">${esc(tt('bkWrongPw'))}</p>` : ''}
+    <div class="ask-b"><button type="button" class="ghost" data-ask="no">${esc(tt('bkCancel'))}</button><button type="submit" class="primary">${esc(tt('bkPwGo'))}</button></div>`, (el) => el.querySelector('#bkPw').value || undefined);
   async function doExport() {
-    const text = exportJSON(); U.exp = null;
-    const d = new Date(), fn = `agenda-${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}.json`;
+    U.exp = null;
+    const opt = await bkExportDlg(); if (!opt) return;
+    toast(tt('bkBusy'));
+    let blob; try { blob = await buildBackup(opt); } catch (e) { toast(tt('bkFail')); return; }
+    const d = new Date(), fn = `agenda-${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}${opt.pw ? '-locked' : ''}.json`;
     let dl = null; try { dl = window.claude && window.claude.use ? await window.claude.use('downloads') : null; } catch (e) {}
-    if (dl) { try { await dl.save({ filename: fn, data: text }); okTick(tt('exportDone')); return; } catch (e) { if (e && e.code === 'declined') return; } }
-    U.exp = text; if (U.set) paintSettings();
+    if (dl) { try { await dl.save({ filename: fn, data: blob }); okTick(tt('exportDone')); return; } catch (e) { if (e && e.code === 'declined') return; } }
+    try {
+      const u = URL.createObjectURL(blob), a = document.createElement('a'); a.href = u; a.download = fn; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 30000);
+      okTick(tt('exportDone'));
+    } catch (e) { toast(tt('bkFail')); }
+    if (!opt.photos && !opt.pw && blob.size < 2e6) { U.exp = await blob.text(); if (U.set) paintSettings(); }
   }
   function hashStr(str) { let h = 5381; for (let i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0; return (h >>> 0).toString(36); }
   function sanitizeBackup(o) {
@@ -2427,7 +2751,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     if (!hasA && !hasN && !hasC) return null;
     const res = { agendas: {}, notes: {}, contacts: {} }; let n = 0;
     for (const id in (hasA ? o.agendas : {})) {
-      const a = o.agendas[id]; if (!a || typeof a !== 'object') continue;
+      const a = o.agendas[id]; if (!a || typeof a !== 'object' || badId(id)) continue;
       const kind = a.kind === 'perp' ? 'perp' : 'year'; let year = 0;
       if (kind === 'year') { year = +a.year; if (!Number.isInteger(year) || year < MIN_Y || year > MAX_Y) continue; }
       if (!agIdOk(id, kind, year)) continue;
@@ -2439,7 +2763,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
           if (!it || typeof it.t !== 'string') continue;
           const t = it.t.trim().slice(0, 300); if (!t) continue;
           if (++n > 20000) return null;
-          arr.push({ id: typeof it.id === 'string' && /^[A-Za-z0-9_-]{1,24}$/.test(it.id) ? it.id : 'h' + hashStr(id + k + t + (TIME_RE.test(it.time) ? it.time : '')), t, time: TIME_RE.test(it.time) ? it.time : '', done: !!it.done, rem: REMS.includes(it.rem) ? it.rem : '', n: cleanNote(it.n) });
+          arr.push({ id: typeof it.id === 'string' && /^[A-Za-z0-9_-]{1,24}$/.test(it.id) && !badId(it.id) ? it.id : 'h' + hashStr(id + k + t + (TIME_RE.test(it.time) ? it.time : '')), t, time: TIME_RE.test(it.time) ? it.time : '', done: !!it.done, rem: REMS.includes(it.rem) ? it.rem : '', n: cleanNote(it.n) });
         }
         if (arr.length) g.days[k] = arr;
       }
@@ -2448,18 +2772,69 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     let nn = 0;
     for (const id in (hasN ? o.notes : {})) {
       const x = o.notes[id]; if (!x || typeof x !== 'object' || typeof x.t !== 'string') continue;
-      if (!/^[A-Za-z0-9_-]{1,24}$/.test(id) || !x.t.trim()) continue;
+      if (!/^[A-Za-z0-9_-]{1,24}$/.test(id) || badId(id) || !x.t.trim()) continue;
       if (++nn > 5000) break;
       res.notes[id] = { t: x.t.slice(0, 4000), pin: x.pin ? 1 : 0, c: +x.c > 0 ? +x.c : 0, tr: (x.trashed || x.tr) ? 1 : 0 };
     }
     let nc = 0;
     for (const id in (hasC ? o.contacts : {})) {
-      const x = o.contacts[id]; if (!x || typeof x !== 'object' || !/^[A-Za-z0-9_-]{1,24}$/.test(id)) continue;
+      const x = o.contacts[id]; if (!x || typeof x !== 'object' || !/^[A-Za-z0-9_-]{1,24}$/.test(id) || badId(id)) continue;
       const nm = String(x.nm == null ? '' : x.nm).trim().slice(0, 60), ph = String(x.ph == null ? '' : x.ph).trim().slice(0, 30), em = String(x.em || '').trim().slice(0, 80); if (!nm && !ph && !em) continue;
       if (++nc > 5000) break;
-      res.contacts[id] = { nm, ph, em, k: x.k === 'o' ? 'o' : 'p', a: /^[A-Za-z0-9_-]{1,40}$/.test(x.a || '') ? x.a : '', tr: (x.trashed || x.tr) ? 1 : 0 };
+      res.contacts[id] = { nm, ph, em, k: x.k === 'o' ? 'o' : 'p', sy: cSy(x.sy), co: cCo(x.co), ph2: cLs(x.ph2, 30), em2: cLs(x.em2, 80), a: /^[A-Za-z0-9_-]{1,40}$/.test(x.a || '') ? x.a : '', tr: (x.trashed || x.tr) ? 1 : 0 };
     }
     return Object.keys(res.agendas).length || Object.keys(res.notes).length || Object.keys(res.contacts).length ? res : null;
+  }
+  /* dosyayı çöz: düz (format 2/3) ya da şifreli (format 3) → {core, photos:[{meta, bytes()}]} */
+  async function readBackup(text) {
+    const o = JSON.parse(text); if (!o || typeof o !== 'object' || Array.isArray(o)) throw new Error('bad');
+    if (o.enc) {
+      if (o.enc.kdf !== 'PBKDF2-SHA256' || o.enc.alg !== 'AES-256-GCM' || !(+o.enc.iter >= 100000 && +o.enc.iter <= 5e6) || typeof o.enc.salt !== 'string' || !o.core) throw new Error('bad');
+      let key = null, plain = null;
+      for (let tries = 0; tries < 5 && !plain; tries++) {
+        const pw = await bkPwDlg(tries > 0); if (!pw) return null;
+        try { key = await bkKey(pw, b64d(o.enc.salt), +o.enc.iter); plain = JSON.parse(new TextDecoder().decode(await bkOpen(key, o.core, 'agenda-core'))); } catch (e) { plain = null; }
+      }
+      if (!plain) throw new Error('pw');
+      const byId = new Map((Array.isArray(o.photos) ? o.photos : []).map((x) => [x && x.id, x]));
+      const photos = (Array.isArray(plain.photos) ? plain.photos : []).slice(0, BK_MAX_PH).map((m) => ({ m, bytes: async () => { const x = byId.get(m.id); if (!x) return null; return new Uint8Array(await bkOpen(key, x, 'agenda-photo:' + m.id)); } }));
+      return { core: plain, photos };
+    }
+    const list = Array.isArray(o.photos) ? o.photos.slice(0, BK_MAX_PH) : [];
+    if (o.sum) {
+      const meta = list.map((x) => (x && x.id) + ':' + (x && x.h));
+      if (o.format === 3 && (await sha256(new TextEncoder().encode(JSON.stringify({ a: o.agendas, c: o.contacts, n: o.notes, p: meta })))) !== o.sum) throw new Error('sum');
+    }
+    return { core: o, photos: list.map((x) => ({ m: x, bytes: async () => (x && typeof x.d === 'string' ? b64d(x.d) : null) })) };
+  }
+  async function phThumbOf(blob) {
+    const src = await createImageBitmap(blob, { imageOrientation: 'from-image' }), k = Math.min(1, 360 / Math.max(src.width, src.height)), c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(src.width * k)); c.height = Math.max(1, Math.round(src.height * k));
+    const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(src, 0, 0, c.width, c.height); if (src.close) src.close();
+    return new Promise((ok, no) => c.toBlob((b) => b ? ok(b) : no(new Error('blob')), 'image/jpeg', .78));
+  }
+  async function restorePhotos(photos) {
+    if (!PHO.db) return { p: 0, skipped: photos.length };
+    const ix = buildIdx(); let p = 0, skipped = 0;
+    for (const { m, bytes } of photos) {
+      try {
+        const id = m && m.id;
+        if (typeof id !== 'string' || !/^[A-Za-z0-9_-]{1,24}(~[A-Za-z0-9_-]{1,12})?$/.test(id) || badId(phBase(id))) { skipped++; continue; }
+        const bid = phBase(id);
+        if (!(ix.has(bid) || S.notes[bid])) { skipped++; continue; }
+        if (id.includes('~') ? (PHO.ex.get(bid) || []).includes(id) : (PHO.ids.has(id) || (S.pbin && S.pbin[id]))) continue;
+        const u = await bytes(); if (!u || !u.length || u.length > BK_MAX_IMG) { skipped++; continue; }
+        const mime = imgMime(u); if (!mime) { skipped++; continue; }
+        if (typeof m.h === 'string' && (await sha256(u)) !== m.h) { skipped++; continue; }
+        const full = new Blob([u], { type: mime }), thumb = await phThumbOf(full);
+        if (!(await phPut(id, { full, thumb, t: +m.t > 0 ? +m.t : Date.now() }))) { skipped++; continue; }
+        const pb = m.pb;
+        if (pb && !id.includes('~') && typeof pb.a === 'string' && S.agendas[pb.a] && typeof pb.k === 'string' && pb.k.length <= 12) { PHO.ids.delete(id); (S.pbin = S.pbin || {})[id] = { a: pb.a, k: pb.k, at: +pb.at > 0 ? +pb.at : Date.now() }; }
+        p++;
+      } catch (e) { skipped++; }
+    }
+    if (p) { touch(); phRepaint(); }
+    return { p, skipped };
   }
   function importData(sb, resurrect) {
     const ix = buildIdx(); let n = 0, a = 0;
@@ -2484,7 +2859,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
       const x = sb.contacts[id];
       if (S.contacts[id] || (S.tomb.contacts[id] && !resurrect)) continue;
       delete S.tomb.contacts[id];
-      const u = nextU(); S.contacts[id] = { id, nm: x.nm, ph: x.ph, em: x.em || '', a: x.a || '', k: x.k === 'o' ? 'o' : 'p', u, tr: x.tr ? u : 0 }; n++;
+      const u = nextU(); S.contacts[id] = { id, nm: x.nm, ph: x.ph, em: x.em || '', a: x.a || '', k: x.k === 'o' ? 'o' : 'p', sy: x.sy || '', co: x.co || 0, ph2: x.ph2 || [], em2: x.em2 || [], u, tr: x.tr ? u : 0 }; n++;
     }
     return { n, a };
   }
@@ -2553,6 +2928,8 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     trophy: '<path d="M8 4h8v6a4 4 0 0 1-8 0zM8 6H4v1a4 4 0 0 0 4 4M16 6h4v1a4 4 0 0 1-4 4M12 14v4M8 21h8M9.5 18h5"/>',
     medal: '<circle cx="12" cy="15" r="5.5"/><path d="M8.5 10.5L6 3h4l2 4 2-4h4l-2.5 7.5"/>',
     shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+    gavel: '<rect x="8.5" y="4.5" width="11" height="6" rx="1.2" transform="rotate(45 14 7.5)"/><path d="M11 11L4 18M10 21.5h10"/>',
+    scales: '<path d="M12 3v17M8 21h8M4 7h16"/><path d="M4 7l-3 7a3 3 0 0 0 6 0zM20 7l-3 7a3 3 0 0 0 6 0z"/>',
     smile: '<circle cx="12" cy="12" r="9"/><path d="M8 14c1 1.6 2.4 2.4 4 2.4s3-.8 4-2.4M9 9.5h.01M15 9.5h.01"/>',
     laugh: '<circle cx="12" cy="12" r="9"/><path d="M7.5 13h9a4.5 4.5 0 0 1-9 0zM9 9.5h.01M15 9.5h.01"/>',
     meh: '<circle cx="12" cy="12" r="9"/><path d="M8.5 15h7M9 9.5h.01M15 9.5h.01"/>',
@@ -2576,6 +2953,9 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     glasses: '<circle cx="6.5" cy="14" r="3.5"/><circle cx="17.5" cy="14" r="3.5"/><path d="M10 14h4M3 14L5 7M21 14l-2-7"/>',
     coffee: '<path d="M4 9h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM17 10h2a2 2 0 0 1 0 4h-2M8 3v3M12 3v3"/>',
     food: '<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2.5 1-4 4-4 8h4"/>',
+    apple: '<path d="M12 7.5c-2-2-6-1.5-7 2s1 8.5 4 10.5c1.2.8 2-.3 3-.3s1.8 1.1 3 .3c3-2 5-7 4-10.5s-5-4-7-2z"/><path d="M12 7.5c0-2 1-3.5 3-4.5"/>',
+    carrot: '<path d="M13 6l5 5-11.5 9.2c-1.4 1.1-3.2-.6-2-1.9z"/><path d="M15.5 8.5l1.2-5M15.5 8.5l4.3-1.6M15.5 8.5l-1.6-4.3"/>',
+    salad: '<path d="M3 12h18a9 9 0 0 1-18 0z"/><path d="M7 12c0-3 2-5 5-5 0 3-2 5-5 5zM12 12c1-3 3-4.5 6-3.5-1 3-3 4.5-6 3.5z"/><path d="M9.5 21h5"/>',
     pizza: '<path d="M3 5c6-2 12-2 18 0L12 21z"/><circle cx="10" cy="9" r="1"/><circle cx="14.5" cy="11" r="1"/><circle cx="11.5" cy="14" r=".8"/>',
     wine: '<path d="M8 3h8l-.5 6a3.5 3.5 0 0 1-7 0zM12 12.5V20M8.5 20h7"/>',
     cake: '<path d="M4 20h16v-6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2zM4 16c2 1.5 3 1.5 4 0s3-1.5 4 0 3 1.5 4 0 3 1 4 0M12 12V8M12 5.5c-.8-1-.8-1.5 0-2.5.8 1 .8 1.5 0 2.5z"/>',
@@ -2622,6 +3002,19 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   const cic = (n) => ICN[n] ? `<svg class="ic cic" viewBox="0 0 24 24" aria-hidden="true">${ICN[n]}</svg>` : '';
   const cleanNm = (v) => String(v == null ? '' : v).replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, 24);
   const cleanIc = (v) => (typeof v === 'string' && Object.prototype.hasOwnProperty.call(ICN, v)) ? v : '';
+  const CSYP = {doc:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M12 16.8v3.4M10.3 18.5h3.4"/><path d="M9 5.6h6"/>',nurse:'<circle cx="12" cy="9" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.7 6.6V4h6.6v2.6M12 4.6v1.4M11.3 5.3h1.4"/><path d="M12 17v3M10.5 18.5h3"/>',teach:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M12 17.2v3.8M12 17.2c-1-.7-2.4-.9-3.4-.7v3.6c1-.2 2.4 0 3.4.7 1-.7 2.4-.9 3.4-.7v-3.6c-1-.2-2.4 0-3.4.7z"/>',eng:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.7 7.7a3.3 3.3 0 0 1 6.6 0zM7.6 7.7h8.8"/><path d="M12 4.2v3.5"/>',law:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M10 14.9l2 3.2 2-3.2M12 18.1v3.4"/>',cop:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.6 7.4h6.8M9.2 7.4V5.8c0-1.2 1.2-2 2.8-2s2.8.8 2.8 2v1.6"/><path d="M12 17l.9.9-.3 1.3h-1.2l-.3-1.3z"/>',fire:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.5 7.7a3.5 3.5 0 0 1 7 0zM7 7.7h10M12 4.2V2.8"/><path d="M9.5 18.2h5"/>',chef:'<circle cx="12" cy="10" r="2.8"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M9.2 8.6V7.3a2.2 2.2 0 0 1-.4-4 2.6 2.6 0 0 1 4.7-.5 2.2 2.2 0 0 1 1.7 2.4 2.2 2.2 0 0 1-.9 2.1v1.3z"/>',driver:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><circle cx="12" cy="18.3" r="2.4"/><path d="M9.6 18.3h4.8M12 18.3v2.4"/>',pilot:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.6 7.4h6.8M9.2 7.4V5.8c0-1.2 1.2-2 2.8-2s2.8.8 2.8 2v1.6"/><path d="M12 17.4l-3.6-1M12 17.4l3.6-1M12 17.4v3.4"/>',farm:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M5.5 7.8h13M8.8 7.8V6c0-1.6 1.4-2.6 3.2-2.6s3.2 1 3.2 2.6v1.8"/><path d="M12 21v-3.5M12 18.5l-1.6-1.2M12 18.5l1.6-1.2"/>',art:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.6 6.6c0-2 1.4-3.2 3.6-3.2 2 0 3.2 1 3.2 2.8"/><path d="M17.6 21l1.3-4.2M18.2 15.4l1.6.5"/>',music:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.6 8.6V8a3.4 3.4 0 0 1 6.8 0v.6M8 8.6h1v2.2H8zM15 8.6h1v2.2h-1z"/>',dev:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><rect x="8" y="16.4" width="8" height="4.4" rx=".8"/><path d="M6.5 21.5h11"/>',mech:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.7 6.4h6.6"/><path d="M19.5 14.6a2 2 0 0 1-2.6 2.5l-3.2 3.2-1.2-1.2 3.2-3.2a2 2 0 0 1 2.5-2.6l-1.1 1.1.3 1 1 .3z"/>',sci:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M10.4 16.2h3.2M11 16.2v2.2L9.2 21.4h5.6L13 18.4v-2.2"/>',barber:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M9.7 20.3l4.8-4.3M14.3 20.3l-4.8-4.3"/><circle cx="9.4" cy="20.6" r=".1"/><circle cx="14.6" cy="20.6" r=".1"/>',photo:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><rect x="8" y="16.5" width="8" height="5" rx="1.2"/><circle cx="12" cy="19" r="1.3"/>',sport:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.9 7.4h6.2"/><path d="M10.6 15l1.4 2 1.4-2"/><circle cx="12" cy="19.3" r="1.5"/>',army:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.5 7.5a3.5 3.5 0 0 1 7 0z"/><path d="M12 16.6l.7 1.4 1.5.2-1.1 1.1.3 1.5-1.4-.7-1.4.7.3-1.5-1.1-1.1 1.5-.2z"/>',courier:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><path d="M8.6 7.3h6.8M9.2 7.3V5.8c0-1.2 1.2-2 2.8-2s2.8.8 2.8 2v1.5"/><path d="M9 17l3-1.4 3 1.4v3.2l-3 1.4-3-1.4zM9 17l3 1.4 3-1.4M12 18.4v3.2"/>',acct:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><rect x="8.6" y="15.8" width="6.8" height="5.4" rx="1"/><path d="M10 17.6h4M10.2 19.4h.1M12 19.4h.1M13.8 19.4h.1"/>',press:'<circle cx="12" cy="8" r="3"/><path d="M5.5 21.5c0-4.2 3-6.8 6.5-6.8s6.5 2.6 6.5 6.8"/><rect x="10.8" y="15.4" width="2.4" height="3.8" rx="1.2"/><path d="M9.5 18a2.5 2.5 0 0 0 5 0M12 20.5v1"/>'};
+  const CSYO = {hosp:'<rect x="4" y="4.5" width="16" height="16" rx="2"/><path d="M12 8.5v7M8.5 12h7"/>',pharm:'<path d="M10.5 20.5a4.2 4.2 0 0 1-6-6l9-9a4.2 4.2 0 0 1 6 6z"/><path d="M8.7 10.7l6 6"/>',school:'<path d="M3 10l9-6 9 6M5 10v10.5h14V10M10 20.5v-5h4v5M12 4V2h3"/>',uni:'<path d="M2 9l10-5 10 5-10 5zM6 11.2v4.3c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4.3M22 9v6"/>',bank:'<path d="M3 9l9-5 9 5zM5.5 9.5v7M9.8 9.5v7M14.2 9.5v7M18.5 9.5v7M3.5 20h17M4.5 16.8h15"/>',shop:'<path d="M4 9.5L5.5 4h13L20 9.5M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0M5.5 12.5v8h13v-8M10 20.5v-4.5h4v4.5"/>',market:'<path d="M3 10h18l-1.7 9.2a1 1 0 0 1-1 .8H5.7a1 1 0 0 1-1-.8zM8 10l3-6M16 10l-3-6M9 14v3M12 14v3M15 14v3"/>',resto:'<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2.2 1.2-3 3.5-3 7 0 1.5.8 2.5 3 3"/>',cafe:'<path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5v2.5M11.5 3.5v2.5M5 21.5h12"/>',hotel:'<path d="M3 18.5V5.5M3 14.5h18v4M21 14.5v-3a2.5 2.5 0 0 0-2.5-2.5H11v5.5"/><circle cx="7" cy="11.5" r="1.7"/>',air:'<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',cargo:'<path d="M2 6h11v9.5M13 9.5h4.5l3.5 3.5v2.5h-2M9 17.5h6M5 17.5H2v-2"/><circle cx="7" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/>',fact:'<path d="M3 21V10l6 3.5V10l6 3.5V4.5h4V21zM7.5 17h1M11.5 17h1M15.5 17h1"/>',gov:'<path d="M4 21h16M6 21v-8h12v8M9.5 13v8M14.5 13v8M7.5 13a4.5 4.5 0 0 1 9 0M12 8.5V3.5h3.5"/>',police:'<path d="M12 3l7.5 3v5.5c0 4.5-3 7.8-7.5 9.5-4.5-1.7-7.5-5-7.5-9.5V6z"/><path d="M12 8.5l1 2 2.2.3-1.6 1.5.4 2.2-2-1.1-2 1.1.4-2.2-1.6-1.5 2.2-.3z"/>',fireSt:'<path d="M12 3s5.5 4 5.5 9.5a5.5 5.5 0 0 1-11 0c0-2 1-3.8 2.3-5 0 1.8.8 3 2 3C10.5 8 11.2 5.5 12 3z"/>',lib:'<rect x="3.5" y="4" width="4" height="16.5" rx=".8"/><rect x="9.2" y="4" width="4" height="16.5" rx=".8"/><path d="M15 6.8l3.6-1 3 13.4-3.6 1z"/>',gym:'<path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/>',ins:'<path d="M3 12a9 9 0 0 1 18 0zM12 12v6a2 2 0 0 1-4 0M12 3V2"/>',car:'<path d="M4 16v-4l2-5h12l2 5v4zM4 12h16M5.5 18.5V20M18.5 18.5V20"/><circle cx="7.5" cy="14.5" r=".6"/><circle cx="16.5" cy="14.5" r=".6"/>',tel:'<path d="M12 11.5V21M8.5 21h7M9.7 17.5l2.3-6 2.3 6"/><circle cx="12" cy="9.5" r="1.4"/><path d="M8.7 6.5a4.8 4.8 0 0 0 0 6M15.3 6.5a4.8 4.8 0 0 1 0 6M6 4a8.6 8.6 0 0 0 0 11M18 4a8.6 8.6 0 0 1 0 11"/>',energy:'<path d="M13 2L5 13.5h6L10 22l9-12h-6z"/>'};
+  CSYO.court = ICN.scales;
+  const CSY = Object.assign({}, CSYP, CSYO);
+  const csySet = (k) => (k === 'o' ? CSYO : CSYP);
+  const csyOk = (v, k) => (typeof v === 'string' && Object.prototype.hasOwnProperty.call(csySet(k), v)) ? v : '';
+  const csic = (n) => CSY[n] ? `<svg class="ic cic" viewBox="0 0 24 24" aria-hidden="true">${CSY[n]}</svg>` : '';
+  const CSYL = {
+    tr: { doc: 'Doktor', nurse: 'Hemşire', teach: 'Öğretmen', eng: 'Mühendis', law: 'Avukat', cop: 'Polis', fire: 'İtfaiyeci', chef: 'Aşçı', driver: 'Şoför', pilot: 'Pilot', farm: 'Çiftçi', art: 'Ressam', music: 'Müzisyen', dev: 'Yazılımcı', mech: 'Tamirci', sci: 'Bilim insanı', barber: 'Kuaför', photo: 'Fotoğrafçı', sport: 'Sporcu', army: 'Asker', courier: 'Kurye', acct: 'Muhasebeci', press: 'Gazeteci', hosp: 'Hastane', pharm: 'Eczane', school: 'Okul', uni: 'Üniversite', bank: 'Banka', shop: 'Mağaza', market: 'Market', resto: 'Restoran', cafe: 'Kafe', hotel: 'Otel', air: 'Havayolu', cargo: 'Kargo', fact: 'Fabrika', gov: 'Resmi kurum', court: 'Adliye', police: 'Emniyet', fireSt: 'İtfaiye', lib: 'Kütüphane', gym: 'Spor salonu', ins: 'Sigorta', car: 'Oto servis', tel: 'Telekom', energy: 'Enerji' },
+    en: { doc: 'Doctor', nurse: 'Nurse', teach: 'Teacher', eng: 'Engineer', law: 'Lawyer', cop: 'Police officer', fire: 'Firefighter', chef: 'Chef', driver: 'Driver', pilot: 'Pilot', farm: 'Farmer', art: 'Painter', music: 'Musician', dev: 'Developer', mech: 'Mechanic', sci: 'Scientist', barber: 'Hairdresser', photo: 'Photographer', sport: 'Athlete', army: 'Soldier', courier: 'Courier', acct: 'Accountant', press: 'Journalist', hosp: 'Hospital', pharm: 'Pharmacy', school: 'School', uni: 'University', bank: 'Bank', shop: 'Shop', market: 'Market', resto: 'Restaurant', cafe: 'Cafe', hotel: 'Hotel', air: 'Airline', cargo: 'Cargo', fact: 'Factory', gov: 'Government', court: 'Court', police: 'Police', fireSt: 'Fire station', lib: 'Library', gym: 'Gym', ins: 'Insurance', car: 'Car service', tel: 'Telecom', energy: 'Energy' }
+  };
+  const csyLab = (k) => (CSYL[LANG] && CSYL[LANG][k]) || CSYL.en[k] || k;
+  const ctAvIn = (c) => { const sy = csyOk(c.sy, c.k === 'o' ? 'o' : 'p'); if (sy) return csic(sy); const t = c.nm || c.ph || c.em || ''; return c.k === 'o' ? ic('building') : esc(Array.from(t || tt('ctBlank'))[0].toLocaleUpperCase(LANG === 'zh' ? 'zh-CN' : LANG)); };
   const agIdOk = (id, kind, year) => { const base = kind === 'perp' ? 'perp' : 'y' + year; return id === base || (typeof id === 'string' && id.startsWith(base + '-') && /^[a-z0-9]{3,8}$/.test(id.slice(base.length + 1))); };
   const ICONS = {
     l: '<path d="M15 5l-7 7 7 7"/>',
@@ -2632,6 +3025,13 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     person: '<circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-4 3.5-6 7-6s6.2 2 7 6"/>',
     building: '<path d="M5 20V5l8-2v17M13 9h6v11M3 20h18M8 8h2M8 12h2M8 16h2M16 13h0M16 16h0"/>',
     plus: '<path d="M12 5v14M5 12h14"/>',
+    mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/>',
+    apl: '<path d="M8 5l11 7-11 7z"/>',
+    apa: '<path d="M8.5 5v14M15.5 5v14"/>',
+    afl: '<path d="M20 11a8 8 0 0 0-14.5-3.5M4 4v4h4M4 13a8 8 0 0 0 14.5 3.5M20 20v-4h-4"/>',
+    ast: '<rect x="6.5" y="6.5" width="11" height="11" rx="2"/>',
+    chevL: '<path d="M15 5l-7 7 7 7"/>',
+    chevR: '<path d="M9 5l7 7-7 7"/>',
     pushpin: '<path d="M9 4h6l-.8 5.5L17 13H7l2.8-3.5z"/><path d="M12 13v7"/>',
     search: '<circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/>',
     mail: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5L12 13l8.5-5.5"/>',
@@ -2819,7 +3219,8 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
           ${list || `<p class="empty">${esc(tt('noMonth'))}</p>`}
         </section>
         </div>
-      </main>`;
+      </main>
+      <button class="fab fab-ag" data-act="fab" aria-haspopup="true" aria-label="${esc(tt('ntNew'))}">${ic('plus')}</button>`;
   }
 
   function fixTop() {
@@ -2856,7 +3257,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     el.addEventListener('click', (e) => {
       const b = e.target.closest('[data-fm]'); if (!b && e.target !== el && !e.target.classList.contains('fabm-l')) return;
       const k = b ? b.dataset.fm : 'x';
-      if (k === 'ph') { U.phT = { fresh: true, note: true }; closeFab(); phIn.click(); return; }
+      if (k === 'ph') { U.phT = { fresh: true, note: true }; closeFab(); phPick(); return; }
       closeFab();
       if (k === 'note') openNote(null); else if (k === 'ct') openContact(null);
     });
@@ -3110,20 +3511,54 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   }
 
   /* ---------- fotoğraflar: yalnızca cihazda (IndexedDB), eşitlenmez ---------- */
-  const PHO = { db: null, ids: new Set(), urls: new Map(), lb: null };
+  const PHO = { db: null, ids: new Set(), ex: new Map(), urls: new Map(), lb: null };
+  const phBase = (k) => String(k).split('~')[0];
+  const phKeys = (b) => (PHO.ids.has(b) ? [b, ...(PHO.ex.get(b) || [])] : []);
+  const exAdd = (k) => { const b = phBase(k), a = PHO.ex.get(b) || []; if (!a.includes(k)) a.push(k); a.sort(); PHO.ex.set(b, a); };
+  let phSeq = 0;
+  const phSeen = new Set();
   const phReq = (mode, fn) => new Promise((res) => {
     if (!PHO.db) return res(null);
     try { const tx = PHO.db.transaction('p', mode), st = tx.objectStore('p'), r = fn(st); tx.oncomplete = () => res(r ? r.result : true); tx.onerror = tx.onabort = () => res(null); } catch (e) { res(null); }
   });
   const phGet = (id) => phReq('readonly', (st) => st.get(id));
-  const phPut = (id, rec) => phReq('readwrite', (st) => st.put(rec, id)).then((r) => { if (r !== null) PHO.ids.add(id); return r !== null; });
-  const phDel = (id) => { PHO.ids.delete(id); const u = PHO.urls.get(id); if (u) { URL.revokeObjectURL(u); PHO.urls.delete(id); } return phReq('readwrite', (st) => st.delete(id)); };
+  const phPut = (id, rec) => phReq('readwrite', (st) => st.put(rec, id)).then((r) => { if (r !== null) { if (String(id).includes('~')) exAdd(id); else PHO.ids.add(id); } return r !== null; });
+  const phDel = (id) => {
+    const ex = PHO.ex.get(id) || []; PHO.ex.delete(id); PHO.ids.delete(id);
+    for (const k of [id, ...ex]) { const u = PHO.urls.get(k); if (u) { URL.revokeObjectURL(u); PHO.urls.delete(k); } }
+    return phReq('readwrite', (st) => { ex.forEach((k) => st.delete(k)); return st.delete(id); });
+  };
+  async function phRemove(key) {
+    const base = phBase(key), drop = (k) => { const u = PHO.urls.get(k); if (u) { URL.revokeObjectURL(u); PHO.urls.delete(k); } };
+    if (key !== base) { const a = (PHO.ex.get(base) || []).filter((k) => k !== key); if (a.length) PHO.ex.set(base, a); else PHO.ex.delete(base); drop(key); await phReq('readwrite', (st) => st.delete(key)); return; }
+    const a = PHO.ex.get(base) || [];
+    if (!a.length) { await phDel(base); return; }
+    const first = a[0], r = await phGet(first);
+    if (r) { await phReq('readwrite', (st) => st.put(r, base)); await phReq('readwrite', (st) => st.delete(first)); }
+    const rest = a.slice(1); if (rest.length) PHO.ex.set(base, rest); else PHO.ex.delete(base);
+    drop(base); drop(first); PHO.ids.add(base);
+  }
+  const AU = { db: null, ids: new Set(), rec: null, play: null };
+  const auReq = (mode, fn) => new Promise((res) => {
+    if (!AU.db) return res(null);
+    try { const tx = AU.db.transaction('a', mode), st = tx.objectStore('a'), r = fn(st); tx.oncomplete = () => res(r ? r.result : true); tx.onerror = tx.onabort = () => res(null); } catch (e) { res(null); }
+  });
+  const auGet = (id) => auReq('readonly', (st) => st.get(id));
+  const auPut = (id, rec) => auReq('readwrite', (st) => st.put(rec, id)).then((r) => { if (r !== null) AU.ids.add(id); return r !== null; });
+  const auDel = (id) => { AU.ids.delete(id); return auReq('readwrite', (st) => st.delete(id)); };
+  async function auInit() {
+    AU.db = await new Promise((res) => { try { const r = indexedDB.open('agenda-audio', 1); r.onupgradeneeded = () => r.result.createObjectStore('a'); r.onsuccess = () => res(r.result); r.onerror = r.onblocked = () => res(null); } catch (e) { res(null); } });
+    if (!AU.db) return;
+    const keys = await auReq('readonly', (st) => st.getAllKeys());
+    (keys || []).forEach((k) => { if (S.notes[k] && !S.notes[k].tr) AU.ids.add(k); else if (!S.notes[k]) auDel(k); });
+    paintNotes();
+  }
   async function phInit() {
     PHO.db = await new Promise((res) => { try { const r = indexedDB.open('agenda-photos', 1); r.onupgradeneeded = () => r.result.createObjectStore('p'); r.onsuccess = () => res(r.result); r.onerror = r.onblocked = () => res(null); } catch (e) { res(null); } });
     if (!PHO.db) return;
     const keys = await phReq('readonly', (st) => st.getAllKeys());
-    (keys || []).forEach((k) => { if (!(S.pbin && S.pbin[k])) PHO.ids.add(k); });
-    for (const id of [...PHO.ids]) if (S.tomb.items[id] && !(S.bin && S.bin[id])) phDel(id);
+    (keys || []).forEach((k) => { if (String(k).includes('~')) exAdd(k); else if (!(S.pbin && S.pbin[k])) PHO.ids.add(k); });
+    for (const id of new Set([...PHO.ids, ...PHO.ex.keys()])) if (S.tomb.items[id] && !(S.bin && S.bin[id])) phDel(id);
     for (const id in (S.pbin || {})) if (!(keys || []).includes(id)) delete S.pbin[id];
     if (U.key) paintSheet();
     if (DK() && U.view === 'home') render();
@@ -3134,7 +3569,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     const u = URL.createObjectURL(r.thumb); PHO.urls.set(id, u); return u;
   }
   function phFill(box) {
-    box.querySelectorAll('img[data-pid]').forEach((im) => { phThumb(im.dataset.pid).then((u) => { if (u && im.isConnected) im.src = u; }); });
+    box.querySelectorAll('img[data-pid]').forEach((im) => { phSeen.add(im.dataset.pid); phThumb(im.dataset.pid).then((u) => { if (u && im.isConnected) im.src = u; }); });
   }
   async function phProcess(file) {
     if (!file || file.size > 40e6) throw new Error('size');
@@ -3159,19 +3594,74 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   const phIn = document.createElement('input'); phIn.type = 'file'; phIn.accept = 'image/*'; phIn.hidden = true; phIn.id = 'phFile';
   document.body.appendChild(phIn);
   let ntPhHook = null;
-  phIn.addEventListener('change', async () => {
-    const f = phIn.files && phIn.files[0], tg = U.phT; phIn.value = ''; if (!f || !tg) return;
+  phIn.multiple = true;
+  async function phIngest(f, tg) {
     try {
       const rec = await phProcess(f);
-      const nid = tg.fresh ? uid() : tg.id;
-      if (!(await phPut(nid, rec))) throw new Error('put');
+      const nid = tg.fresh ? uid() : tg.id, pk = (!tg.fresh && PHO.ids.has(nid)) ? nid + '~' + Date.now().toString(36) + (phSeq++ % 36).toString(36) : nid;
+      if (!(await phPut(pk, rec))) throw new Error('put');
       if (tg.fresh) { const u = nextU(); S.notes[nid] = { id: nid, t: '', pin: 0, c: u, u, tr: 0 }; touch(); }
       if (S.pbin && S.pbin[nid]) { delete S.pbin[nid]; touch(); }
       const old = PHO.urls.get(nid); if (old) { URL.revokeObjectURL(old); PHO.urls.delete(nid); }
       if (tg.note) { render(); if (ntPhHook) ntPhHook(); if (tg.fresh) openNote(nid); }
       else if (U.key) keepFocus(() => paintSheet());
-    } catch (e) { toast(tt('photoFail')); }
+      return nid;
+    } catch (e) { toast(tt('photoFail')); return null; }
+  }
+  phIn.addEventListener('change', async () => {
+    const fs_ = phIn.files ? [...phIn.files] : [], tg = U.phT; phIn.value = ''; if (!fs_.length || !tg) return;
+    let t = tg;
+    for (const f of fs_) { const nid = await phIngest(f, t); if (!nid) break; t = Object.assign({}, t, { fresh: false, id: nid }); }
   });
+  /* uygulama içi kare (1:1) kamera */
+  function camOpen() {
+    return new Promise((res) => {
+      const el = document.createElement('div'); el.className = 'cam'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', tt('camTitle'));
+      el.innerHTML = `<div class="cam-top"><button type="button" class="cam-b" data-c="x" aria-label="${esc(tt('close'))}">${ic('x')}</button></div><div class="cam-v"><video playsinline muted autoplay></video></div><div class="cam-bar"><span class="cam-sp"></span><button type="button" class="cam-s" data-c="shot" aria-label="${esc(tt('camShot'))}"><i></i></button><button type="button" class="cam-b cam-fl" data-c="flip" aria-label="${esc(tt('camFlip'))}" hidden>${ic('afl')}</button></div>`;
+      const vid = el.querySelector('video'); let stream = null, face = 'environment', done = false, busy = false;
+      const stop = () => { if (stream) stream.getTracks().forEach((t) => t.stop()); stream = null; };
+      const fin = (v) => { if (done) return; done = true; stop(); el.classList.add('out'); setTimeout(() => el.remove(), REDUCED() ? 0 : 280); $('#sheet').inert = false; $('#set').inert = false; app.inert = appInert(); res(v); };
+      const start = async () => {
+        stop();
+        stream = await navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { ideal: face }, width: { ideal: 1920 }, height: { ideal: 1920 } } });
+        vid.srcObject = stream; vid.classList.toggle('mir', face === 'user'); try { await vid.play(); } catch (e) {}
+      };
+      (async () => {
+        try {
+          await start();
+          const ds = await navigator.mediaDevices.enumerateDevices(); if (ds.filter((d) => d.kind === 'videoinput').length > 1) el.querySelector('.cam-fl').hidden = false;
+          document.body.appendChild(el); $('#sheet').inert = true; $('#set').inert = true; app.inert = true;
+        } catch (e) { stop(); done = true; res(null); }
+      })();
+      el.addEventListener('click', async (e) => {
+        const b = e.target.closest('[data-c]'); if (!b || busy) return; const k = b.dataset.c;
+        if (k === 'x') fin(null);
+        else if (k === 'flip') { busy = true; vid.classList.add('sw'); await new Promise((ok) => setTimeout(ok, REDUCED() ? 0 : 300)); face = face === 'user' ? 'environment' : 'user'; try { await start(); } catch (x) {} vid.classList.remove('sw'); busy = false; }
+        else if (k === 'shot') {
+          const w = vid.videoWidth, h = vid.videoHeight; if (!w || !h) return; busy = true;
+          const sd = Math.min(w, h), c = document.createElement('canvas'); c.width = c.height = Math.min(sd, 1600);
+          c.getContext('2d').drawImage(vid, (w - sd) / 2, (h - sd) / 2, sd, sd, 0, 0, c.width, c.height);
+          el.classList.add('flash');
+          c.toBlob((bl) => { busy = false; fin(bl); }, 'image/jpeg', .92);
+        }
+      });
+      el.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); fin(null); } });
+    });
+  }
+  async function phPick() {
+    const tg = U.phT; if (!tg) return;
+    const canCam = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) && !U.camBad;
+    if (!canCam) { phIn.click(); return; }
+    const pick = await bkDialog(`<h3 id="askT">${esc(tt('phChoose'))}</h3>
+      <button type="button" class="bk-pick" data-pick="cam">${ic('cam')}<span>${esc(tt('camTitle'))}</span></button>
+      <button type="button" class="bk-pick" data-pick="gal">${ic('photos')}<span>${esc(tt('camGal'))}</span></button>
+      <div class="ask-b"><button type="button" class="ghost" data-ask="no">${esc(tt('bkCancel'))}</button></div>`, () => undefined);
+    if (pick === 'gal') { U.phT = tg; phIn.click(); return; }
+    if (pick !== 'cam') return;
+    const bl = await camOpen();
+    if (!bl) { U.camBad = true; toast(tt('camFail')); return; }
+    await phIngest(new File([bl], 'cam.jpg', { type: 'image/jpeg' }), tg);
+  }
   function closeLb(mode) {
     const lb = PHO.lb; if (!lb) return;
     PHO.lb = null;
@@ -3180,6 +3670,50 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     if (lb.off) lb.off();
     $('#sheet').inert = false; $('#set').inert = false;
     const t = lb.ret; if (t && t.isConnected) t.focus({ preventScroll: true });
+  }
+  function lbParts(id0, ctx) {
+    const id = phBase(id0); let cap = '', go = '';
+    if (ctx && ctx.note) {
+      const n = S.notes[id];
+      if (n) { const dt = new Date(n.c || n.u || Date.now()), ti = noteParts(n.t).title; cap = `<div class="lbc"><div class="lbdt">${esc(dmStr(dt.getDate(), dt.getMonth()) + ' ' + dt.getFullYear())}</div>${ti ? `<div class="lbt">${esc(ti)}</div>` : ''}</div>`; }
+    } else if (ctx && S.agendas[ctx.ag]) {
+      const g = S.agendas[ctx.ag], it = ((g.days[ctx.key]) || []).find((x) => x.id === id), p = partsOf(g, ctx.key);
+      if (it) {
+        cap = `<div class="lbc"><div class="lbdt">${esc(dmStr(p.d, p.m) + (g.kind === 'perp' ? '' : ' ' + p.y))}</div><div class="lbt">${esc(it.t)}</div>${it.n ? `<div class="lbn">${esc(it.n)}</div>` : ''}</div>`;
+        go = `<button type="button" class="lbg" data-lb="go">${esc(tt('memGo'))}</button>`;
+      }
+    }
+    return { cap, go };
+  }
+  const lbBar = (go) => `${go}<button type="button" class="lbd" data-lb="del">${esc(tt('photoDel'))}</button><button type="button" data-lb="close">${esc(tt('close'))}</button>`;
+  const lbCnt = (lb) => (lb.list && lb.list.length > 1 ? `${lb.i + 1} / ${lb.list.length}` : '');
+  async function lbGo(dir) {
+    const lb = PHO.lb; if (!lb || !lb.list || lb.list.length < 2 || lb.busy) return;
+    lb.busy = true;
+    try {
+      const n = lb.list.length, i = (lb.i + dir + n) % n, e = lb.list[i];
+      const r = await phGet(e.id); if (!r || !r.full || PHO.lb !== lb) return;
+      let url; try { const ab = await r.full.arrayBuffer(); url = URL.createObjectURL(new Blob([ab], { type: 'image/jpeg' })); } catch (x) { url = URL.createObjectURL(r.full); }
+      const img = lb.el.querySelector('.lbi img'), red = REDUCED(), E = 'cubic-bezier(.4, 0, .2, 1)';
+      if (!red) { img.style.transition = `translate .38s ${E}, opacity .38s ease`; img.style.translate = (-dir * 70) + 'px 0'; img.style.opacity = '0'; lb.el.classList.add('nav'); await new Promise((ok) => setTimeout(ok, 380)); }
+      if (PHO.lb !== lb) { URL.revokeObjectURL(url); return; }
+      const old = lb.url, old2 = lb.url2; lb.url2 = null;
+      img.onerror = () => { img.onerror = null; try { if (r.thumb && PHO.lb === lb) { lb.url2 = URL.createObjectURL(r.thumb); img.src = lb.url2; } } catch (x) {} };
+      img.src = url; lb.url = url; try { await img.decode(); } catch (x) {}
+      URL.revokeObjectURL(old); if (old2) URL.revokeObjectURL(old2);
+      const ctx = e.note ? { note: 1 } : { ag: e.ag, key: e.key }, { cap, go } = lbParts(e.id, ctx);
+      const oc = lb.el.querySelector('.lbc'); if (oc) oc.remove();
+      if (cap) { lb.el.querySelector('.lbi').insertAdjacentHTML('afterend', cap); const nc = lb.el.querySelector('.lbc'); if (nc && !red) nc.classList.add('fadein'); }
+      lb.el.querySelector('.lbar').innerHTML = lbBar(go);
+      const kc = lb.el.querySelector('.lbk'); if (kc) { kc.textContent = lbCnt({ list: lb.list, i }); kc.classList.remove('tick'); void kc.offsetWidth; kc.classList.add('tick'); }
+      lb.id = e.id; lb.rec = r; lb.ctx = go ? ctx : null; lb.note = !!e.note; lb.i = i;
+      if (!red) {
+        img.style.transition = 'none'; img.style.translate = (dir * 70) + 'px 0'; void img.offsetWidth;
+        img.style.transition = `translate .5s ${E}, opacity .5s ease`; img.style.translate = '0 0'; img.style.opacity = '1';
+        await new Promise((ok) => setTimeout(ok, 500));
+      } else { img.style.translate = ''; img.style.opacity = ''; }
+      img.style.transition = ''; lb.el.classList.remove('nav');
+    } finally { lb.busy = false; }
   }
   async function openLb(id, ctx) {
     /* iOS: hareket izni bir dokunuş sırasında istenmeli */
@@ -3194,23 +3728,15 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     try { const ab = await r.full.arrayBuffer(); url = URL.createObjectURL(new Blob([ab], { type: 'image/jpeg' })); } catch (e) { url = URL.createObjectURL(r.full); }
     const el = document.createElement('div');
     el.className = 'lb'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', tt('photoView'));
-    let cap = '', go = '';
-    if (ctx && ctx.note) {
-      const n = S.notes[id];
-      if (n) { const dt = new Date(n.c || n.u || Date.now()), ti = noteParts(n.t).title; cap = `<div class="lbc"><div class="lbdt">${esc(dmStr(dt.getDate(), dt.getMonth()) + ' ' + dt.getFullYear())}</div>${ti ? `<div class="lbt">${esc(ti)}</div>` : ''}</div>`; }
-    } else if (ctx && S.agendas[ctx.ag]) {
-      const g = S.agendas[ctx.ag], it = ((g.days[ctx.key]) || []).find((x) => x.id === id), p = partsOf(g, ctx.key);
-      if (it) {
-        cap = `<div class="lbc"><div class="lbdt">${esc(dmStr(p.d, p.m) + (g.kind === 'perp' ? '' : ' ' + p.y))}</div><div class="lbt">${esc(it.t)}</div>${it.n ? `<div class="lbn">${esc(it.n)}</div>` : ''}</div>`;
-        go = `<button type="button" class="lbg" data-lb="go">${esc(tt('memGo'))}</button>`;
-      }
-    }
-    el.innerHTML = `<div class="lbi"><img alt=""></div>${cap}<div class="lbar">${go}<button type="button" class="lbd" data-lb="del">${esc(tt('photoDel'))}</button><button type="button" data-lb="close">${esc(tt('close'))}</button></div>`;
+    const { cap, go } = lbParts(id, ctx);
+    const lst = ctx && Array.isArray(ctx.list) && ctx.list.length > 1 ? ctx.list : null, li = lst ? Math.max(0, ctx.i | 0) : 0;
+    const nav = lst ? `<button type="button" class="lbn lbp" data-lb="prev" aria-label="${esc(tt('lbPrev'))}">${ic('chevL')}</button><button type="button" class="lbn lbx" data-lb="next" aria-label="${esc(tt('lbNext'))}">${ic('chevR')}</button><span class="lbk" aria-live="polite">${li + 1} / ${lst.length}</span>` : '';
+    el.innerHTML = `<div class="lbi"><img alt="">${nav}</div>${cap}<div class="lbar">${lbBar(go)}</div>`;
     const im0 = el.querySelector('img'); im0.draggable = false;
     im0.onerror = () => { im0.onerror = null; try { if (r.thumb && PHO.lb) { PHO.lb.url2 = URL.createObjectURL(r.thumb); im0.src = PHO.lb.url2; } } catch (e) {} };
     im0.src = url;
     const ret = document.activeElement;
-    PHO.lb = { el, url, id, ret, rec: r, ctx: go ? ctx : null, note: !!(ctx && ctx.note) };
+    PHO.lb = { el, url, id, ret, rec: r, ctx: go ? ctx : null, note: !!(ctx && ctx.note), list: lst, i: li };
     $('#sheet').inert = true; $('#set').inert = true;
     document.body.appendChild(el);
     /* 3B eğim: telefon eğildikçe fotoğraf döner (jiroskop; olmazsa parmakla sürükleme) */
@@ -3249,11 +3775,15 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
       const b = e.target.closest('[data-lb]');
       if (!b) { if (e.target.closest('.lbi') && e.target.tagName !== 'IMG') closeLb(); return; }
       if (b.dataset.lb === 'close') closeLb();
+      else if (b.dataset.lb === 'prev') lbGo(-1);
+      else if (b.dataset.lb === 'next') lbGo(1);
       else if (b.dataset.lb === 'go') {
-        const c = PHO.lb.ctx, pid = PHO.lb.id; closeLb(); goDay(c.ag, c.key, pid);
+        const c = PHO.lb.ctx, pid = phBase(PHO.lb.id); closeLb(); goDay(c.ag, c.key, pid);
       } else {
-        const pid = PHO.lb.id, c = PHO.lb.ctx, nt = PHO.lb.note; closeLb('del');
-        if (nt) { phDel(pid); render(); if (ntPhHook) ntPhHook(); }
+        const pid = PHO.lb.id, c = PHO.lb.ctx, nt = PHO.lb.note, base = phBase(pid), multi = pid !== base || (PHO.ex.get(base) || []).length > 0;
+        closeLb('del');
+        if (multi) phRemove(pid).then(() => { render(); if (ntPhHook) ntPhHook(); phRepaint(); });
+        else if (nt) { phDel(pid); render(); if (ntPhHook) ntPhHook(); }
         else phBin(pid, c ? c.ag : U.id, c ? c.key : U.key);
       }
     });
@@ -3270,13 +3800,13 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
       for (const key in ag.days) for (const it of ag.days[key]) {
         if (!PHO.ids.has(it.id)) continue;
         const p = partsOf(ag, key);
-        out.push({ ag: id, key, id: it.id, perp, y: perp ? 0 : p.y, m: p.m, d: p.d, o: perp ? p.m * 40 + p.d : p.y * 10000 + p.m * 40 + p.d, lbl: dmStr(p.d, p.m), t: it.t });
+        for (const pk of phKeys(it.id)) out.push({ ag: id, key, id: pk, perp, y: perp ? 0 : p.y, m: p.m, d: p.d, o: perp ? p.m * 40 + p.d : p.y * 10000 + p.m * 40 + p.d, lbl: dmStr(p.d, p.m), t: it.t });
       }
     }
     for (const nid of Object.keys(S.notes)) {
       const n = S.notes[nid]; if (n.tr || !PHO.ids.has(nid)) continue;
       const dt = new Date(n.c || n.u || Date.now()), y = dt.getFullYear(), m = dt.getMonth(), d = dt.getDate();
-      out.push({ note: 1, id: nid, perp: false, y, m, d, o: y * 10000 + m * 40 + d, lbl: dmStr(d, m), t: noteParts(n.t).title || '' });
+      for (const pk of phKeys(nid)) out.push({ note: 1, id: pk, perp: false, y, m, d, o: y * 10000 + m * 40 + d, lbl: dmStr(d, m), t: noteParts(n.t).title || '' });
     }
     return out;
   }
@@ -3294,9 +3824,12 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
       return `<section class="sgroup"><h4>${esc(g.title)}</h4><div class="memgrid">${g.list.map((x) => `<button class="mem-th" data-act="mem-open" ${memAttr(x)} data-id="${x.id}" aria-label="${esc(x.lbl + ': ' + x.t)}"><img alt="" data-pid="${x.id}"><span>${esc(x.lbl)}</span></button>`).join('')}</div></section>`;
     }).join('') + `<p class="snote">${esc(tt('photoNote'))}</p>`;
   }
-  const phBtn = (key, it) => !PHO.db ? '' : PHO.ids.has(it.id)
-    ? `<button class="ph-th" data-act="ph-view" data-id="${it.id}" aria-label="${esc(tt('photoView'))}"><img alt="" data-pid="${it.id}"></button>`
-    : `<button class="ph-add" data-act="ph-add" data-key="${key}" data-id="${it.id}">${ic('cam')}<span>${esc(tt('photoAdd'))}</span></button>`;
+  const phBtn = (key, it) => {
+    if (!PHO.db) return '';
+    const ks = phKeys(it.id);
+    if (!ks.length) return `<button class="ph-add" data-act="ph-add" data-key="${key}" data-id="${it.id}">${ic('cam')}<span>${esc(tt('photoAdd'))}</span></button>`;
+    return `<div class="ph-strip">${ks.map((k) => `<button class="ph-th${phSeen.has(k) ? '' : ' new'}" data-act="ph-view" data-id="${it.id}" data-k="${k}" aria-label="${esc(tt('photoView'))}"><img alt="" data-pid="${k}"></button>`).join('')}<button class="ph-add ico" data-act="ph-add" data-key="${key}" data-id="${it.id}" aria-label="${esc(tt('photoAdd'))}" title="${esc(tt('photoAdd'))}">${ic('cam')}</button></div>`;
+  };
 
   /* ---------- ayarlar ---------- */
   function toTrash(id) {
@@ -3325,7 +3858,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   function purgeContact(id) { if (!S.contacts[id]) return; delete S.contacts[id]; S.tomb.contacts[id] = nextU(); }
   function contactToTrash(id) { const c = S.contacts[id]; if (!c || c.tr) return; c.tr = c.u = nextU(); touch(); render(); }
   function restoreContact(id) { const c = S.contacts[id]; if (!c || !c.tr) return; c.tr = 0; c.u = nextU(); touch(); paintSettings(); render(); }
-  function purgeNote(id) { if (!S.notes[id]) return; if (PHO.ids.has(id)) phDel(id); delete S.notes[id]; S.tomb.notes[id] = nextU(); }
+  function purgeNote(id) { if (!S.notes[id]) return; if (PHO.ids.has(id)) phDel(id); if (AU.ids.has(id)) auDel(id); delete S.notes[id]; S.tomb.notes[id] = nextU(); }
   function noteToTrash(id) { const n = S.notes[id]; if (!n || n.tr) return; n.tr = n.u = nextU(); touch(); render(); }
   function restoreNote(id) { const n = S.notes[id]; if (!n || !n.tr) return; n.tr = 0; n.u = nextU(); touch(); paintSettings(); render(); }
   const trashIds = () => Object.keys(S.agendas).filter((id) => S.agendas[id].tr).sort((a, b) => S.agendas[b].tr - S.agendas[a].tr);
@@ -3477,18 +4010,18 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
 
   /* ---------- ilk açılış tanıtımı ---------- */
   const TUT = {
-    en: {"t": ["Your agendas", "One page per day", "Write, tick, remember", "Keep the moment", "Quick notes", "Contacts", "Find anything", "Nothing is lost", "Everything in the menu"], "d": ["Create as many agendas as you like, each with a name and an icon, like Work or Home. Pick a year or leave it open-ended. Press and hold an agenda to edit or delete it.", "Tap a day to open its page. Swipe sideways on the month grid to change months, and use Today to jump back. Dots under a day show how many entries it has.", "Add a task, set a time or a reminder if you like, and tap its circle to tick it off. The arrow beside an entry opens a longer description. Press and hold an entry to delete it.", "Attach one photo to any entry. Photos stay on this device only. Open one and tilt your phone to tilt it in 3D, and find them all by month under Memories.", "The Notes tab is for quick thoughts: tap + and just write. The first line becomes the title. Pin the important ones, search them, or turn a note into a task on any day.", "The Contacts tab keeps people and phone numbers, each linked to a category if you wish. When a note or entry contains a phone number, the app offers to add it. It never reads your phone’s address book.", "The search box on the Agendas tab looks through every day of every agenda. Notes and Contacts have their own search.", "Deleted agendas, tasks, photos, notes and contacts wait in the Trash until you restore them or delete them forever. You can also export a backup file in Settings and import it later.", "The menu icon opens a side panel. Settings hold the theme strip, language and backup. These icons mean:"], "n": "Next", "s": "Skip", "g": "Start", "h": "Tutorial"},
-    tr: {"t": ["Ajandaların", "Her güne bir sayfa", "Yaz, işaretle, hatırla", "Anı sakla", "Hızlı notlar", "Kişiler", "Her şeyi bul", "Hiçbir şey kaybolmaz", "Hepsi menüde"], "d": ["İş, Ev gibi ad ve simge verdiğin istediğin kadar ajanda oluştur. Bir yıl seç ya da yılsız bırak. Düzenlemek veya silmek için ajandaya basılı tut.", "Sayfasını açmak için bir güne dokun. Ay görünümünde yana kaydırarak ay değiştir, Bugün ile geri dön. Günün altındaki noktalar kaç girdisi olduğunu gösterir.", "Görev ekle, istersen saat ya da hatırlatma koy, tamamlamak için dairesine dokun. Girdinin yanındaki ok uzun bir açıklama alanı açar. Silmek için girdiye basılı tut.", "Her girdiye bir fotoğraf ekle. Fotoğraflar yalnızca bu cihazda durur. Birini açıp telefonu eğerek 3B eğebilirsin; hepsi ay ay Anılar’da.", "Notlar sekmesi hızlı düşünceler için: + düğmesine dokun ve yaz. İlk satır başlık olur. Önemlileri sabitle, ara ya da bir notu istediğin güne göreve çevir.", "Kişiler sekmesi kişileri ve telefon numaralarını tutar; istersen her biri bir kategoriye bağlanır. Bir not ya da girdide telefon numarası olursa uygulama eklemeyi önerir. Telefonunun rehberini okumaz.", "Ajandalar sekmesindeki arama kutusu bütün ajandaların her gününü tarar. Notlar ve Kişiler’in kendi aramaları var.", "Silinen ajanda, görev, fotoğraf, not ve kişiler sen geri yükleyene ya da kalıcı silene kadar Çöp Kutusu’nda bekler. Ayarlardan yedek dosyası dışa aktarıp sonra içe aktarabilirsin.", "Menü simgesi yan paneli açar. Ayarlarda tema şeridi, dil ve yedekleme var. Simgelerin anlamı:"], "n": "İleri", "s": "Geç", "g": "Başla", "h": "Tanıtım"},
-    zh: {"t": ["你的日程本", "每天一页", "写下、勾选、记住", "留住瞬间", "快速笔记", "联系人", "找到一切", "不会丢失", "一切都在菜单里"], "d": ["随心创建日程，每个都有名称和图标，如“工作”“家庭”。可指定年份，也可不限年份。长按日程即可编辑或删除。", "点按某一天打开它的页面。在月视图中左右滑动切换月份，点“今天”快速返回。日期下方的小点表示条目数量。", "添加任务，可设置时间或提醒，点按圆圈即可勾选完成。条目旁的箭头会展开更长的描述。长按条目即可删除。", "每个条目可附一张照片。照片只保存在本设备上。打开照片后倾斜手机可看到3D倾斜效果，所有照片按月份集中在“回忆”中。", "“笔记”标签用于快速记录：点按 + 直接写。第一行即标题。可置顶重要笔记、搜索，也可把笔记转为任意一天的任务。", "“联系人”标签保存人名和电话号码，还可关联到某个类别。笔记或条目中出现电话号码时，应用会提议添加。它不会读取你手机的通讯录。", "“日程”标签里的搜索框会搜索所有日程的每一天。笔记和联系人各有自己的搜索。", "删除的日程、任务、照片、笔记和联系人会留在回收站，直到你恢复或永久删除。你也可以在设置中导出备份文件，之后再导入。", "菜单图标会打开侧边栏。设置里有主题条、语言和备份。图标含义如下："], "n": "下一步", "s": "跳过", "g": "开始", "h": "使用指南"},
-    es: {"t": ["Tus agendas", "Una página por día", "Escribe, marca, recuerda", "Guarda el momento", "Notas rápidas", "Contactos", "Encuentra todo", "Nada se pierde", "Todo en el menú"], "d": ["Crea todas las agendas que quieras, cada una con nombre e icono, como Trabajo o Casa. Elige un año o déjala sin año. Mantén pulsada una agenda para editarla o borrarla.", "Toca un día para abrir su página. Desliza de lado en la cuadrícula del mes para cambiar de mes y usa Hoy para volver. Los puntos bajo un día indican cuántas entradas tiene.", "Añade una tarea, pon una hora o un recordatorio si quieres y toca su círculo para marcarla. La flecha junto a una entrada abre una descripción más larga. Mantén pulsada una entrada para borrarla.", "Adjunta una foto a cualquier entrada. Las fotos se quedan solo en este dispositivo. Abre una e inclina el teléfono para verla en 3D; todas están por meses en Recuerdos.", "La pestaña Notas es para ideas rápidas: toca + y escribe. La primera línea es el título. Fija las importantes, búscalas o convierte una nota en tarea de cualquier día.", "La pestaña Contactos guarda personas y números de teléfono, cada uno con una categoría si quieres. Si una nota o entrada contiene un número, la app te ofrece añadirlo. Nunca lee la agenda de contactos de tu teléfono.", "El buscador de la pestaña Agendas recorre todos los días de todas las agendas. Notas y Contactos tienen su propio buscador.", "Las agendas, tareas, fotos, notas y contactos borrados esperan en la Papelera hasta que los restaures o los borres para siempre. En Ajustes puedes exportar una copia de seguridad e importarla después.", "El icono del menú abre un panel lateral. En Ajustes están la tira de temas, el idioma y la copia de seguridad. Estos iconos significan:"], "n": "Siguiente", "s": "Omitir", "g": "Empezar", "h": "Tutorial"},
-    fr: {"t": ["Tes agendas", "Une page par jour", "Écris, coche, souviens-toi", "Garde l’instant", "Notes rapides", "Contacts", "Trouve tout", "Rien ne se perd", "Tout est dans le menu"], "d": ["Crée autant d’agendas que tu veux, chacun avec un nom et une icône, comme Travail ou Maison. Choisis une année ou laisse-le sans année. Appuie longuement sur un agenda pour le modifier ou le supprimer.", "Touche un jour pour ouvrir sa page. Glisse sur le côté dans la grille du mois pour changer de mois et utilise Aujourd’hui pour revenir. Les points sous un jour indiquent son nombre d’entrées.", "Ajoute une tâche, mets une heure ou un rappel si tu veux, et touche son rond pour la cocher. La flèche à côté d’une entrée ouvre une description plus longue. Appuie longuement sur une entrée pour la supprimer.", "Joins une photo à n’importe quelle entrée. Les photos restent uniquement sur cet appareil. Ouvre-en une et incline le téléphone pour l’incliner en 3D ; toutes sont classées par mois dans Souvenirs.", "L’onglet Notes sert aux idées rapides : touche + et écris. La première ligne devient le titre. Épingle les importantes, cherche-les ou transforme une note en tâche pour un jour au choix.", "L’onglet Contacts garde des personnes et leurs numéros, chacun lié à une catégorie si tu veux. Quand une note ou une entrée contient un numéro, l’app propose de l’ajouter. Elle ne lit jamais le répertoire de ton téléphone.", "La recherche de l’onglet Agendas parcourt chaque jour de tous les agendas. Notes et Contacts ont leur propre recherche.", "Les agendas, tâches, photos, notes et contacts supprimés attendent dans la corbeille jusqu’à ce que tu les restaures ou les supprimes définitivement. Dans les réglages, tu peux exporter une sauvegarde et l’importer plus tard.", "L’icône du menu ouvre un panneau latéral. Les réglages contiennent la bande de thèmes, la langue et la sauvegarde. Ces icônes signifient :"], "n": "Suivant", "s": "Passer", "g": "Commencer", "h": "Tutoriel"},
-    pt: {"t": ["Suas agendas", "Uma página por dia", "Escreva, marque, lembre", "Guarde o momento", "Notas rápidas", "Contatos", "Encontre tudo", "Nada se perde", "Tudo no menu"], "d": ["Crie quantas agendas quiser, cada uma com nome e ícone, como Trabalho ou Casa. Escolha um ano ou deixe sem ano. Mantenha pressionada uma agenda para editá-la ou excluí-la.", "Toque em um dia para abrir sua página. Deslize para o lado na grade do mês para trocar de mês e use Hoje para voltar. Os pontos sob um dia mostram quantas entradas ele tem.", "Adicione uma tarefa, defina horário ou lembrete se quiser e toque no círculo para concluí-la. A seta ao lado de uma entrada abre uma descrição mais longa. Mantenha pressionada uma entrada para excluí-la.", "Anexe uma foto a qualquer entrada. As fotos ficam só neste dispositivo. Abra uma e incline o celular para vê-la em 3D; todas ficam por mês em Memórias.", "A aba Notas é para ideias rápidas: toque em + e escreva. A primeira linha vira o título. Fixe as importantes, pesquise ou transforme uma nota em tarefa de qualquer dia.", "A aba Contatos guarda pessoas e números de telefone, cada um com uma categoria, se quiser. Quando uma nota ou entrada tem um número, o app oferece adicioná-lo. Ele nunca lê a agenda de contatos do seu celular.", "A busca da aba Agendas varre todos os dias de todas as agendas. Notas e Contatos têm a própria busca.", "Agendas, tarefas, fotos, notas e contatos excluídos ficam na Lixeira até você restaurá-los ou excluí-los para sempre. Em Ajustes você pode exportar um backup e importá-lo depois.", "O ícone do menu abre um painel lateral. Os ajustes têm a faixa de temas, o idioma e o backup. Estes ícones significam:"], "n": "Avançar", "s": "Pular", "g": "Começar", "h": "Tutorial"},
-    ru: {"t": ["Ваши ежедневники", "Страница на каждый день", "Пишите, отмечайте, помните", "Сохраните момент", "Быстрые заметки", "Контакты", "Найдёте всё", "Ничего не пропадёт", "Всё в меню"], "d": ["Создавайте сколько угодно ежедневников с названием и значком, например «Работа» или «Дом». Выберите год или оставьте без года. Нажмите и удерживайте ежедневник, чтобы изменить или удалить его.", "Коснитесь дня, чтобы открыть его страницу. Смахивайте вбок в сетке месяца, чтобы менять месяц, а кнопка «Сегодня» вернёт назад. Точки под днём показывают число записей.", "Добавьте задачу, при желании задайте время или напоминание и коснитесь кружка, чтобы отметить её. Стрелка рядом с записью открывает подробное описание. Удерживайте запись, чтобы удалить её.", "Прикрепите одно фото к любой записи. Фото хранятся только на этом устройстве. Откройте фото и наклоняйте телефон — оно наклонится в 3D; все снимки по месяцам — в «Воспоминаниях».", "Вкладка «Заметки» — для быстрых мыслей: нажмите + и пишите. Первая строка становится заголовком. Закрепляйте важное, ищите или превращайте заметку в задачу на любой день.", "Вкладка «Контакты» хранит людей и номера телефонов, при желании с привязкой к категории. Если в заметке или записи есть номер, приложение предложит добавить его. Адресную книгу телефона оно не читает.", "Поиск на вкладке «Ежедневники» просматривает каждый день всех ежедневников. У заметок и контактов — свой поиск.", "Удалённые ежедневники, задачи, фото, заметки и контакты ждут в корзине, пока вы не восстановите их или не удалите навсегда. В настройках можно экспортировать резервную копию и позже импортировать её.", "Значок меню открывает боковую панель. В настройках — лента тем, язык и резервная копия. Значки означают:"], "n": "Далее", "s": "Пропустить", "g": "Начать", "h": "Обучение"},
-    de: {"t": ["Deine Agenden", "Eine Seite pro Tag", "Schreiben, abhaken, merken", "Den Moment festhalten", "Schnelle Notizen", "Kontakte", "Alles finden", "Nichts geht verloren", "Alles im Menü"], "d": ["Lege beliebig viele Agenden mit Name und Symbol an, etwa Arbeit oder Zuhause. Wähle ein Jahr oder lass es offen. Halte eine Agenda gedrückt, um sie zu bearbeiten oder zu löschen.", "Tippe auf einen Tag, um seine Seite zu öffnen. Wische im Monatsraster zur Seite, um den Monat zu wechseln, und springe mit Heute zurück. Punkte unter einem Tag zeigen, wie viele Einträge er hat.", "Füge eine Aufgabe hinzu, setze auf Wunsch Uhrzeit oder Erinnerung und tippe auf den Kreis, um sie abzuhaken. Der Pfeil neben einem Eintrag öffnet eine längere Beschreibung. Halte einen Eintrag gedrückt, um ihn zu löschen.", "Hänge an jeden Eintrag ein Foto. Fotos bleiben nur auf diesem Gerät. Öffne eines und neige das Handy für den 3D-Effekt; alle findest du nach Monaten unter Erinnerungen.", "Der Tab Notizen ist für schnelle Gedanken: Tippe auf + und schreib los. Die erste Zeile wird zum Titel. Hefte Wichtiges an, such darin oder mach aus einer Notiz eine Aufgabe für einen beliebigen Tag.", "Der Tab Kontakte speichert Personen und Telefonnummern, auf Wunsch jeweils mit einer Kategorie verknüpft. Steht in einer Notiz oder einem Eintrag eine Nummer, bietet die App an, sie hinzuzufügen. Das Adressbuch deines Telefons liest sie nie.", "Die Suche im Tab Agenden durchsucht jeden Tag aller Agenden. Notizen und Kontakte haben eine eigene Suche.", "Gelöschte Agenden, Aufgaben, Fotos, Notizen und Kontakte warten im Papierkorb, bis du sie wiederherstellst oder endgültig löschst. In den Einstellungen kannst du ein Backup exportieren und später importieren.", "Das Menüsymbol öffnet ein Seitenfenster. In den Einstellungen findest du die Themenleiste, die Sprache und das Backup. Diese Symbole bedeuten:"], "n": "Weiter", "s": "Überspringen", "g": "Los geht’s", "h": "Einführung"},
-    ja: {"t": ["あなたの手帳", "1日1ページ", "書く、チェック、覚える", "瞬間を残す", "クイックメモ", "連絡先", "何でも見つかる", "何も失われない", "すべてメニューに"], "d": ["「仕事」「家」など、名前とアイコンを付けた手帳を好きなだけ作れます。年を選ぶことも、年なしにすることもできます。手帳を長押しすると編集や削除ができます。", "日をタップするとそのページが開きます。月表示で横にスワイプすると月が変わり、「今日」で戻れます。日付の下の点は項目の数を表します。", "タスクを追加し、必要なら時刻やリマインダーを設定して、丸をタップして完了にします。項目の横の矢印で詳しい説明欄が開きます。項目を長押しすると削除できます。", "どの項目にも写真を1枚添付できます。写真はこの端末の中だけに保存されます。開いてスマホを傾けると3Dで傾き、すべての写真は月ごとに「思い出」で見られます。", "「メモ」タブはすばやい思いつき用：+ をタップして書くだけ。1行目がタイトルになります。大事なものはピン留め、検索、好きな日のタスクへの変換もできます。", "「連絡先」タブには人と電話番号を保存でき、カテゴリに関連付けることもできます。メモや項目に電話番号があると、追加するか尋ねます。端末のアドレス帳は読み取りません。", "「手帳」タブの検索ボックスは、すべての手帳のすべての日を検索します。メモと連絡先にはそれぞれ検索があります。", "削除した手帳、タスク、写真、メモ、連絡先は、復元するか完全に削除するまでゴミ箱で待機します。設定でバックアップを書き出し、あとで読み込めます。", "メニューのアイコンでサイドパネルが開きます。設定にはテーマの帯、言語、バックアップがあります。アイコンの意味："], "n": "次へ", "s": "スキップ", "g": "はじめる", "h": "チュートリアル"},
-    ko: {"t": ["나의 다이어리", "하루에 한 페이지", "쓰고, 체크하고, 기억하기", "순간을 간직하기", "빠른 메모", "연락처", "무엇이든 찾기", "잃어버리는 건 없어요", "모두 메뉴에"], "d": ["“업무”, “집”처럼 이름과 아이콘이 있는 다이어리를 원하는 만큼 만들 수 있어요. 연도를 고르거나 연도 없이 둘 수 있어요. 다이어리를 길게 누르면 편집하거나 삭제할 수 있어요.", "날짜를 눌러 그날의 페이지를 열어요. 월 보기에서 옆으로 밀어 달을 바꾸고, 오늘 버튼으로 돌아와요. 날짜 아래 점은 항목 수를 보여 줘요.", "할 일을 추가하고, 원하면 시간이나 알림을 정한 뒤 동그라미를 눌러 완료해요. 항목 옆 화살표는 더 긴 설명란을 열어 줘요. 항목을 길게 누르면 삭제돼요.", "항목마다 사진을 한 장 붙일 수 있어요. 사진은 이 기기에만 저장돼요. 사진을 열고 폰을 기울이면 3D로 기울어지고, 모든 사진은 월별로 추억에서 볼 수 있어요.", "메모 탭은 빠른 생각을 위한 곳이에요. +를 누르고 바로 쓰세요. 첫 줄이 제목이 돼요. 중요한 메모는 고정하고, 검색하고, 원하는 날의 할 일로 바꿀 수 있어요.", "연락처 탭에는 사람과 전화번호를 저장하고, 원하면 카테고리와 연결할 수 있어요. 메모나 항목에 전화번호가 있으면 추가할지 물어봐요. 휴대폰의 주소록은 읽지 않아요.", "다이어리 탭의 검색창은 모든 다이어리의 모든 날을 찾아봐요. 메모와 연락처에는 각자의 검색이 있어요.", "삭제한 다이어리, 할 일, 사진, 메모, 연락처는 복원하거나 완전히 삭제할 때까지 휴지통에 있어요. 설정에서 백업 파일을 내보내고 나중에 가져올 수 있어요.", "메뉴 아이콘을 누르면 사이드 패널이 열려요. 설정에는 테마 띠, 언어, 백업이 있어요. 아이콘의 뜻은 이래요:"], "n": "다음", "s": "건너뛰기", "g": "시작하기", "h": "사용법"},
-    it: {"t": ["Le tue agende", "Una pagina al giorno", "Scrivi, spunta, ricorda", "Conserva il momento", "Note rapide", "Contatti", "Trova tutto", "Niente va perso", "Tutto nel menu"], "d": ["Crea quante agende vuoi, ognuna con nome e icona, come Lavoro o Casa. Scegli un anno o lasciala senza anno. Tieni premuta un’agenda per modificarla o eliminarla.", "Tocca un giorno per aprire la sua pagina. Scorri di lato nella griglia del mese per cambiare mese e usa Oggi per tornare. I puntini sotto un giorno indicano quante voci ha.", "Aggiungi un’attività, imposta un orario o un promemoria se vuoi e tocca il cerchio per spuntarla. La freccia accanto a una voce apre una descrizione più lunga. Tieni premuta una voce per eliminarla.", "Allega una foto a qualsiasi voce. Le foto restano solo su questo dispositivo. Aprine una e inclina il telefono per vederla in 3D; le trovi tutte per mese in Ricordi.", "La scheda Note è per i pensieri veloci: tocca + e scrivi. La prima riga diventa il titolo. Fissa quelle importanti, cercale o trasforma una nota in attività di un giorno qualsiasi.", "La scheda Contatti conserva persone e numeri di telefono, ciascuno con una categoria se vuoi. Se una nota o una voce contiene un numero, l’app propone di aggiungerlo. Non legge mai la rubrica del tuo telefono.", "La ricerca nella scheda Agende scorre ogni giorno di tutte le agende. Note e Contatti hanno la propria ricerca.", "Agende, attività, foto, note e contatti eliminati restano nel Cestino finché non li ripristini o li elimini per sempre. Nelle Impostazioni puoi esportare un backup e importarlo più tardi.", "L’icona del menu apre un pannello laterale. Nelle Impostazioni trovi la striscia dei temi, la lingua e il backup. Queste icone significano:"], "n": "Avanti", "s": "Salta", "g": "Inizia", "h": "Tutorial"},
-    nl: {"t": ["Je agenda’s", "Eén pagina per dag", "Schrijf, vink af, onthoud", "Bewaar het moment", "Snelle notities", "Contacten", "Vind alles", "Niets gaat verloren", "Alles in het menu"], "d": ["Maak zoveel agenda’s als je wilt, elk met een naam en een pictogram, zoals Werk of Thuis. Kies een jaar of laat het open. Houd een agenda ingedrukt om hem te bewerken of te verwijderen.", "Tik op een dag om de pagina te openen. Veeg zijwaarts in het maandraster om van maand te wisselen en gebruik Vandaag om terug te springen. Stipjes onder een dag tonen hoeveel items hij heeft.", "Voeg een taak toe, stel desgewenst een tijd of herinnering in en tik op het rondje om af te vinken. De pijl naast een item opent een langere beschrijving. Houd een item ingedrukt om het te verwijderen.", "Voeg aan elk item één foto toe. Foto’s blijven alleen op dit apparaat. Open er een en kantel je telefoon voor een 3D-effect; alle foto’s staan per maand bij Herinneringen.", "Het tabblad Notities is voor snelle gedachten: tik op + en schrijf. De eerste regel wordt de titel. Zet belangrijke vast, zoek erin of maak van een notitie een taak op een willekeurige dag.", "Het tabblad Contacten bewaart personen en telefoonnummers, desgewenst gekoppeld aan een categorie. Staat er een nummer in een notitie of item, dan biedt de app aan het toe te voegen. Het adresboek van je telefoon leest ze nooit.", "De zoekbalk op het tabblad Agenda’s doorzoekt elke dag van alle agenda’s. Notities en Contacten hebben hun eigen zoekfunctie.", "Verwijderde agenda’s, taken, foto’s, notities en contacten wachten in de Prullenbak tot je ze herstelt of definitief verwijdert. In Instellingen kun je een back-up exporteren en later importeren.", "Het menupictogram opent een zijpaneel. In Instellingen vind je de themastrook, de taal en de back-up. Deze pictogrammen betekenen:"], "n": "Volgende", "s": "Overslaan", "g": "Beginnen", "h": "Uitleg"}
+    en: {"t": ["Your agendas", "One page per day", "Write, tick, remember", "Keep the moment", "Quick notes", "Contacts", "Find anything", "Nothing is lost", "Everything in the menu"], "d": ["Create as many agendas as you like, each with a name and an icon, like Work or Home. Pick a year or leave it open-ended. Press and hold an agenda to edit or delete it.", "Tap a day to open its page. Swipe sideways on the month grid to change months, and use Today to jump back. Dots under a day show how many entries it has.", "Add a task, set a time or a reminder if you like, and tap its circle to tick it off. The arrow beside an entry opens a longer description. Press and hold an entry to delete it.", "Attach as many photos as you like to any entry or note, from the gallery or the in-app camera. Photos stay on this device only. Open one, swipe through them with the arrows, tilt your phone to tilt it in 3D, and find them all by month under Memories. Camera and voice notes work only in the website or Home Screen version of the app.", "The Notes tab is for quick thoughts: tap + and just write. The first line becomes the title. Add photos or record a voice note with the small buttons, pin the important ones, search them, or turn a note into a task on any day.", "The Contacts tab keeps people with as many phone numbers and emails as they need. Give each one a profession or organization symbol and up to four highlighter colors. When a note or entry contains a phone number, the app offers to add it. It never reads your phone’s address book.", "The search box on the Agendas tab looks through every day of every agenda. Notes and Contacts have their own search.", "Deleted agendas, tasks, photos, notes and contacts wait in the Trash until you restore them or delete them forever. You can also export a backup file in Settings and import it later; photos travel at full resolution, and you can lock the backup with a password. Voice notes are not included.", "The menu icon opens a side panel. Settings hold the theme strip, language and backup. These icons mean:"], "n": "Next", "s": "Skip", "g": "Start", "h": "Tutorial"},
+    tr: {"t": ["Ajandaların", "Her güne bir sayfa", "Yaz, işaretle, hatırla", "Anı sakla", "Hızlı notlar", "Kişiler", "Her şeyi bul", "Hiçbir şey kaybolmaz", "Hepsi menüde"], "d": ["İş, Ev gibi ad ve simge verdiğin istediğin kadar ajanda oluştur. Bir yıl seç ya da yılsız bırak. Düzenlemek veya silmek için ajandaya basılı tut.", "Sayfasını açmak için bir güne dokun. Ay görünümünde yana kaydırarak ay değiştir, Bugün ile geri dön. Günün altındaki noktalar kaç girdisi olduğunu gösterir.", "Görev ekle, istersen saat ya da hatırlatma koy, tamamlamak için dairesine dokun. Girdinin yanındaki ok uzun bir açıklama alanı açar. Silmek için girdiye basılı tut.", "Her girdiye veya nota galeriden ya da uygulama içi kameradan istediğin kadar fotoğraf ekle. Fotoğraflar yalnızca bu cihazda kalır. Birini aç, oklarla diğerlerine geç, telefonunu eğerek 3B eğ ve hepsini Anılar’da aylara göre bul. Kamera ve ses notu yalnızca uygulamanın web sitesi veya Ana Ekran sürümünde çalışır.", "Notlar sekmesi hızlı düşünceler içindir: + tuşuna bas ve yaz. İlk satır başlık olur. Küçük düğmelerle fotoğraf ekleyebilir veya ses notu kaydedebilirsin; önemlileri sabitle, ara ya da bir notu istediğin güne göreve çevir.", "Kişiler sekmesi insanları, her biri için istediğin kadar telefon numarası ve e-postayla saklar. Her kişiye bir meslek veya kurum sembolü ve en fazla dört vurgulayıcı rengi verebilirsin. Bir not veya girdide telefon numarası olursa uygulama eklemeyi önerir. Telefonunun rehberini asla okumaz.", "Ajandalar sekmesindeki arama kutusu bütün ajandaların her gününü tarar. Notlar ve Kişiler’in kendi aramaları var.", "Silinen ajandalar, görevler, fotoğraflar, notlar ve kişiler sen geri yükleyene veya kalıcı olarak silene kadar Çöp Kutusu’nda bekler. Ayarlar’dan yedek dosyası dışa aktarıp sonra içe aktarabilirsin; fotoğraflar tam çözünürlükte gider ve yedeği parolayla kilitleyebilirsin. Ses notları yedeğe dahil değildir.", "Menü simgesi yan paneli açar. Ayarlarda tema şeridi, dil ve yedekleme var. Simgelerin anlamı:"], "n": "İleri", "s": "Geç", "g": "Başla", "h": "Tanıtım"},
+    zh: {"t": ["你的日程本", "每天一页", "写下、勾选、记住", "留住瞬间", "快速笔记", "联系人", "找到一切", "不会丢失", "一切都在菜单里"], "d": ["随心创建日程，每个都有名称和图标，如“工作”“家庭”。可指定年份，也可不限年份。长按日程即可编辑或删除。", "点按某一天打开它的页面。在月视图中左右滑动切换月份，点“今天”快速返回。日期下方的小点表示条目数量。", "添加任务，可设置时间或提醒，点按圆圈即可勾选完成。条目旁的箭头会展开更长的描述。长按条目即可删除。", "可以给任何条目或笔记添加任意数量的照片，来自相册或应用内相机。照片只保存在这台设备上。打开一张，用箭头切换，倾斜手机可看到 3D 倾斜效果，并可在“回忆”中按月份找到全部照片。相机和语音笔记仅在网站版或主屏幕版应用中可用。", "“笔记”标签适合记录转瞬即逝的想法：点按 + 直接书写，第一行会成为标题。可以用小按钮添加照片或录制语音笔记，也可以置顶重要笔记、搜索，或把笔记转为任意一天的任务。", "“联系人”标签可保存联系人，每人可添加任意多个电话号码和电子邮件。你可以为每个人选择职业或机构符号，以及最多四种荧光笔颜色。当笔记或条目中出现电话号码时，应用会提示添加。它绝不会读取你手机的通讯录。", "“日程”标签里的搜索框会搜索所有日程的每一天。笔记和联系人各有自己的搜索。", "已删除的日程、任务、照片、笔记和联系人会留在废纸篓中，直到你恢复或永久删除。你也可以在设置中导出备份文件，之后再导入；照片以原始分辨率保存，备份还可以用密码锁定。语音笔记不包含在备份中。", "菜单图标会打开侧边栏。设置里有主题条、语言和备份。图标含义如下："], "n": "下一步", "s": "跳过", "g": "开始", "h": "使用指南"},
+    es: {"t": ["Tus agendas", "Una página por día", "Escribe, marca, recuerda", "Guarda el momento", "Notas rápidas", "Contactos", "Encuentra todo", "Nada se pierde", "Todo en el menú"], "d": ["Crea todas las agendas que quieras, cada una con nombre e icono, como Trabajo o Casa. Elige un año o déjala sin año. Mantén pulsada una agenda para editarla o borrarla.", "Toca un día para abrir su página. Desliza de lado en la cuadrícula del mes para cambiar de mes y usa Hoy para volver. Los puntos bajo un día indican cuántas entradas tiene.", "Añade una tarea, pon una hora o un recordatorio si quieres y toca su círculo para marcarla. La flecha junto a una entrada abre una descripción más larga. Mantén pulsada una entrada para borrarla.", "Adjunta todas las fotos que quieras a cualquier entrada o nota, desde la galería o la cámara de la app. Las fotos se quedan solo en este dispositivo. Abre una, pasa entre ellas con las flechas, inclina el teléfono para inclinarla en 3D y encuéntralas todas por mes en Recuerdos. La cámara y las notas de voz solo funcionan en la versión web o de pantalla de inicio de la app.", "La pestaña Notas es para ideas rápidas: pulsa + y escribe. La primera línea se convierte en el título. Añade fotos o graba una nota de voz con los botones pequeños, fija las importantes, búscalas o convierte una nota en tarea de cualquier día.", "La pestaña Contactos guarda personas con tantos teléfonos y correos como necesiten. Dale a cada una un símbolo de profesión u organización y hasta cuatro colores de resaltador. Cuando una nota o entrada contiene un número de teléfono, la app ofrece añadirlo. Nunca lee la agenda de tu teléfono.", "El buscador de la pestaña Agendas recorre todos los días de todas las agendas. Notas y Contactos tienen su propio buscador.", "Las agendas, tareas, fotos, notas y contactos eliminados esperan en la Papelera hasta que los restaures o los borres para siempre. También puedes exportar una copia de seguridad en Ajustes e importarla después; las fotos viajan en resolución completa y puedes bloquear la copia con contraseña. Las notas de voz no se incluyen.", "El icono del menú abre un panel lateral. En Ajustes están la tira de temas, el idioma y la copia de seguridad. Estos iconos significan:"], "n": "Siguiente", "s": "Omitir", "g": "Empezar", "h": "Tutorial"},
+    fr: {"t": ["Tes agendas", "Une page par jour", "Écris, coche, souviens-toi", "Garde l’instant", "Notes rapides", "Contacts", "Trouve tout", "Rien ne se perd", "Tout est dans le menu"], "d": ["Crée autant d’agendas que tu veux, chacun avec un nom et une icône, comme Travail ou Maison. Choisis une année ou laisse-le sans année. Appuie longuement sur un agenda pour le modifier ou le supprimer.", "Touche un jour pour ouvrir sa page. Glisse sur le côté dans la grille du mois pour changer de mois et utilise Aujourd’hui pour revenir. Les points sous un jour indiquent son nombre d’entrées.", "Ajoute une tâche, mets une heure ou un rappel si tu veux, et touche son rond pour la cocher. La flèche à côté d’une entrée ouvre une description plus longue. Appuie longuement sur une entrée pour la supprimer.", "Joins autant de photos que tu veux à n’importe quelle entrée ou note, depuis la galerie ou l’appareil photo de l’app. Les photos restent uniquement sur cet appareil. Ouvres-en une, passe de l’une à l’autre avec les flèches, incline ton téléphone pour l’incliner en 3D et retrouve-les toutes par mois dans Souvenirs. L’appareil photo et les notes vocales ne fonctionnent que dans la version web ou écran d’accueil de l’app.", "L’onglet Notes sert aux idées rapides : touche + et écris. La première ligne devient le titre. Ajoute des photos ou enregistre une note vocale avec les petits boutons, épingle les importantes, cherche-les ou transforme une note en tâche pour n’importe quel jour.", "L’onglet Contacts garde les personnes avec autant de numéros et d’e-mails que nécessaire. Donne à chacune un symbole de profession ou d’organisation et jusqu’à quatre couleurs de surligneur. Quand une note ou une entrée contient un numéro de téléphone, l’app propose de l’ajouter. Elle ne lit jamais le répertoire de ton téléphone.", "La recherche de l’onglet Agendas parcourt chaque jour de tous les agendas. Notes et Contacts ont leur propre recherche.", "Les agendas, tâches, photos, notes et contacts supprimés attendent dans la Corbeille jusqu’à ce que tu les restaures ou les supprimes définitivement. Tu peux aussi exporter une sauvegarde dans Réglages et l’importer plus tard ; les photos voyagent en pleine résolution et tu peux verrouiller la sauvegarde par mot de passe. Les notes vocales n’en font pas partie.", "L’icône du menu ouvre un panneau latéral. Les réglages contiennent la bande de thèmes, la langue et la sauvegarde. Ces icônes signifient :"], "n": "Suivant", "s": "Passer", "g": "Commencer", "h": "Tutoriel"},
+    pt: {"t": ["Suas agendas", "Uma página por dia", "Escreva, marque, lembre", "Guarde o momento", "Notas rápidas", "Contatos", "Encontre tudo", "Nada se perde", "Tudo no menu"], "d": ["Crie quantas agendas quiser, cada uma com nome e ícone, como Trabalho ou Casa. Escolha um ano ou deixe sem ano. Mantenha pressionada uma agenda para editá-la ou excluí-la.", "Toque em um dia para abrir sua página. Deslize para o lado na grade do mês para trocar de mês e use Hoje para voltar. Os pontos sob um dia mostram quantas entradas ele tem.", "Adicione uma tarefa, defina horário ou lembrete se quiser e toque no círculo para concluí-la. A seta ao lado de uma entrada abre uma descrição mais longa. Mantenha pressionada uma entrada para excluí-la.", "Anexe quantas fotos quiser a qualquer entrada ou nota, pela galeria ou pela câmera do app. As fotos ficam só neste dispositivo. Abra uma, passe entre elas com as setas, incline o celular para inclinar em 3D e encontre todas por mês em Memórias. A câmera e as notas de voz só funcionam na versão web ou de tela inicial do app.", "A aba Notas é para ideias rápidas: toque em + e escreva. A primeira linha vira o título. Adicione fotos ou grave uma nota de voz com os botões pequenos, fixe as importantes, pesquise ou transforme uma nota em tarefa de qualquer dia.", "A aba Contatos guarda pessoas com quantos telefones e e-mails precisarem. Dê a cada uma um símbolo de profissão ou organização e até quatro cores de marca-texto. Quando uma nota ou entrada tem um número de telefone, o app oferece adicioná-lo. Ele nunca lê a agenda do seu celular.", "A busca da aba Agendas varre todos os dias de todas as agendas. Notas e Contatos têm a própria busca.", "Agendas, tarefas, fotos, notas e contatos excluídos ficam na Lixeira até você restaurá-los ou excluí-los para sempre. Você também pode exportar um backup em Ajustes e importá-lo depois; as fotos vão em resolução total e o backup pode ser protegido por senha. As notas de voz não estão incluídas.", "O ícone do menu abre um painel lateral. Os ajustes têm a faixa de temas, o idioma e o backup. Estes ícones significam:"], "n": "Avançar", "s": "Pular", "g": "Começar", "h": "Tutorial"},
+    ru: {"t": ["Ваши ежедневники", "Страница на каждый день", "Пишите, отмечайте, помните", "Сохраните момент", "Быстрые заметки", "Контакты", "Найдёте всё", "Ничего не пропадёт", "Всё в меню"], "d": ["Создавайте сколько угодно ежедневников с названием и значком, например «Работа» или «Дом». Выберите год или оставьте без года. Нажмите и удерживайте ежедневник, чтобы изменить или удалить его.", "Коснитесь дня, чтобы открыть его страницу. Смахивайте вбок в сетке месяца, чтобы менять месяц, а кнопка «Сегодня» вернёт назад. Точки под днём показывают число записей.", "Добавьте задачу, при желании задайте время или напоминание и коснитесь кружка, чтобы отметить её. Стрелка рядом с записью открывает подробное описание. Удерживайте запись, чтобы удалить её.", "Прикрепляйте к любой записи или заметке сколько угодно фото — из галереи или камеры приложения. Фото хранятся только на этом устройстве. Откройте фото, листайте стрелками, наклоняйте телефон — оно наклонится в 3D; все снимки по месяцам — в «Воспоминаниях». Камера и голосовые заметки работают только в веб-версии или версии на домашнем экране.", "Вкладка «Заметки» — для быстрых мыслей: нажмите + и пишите. Первая строка становится заголовком. Малыми кнопками добавляйте фото или записывайте голосовую заметку, закрепляйте важное, ищите или превращайте заметку в задачу на любой день.", "Вкладка «Контакты» хранит людей с любым числом телефонов и адресов почты. Для каждого можно выбрать символ профессии или организации и до четырёх цветов маркера. Если в заметке или записи есть номер, приложение предложит добавить его. Адресную книгу телефона оно не читает.", "Поиск на вкладке «Ежедневники» просматривает каждый день всех ежедневников. У заметок и контактов — свой поиск.", "Удалённые ежедневники, задачи, фото, заметки и контакты ждут в корзине, пока вы не восстановите их или не удалите навсегда. В настройках можно экспортировать резервную копию и позже импортировать её; фото сохраняются в полном разрешении, а копию можно защитить паролем. Голосовые заметки в копию не входят.", "Значок меню открывает боковую панель. В настройках — лента тем, язык и резервная копия. Значки означают:"], "n": "Далее", "s": "Пропустить", "g": "Начать", "h": "Обучение"},
+    de: {"t": ["Deine Agenden", "Eine Seite pro Tag", "Schreiben, abhaken, merken", "Den Moment festhalten", "Schnelle Notizen", "Kontakte", "Alles finden", "Nichts geht verloren", "Alles im Menü"], "d": ["Lege beliebig viele Agenden mit Name und Symbol an, etwa Arbeit oder Zuhause. Wähle ein Jahr oder lass es offen. Halte eine Agenda gedrückt, um sie zu bearbeiten oder zu löschen.", "Tippe auf einen Tag, um seine Seite zu öffnen. Wische im Monatsraster zur Seite, um den Monat zu wechseln, und springe mit Heute zurück. Punkte unter einem Tag zeigen, wie viele Einträge er hat.", "Füge eine Aufgabe hinzu, setze auf Wunsch Uhrzeit oder Erinnerung und tippe auf den Kreis, um sie abzuhaken. Der Pfeil neben einem Eintrag öffnet eine längere Beschreibung. Halte einen Eintrag gedrückt, um ihn zu löschen.", "Hänge an jeden Eintrag oder jede Notiz beliebig viele Fotos, aus der Galerie oder mit der App-Kamera. Fotos bleiben nur auf diesem Gerät. Öffne eines, blättere mit den Pfeilen durch, neige das Handy für den 3D-Effekt; alle findest du nach Monaten unter Erinnerungen. Kamera und Sprachnotizen funktionieren nur in der Web- oder Home-Bildschirm-Version der App.", "Der Tab Notizen ist für schnelle Gedanken: Tippe auf + und schreib los. Die erste Zeile wird zum Titel. Füge mit den kleinen Tasten Fotos hinzu oder nimm eine Sprachnotiz auf, hefte Wichtiges an, such darin oder mach aus einer Notiz eine Aufgabe für einen beliebigen Tag.", "Der Tab Kontakte speichert Personen mit beliebig vielen Telefonnummern und E-Mail-Adressen. Gib jeder ein Symbol für Beruf oder Organisation und bis zu vier Textmarkerfarben. Steht in einer Notiz oder einem Eintrag eine Nummer, bietet die App an, sie hinzuzufügen. Das Adressbuch deines Telefons liest sie nie.", "Die Suche im Tab Agenden durchsucht jeden Tag aller Agenden. Notizen und Kontakte haben eine eigene Suche.", "Gelöschte Agenden, Aufgaben, Fotos, Notizen und Kontakte warten im Papierkorb, bis du sie wiederherstellst oder endgültig löschst. In den Einstellungen kannst du ein Backup exportieren und später importieren; Fotos werden in voller Auflösung gesichert und das Backup lässt sich mit einem Passwort schützen. Sprachnotizen sind nicht enthalten.", "Das Menüsymbol öffnet ein Seitenfenster. In den Einstellungen findest du die Themenleiste, die Sprache und das Backup. Diese Symbole bedeuten:"], "n": "Weiter", "s": "Überspringen", "g": "Los geht’s", "h": "Einführung"},
+    ja: {"t": ["あなたの手帳", "1日1ページ", "書く、チェック、覚える", "瞬間を残す", "クイックメモ", "連絡先", "何でも見つかる", "何も失われない", "すべてメニューに"], "d": ["「仕事」「家」など、名前とアイコンを付けた手帳を好きなだけ作れます。年を選ぶことも、年なしにすることもできます。手帳を長押しすると編集や削除ができます。", "日をタップするとそのページが開きます。月表示で横にスワイプすると月が変わり、「今日」で戻れます。日付の下の点は項目の数を表します。", "タスクを追加し、必要なら時刻やリマインダーを設定して、丸をタップして完了にします。項目の横の矢印で詳しい説明欄が開きます。項目を長押しすると削除できます。", "どのエントリーやメモにも、ギャラリーまたはアプリ内カメラから好きなだけ写真を添付できます。写真はこの端末にだけ残ります。1枚開いて矢印で切り替え、スマホを傾けると3Dで傾き、すべての写真は「思い出」で月ごとに見つかります。カメラと音声メモは、アプリのウェブ版またはホーム画面版でのみ使えます。", "「メモ」タブはちょっとした思いつき用です。+ をタップして書くだけ。1行目がタイトルになります。小さなボタンで写真を追加したり音声メモを録音したりでき、大切なものはピン留め、検索、または任意の日のタスクに変換できます。", "「連絡先」タブでは、電話番号とメールアドレスをいくつでも保存できます。職業や団体のシンボルと、最大4色の蛍光ペンカラーを設定できます。メモやエントリーに電話番号があると、追加を提案します。端末のアドレス帳は一切読み取りません。", "「手帳」タブの検索ボックスは、すべての手帳のすべての日を検索します。メモと連絡先にはそれぞれ検索があります。", "削除した手帳、タスク、写真、メモ、連絡先は、復元するか完全に削除するまでゴミ箱に残ります。設定からバックアップを書き出して、あとで読み込むこともできます。写真は元の解像度で保存され、バックアップはパスワードで保護できます。音声メモは含まれません。", "メニューのアイコンでサイドパネルが開きます。設定にはテーマの帯、言語、バックアップがあります。アイコンの意味："], "n": "次へ", "s": "スキップ", "g": "はじめる", "h": "チュートリアル"},
+    ko: {"t": ["나의 다이어리", "하루에 한 페이지", "쓰고, 체크하고, 기억하기", "순간을 간직하기", "빠른 메모", "연락처", "무엇이든 찾기", "잃어버리는 건 없어요", "모두 메뉴에"], "d": ["“업무”, “집”처럼 이름과 아이콘이 있는 다이어리를 원하는 만큼 만들 수 있어요. 연도를 고르거나 연도 없이 둘 수 있어요. 다이어리를 길게 누르면 편집하거나 삭제할 수 있어요.", "날짜를 눌러 그날의 페이지를 열어요. 월 보기에서 옆으로 밀어 달을 바꾸고, 오늘 버튼으로 돌아와요. 날짜 아래 점은 항목 수를 보여 줘요.", "할 일을 추가하고, 원하면 시간이나 알림을 정한 뒤 동그라미를 눌러 완료해요. 항목 옆 화살표는 더 긴 설명란을 열어 줘요. 항목을 길게 누르면 삭제돼요.", "어떤 항목이나 메모에도 갤러리 또는 앱 카메라로 원하는 만큼 사진을 첨부할 수 있어요. 사진은 이 기기에만 남습니다. 사진을 열고 화살표로 넘겨 보고, 휴대폰을 기울이면 3D로 기울며, 모든 사진은 ‘추억’에서 월별로 볼 수 있어요. 카메라와 음성 메모는 앱의 웹 버전이나 홈 화면 버전에서만 작동합니다.", "‘메모’ 탭은 짧은 생각을 적는 곳이에요. +를 누르고 바로 쓰세요. 첫 줄이 제목이 됩니다. 작은 버튼으로 사진을 추가하거나 음성 메모를 녹음하고, 중요한 메모는 고정하고, 검색하거나 원하는 날의 할 일로 바꿀 수 있어요.", "‘연락처’ 탭에는 전화번호와 이메일을 원하는 만큼 저장할 수 있어요. 각 사람에게 직업 또는 기관 기호와 최대 네 가지 형광펜 색을 지정할 수 있습니다. 메모나 항목에 전화번호가 있으면 추가를 제안합니다. 휴대폰 주소록은 절대 읽지 않아요.", "다이어리 탭의 검색창은 모든 다이어리의 모든 날을 찾아봐요. 메모와 연락처에는 각자의 검색이 있어요.", "삭제한 다이어리, 할 일, 사진, 메모, 연락처는 복원하거나 영구 삭제할 때까지 휴지통에 보관됩니다. 설정에서 백업 파일을 내보내고 나중에 가져올 수도 있어요. 사진은 원본 해상도로 저장되며 백업은 비밀번호로 잠글 수 있습니다. 음성 메모는 포함되지 않습니다.", "메뉴 아이콘을 누르면 사이드 패널이 열려요. 설정에는 테마 띠, 언어, 백업이 있어요. 아이콘의 뜻은 이래요:"], "n": "다음", "s": "건너뛰기", "g": "시작하기", "h": "사용법"},
+    it: {"t": ["Le tue agende", "Una pagina al giorno", "Scrivi, spunta, ricorda", "Conserva il momento", "Note rapide", "Contatti", "Trova tutto", "Niente va perso", "Tutto nel menu"], "d": ["Crea quante agende vuoi, ognuna con nome e icona, come Lavoro o Casa. Scegli un anno o lasciala senza anno. Tieni premuta un’agenda per modificarla o eliminarla.", "Tocca un giorno per aprire la sua pagina. Scorri di lato nella griglia del mese per cambiare mese e usa Oggi per tornare. I puntini sotto un giorno indicano quante voci ha.", "Aggiungi un’attività, imposta un orario o un promemoria se vuoi e tocca il cerchio per spuntarla. La freccia accanto a una voce apre una descrizione più lunga. Tieni premuta una voce per eliminarla.", "Allega tutte le foto che vuoi a qualsiasi voce o nota, dalla galleria o dalla fotocamera dell’app. Le foto restano solo su questo dispositivo. Aprine una, scorri con le frecce, inclina il telefono per inclinarla in 3D e trovale tutte per mese in Ricordi. Fotocamera e note vocali funzionano solo nella versione web o schermata Home dell’app.", "La scheda Note è per i pensieri veloci: tocca + e scrivi. La prima riga diventa il titolo. Aggiungi foto o registra una nota vocale con i piccoli pulsanti, fissa le importanti, cercale o trasforma una nota in attività per un giorno qualsiasi.", "La scheda Contatti conserva le persone con quanti numeri ed e-mail servono. Dai a ciascuna un simbolo di professione o organizzazione e fino a quattro colori evidenziatore. Quando una nota o una voce contiene un numero di telefono, l’app propone di aggiungerlo. Non legge mai la rubrica del telefono.", "La ricerca nella scheda Agende scorre ogni giorno di tutte le agende. Note e Contatti hanno la propria ricerca.", "Agende, attività, foto, note e contatti eliminati restano nel Cestino finché non li ripristini o li elimini per sempre. Puoi anche esportare un backup da Impostazioni e importarlo dopo; le foto viaggiano a piena risoluzione e il backup si può proteggere con una password. Le note vocali non sono incluse.", "L’icona del menu apre un pannello laterale. Nelle Impostazioni trovi la striscia dei temi, la lingua e il backup. Queste icone significano:"], "n": "Avanti", "s": "Salta", "g": "Inizia", "h": "Tutorial"},
+    nl: {"t": ["Je agenda’s", "Eén pagina per dag", "Schrijf, vink af, onthoud", "Bewaar het moment", "Snelle notities", "Contacten", "Vind alles", "Niets gaat verloren", "Alles in het menu"], "d": ["Maak zoveel agenda’s als je wilt, elk met een naam en een pictogram, zoals Werk of Thuis. Kies een jaar of laat het open. Houd een agenda ingedrukt om hem te bewerken of te verwijderen.", "Tik op een dag om de pagina te openen. Veeg zijwaarts in het maandraster om van maand te wisselen en gebruik Vandaag om terug te springen. Stipjes onder een dag tonen hoeveel items hij heeft.", "Voeg een taak toe, stel desgewenst een tijd of herinnering in en tik op het rondje om af te vinken. De pijl naast een item opent een langere beschrijving. Houd een item ingedrukt om het te verwijderen.", "Voeg zoveel foto’s toe als je wilt aan elk item of elke notitie, uit de galerij of met de camera van de app. Foto’s blijven alleen op dit apparaat. Open er een, blader met de pijlen, kantel je telefoon om hem in 3D te kantelen en vind ze allemaal per maand onder Herinneringen. Camera en spraaknotities werken alleen in de webversie of de beginschermversie van de app.", "Het tabblad Notities is voor snelle gedachten: tik op + en schrijf. De eerste regel wordt de titel. Voeg met de kleine knoppen foto’s toe of neem een spraaknotitie op, zet belangrijke vast, zoek erin of maak van een notitie een taak voor een willekeurige dag.", "Het tabblad Contacten bewaart mensen met zoveel telefoonnummers en e-mailadressen als nodig. Geef iedereen een symbool voor beroep of organisatie en tot vier markeerstiftkleuren. Staat er in een notitie of item een telefoonnummer, dan biedt de app aan het toe te voegen. Het adresboek van je telefoon leest ze nooit.", "De zoekbalk op het tabblad Agenda’s doorzoekt elke dag van alle agenda’s. Notities en Contacten hebben hun eigen zoekfunctie.", "Verwijderde agenda’s, taken, foto’s, notities en contacten wachten in de Prullenbak tot je ze herstelt of voorgoed verwijdert. In Instellingen kun je ook een back-up exporteren en later importeren; foto’s gaan mee in volledige resolutie en de back-up kun je met een wachtwoord vergrendelen. Spraaknotities zitten er niet in.", "Het menupictogram opent een zijpaneel. In Instellingen vind je de themastrook, de taal en de back-up. Deze pictogrammen betekenen:"], "n": "Volgende", "s": "Overslaan", "g": "Beginnen", "h": "Uitleg"}
   };
   let tutEl = null;
 
@@ -3739,12 +4272,15 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
       case 'import': $('#impFile').click(); break;
       case 'copy-exp': { const ta = $('#expTa'); if (!ta) break; ta.focus(); ta.select(); const ok = () => okTick(tt('bkCopied')); try { navigator.clipboard.writeText(ta.value).then(ok, () => {}); } catch (x) {} break; }
       case 'close-sheet': if (U.set) closeSettings(); else closeSheet(); break;
-      case 'ph-add': U.phT = { key: d.key, id: d.id }; phIn.click(); break;
-      case 'ph-view': openLb(d.id); break;
+      case 'ph-add': U.phT = { key: d.key, id: d.id }; phPick(); break;
+      case 'ph-view': { const ks = phKeys(d.id), k = d.k || d.id; openLb(k, ks.length > 1 ? { list: ks.map((x) => ({ id: x })), i: Math.max(0, ks.indexOf(k)) } : undefined); break; }
       case 'mem-open': {
-        if (d.note) { openLb(d.id, { note: 1 }); break; }
+        const root = b.closest('.memgrid, .dtm') ? (b.closest('#sheet') || b.closest('.card') || document) : document;
+        const list = [...root.querySelectorAll('.mem-th[data-act="mem-open"]')].map((x) => x.dataset.note ? { id: x.dataset.id, note: 1 } : { id: x.dataset.id, ag: x.dataset.ag, key: x.dataset.key }).filter((x) => x.note || S.agendas[x.ag]);
+        const i = Math.max(0, list.findIndex((x) => x.id === d.id));
+        if (d.note) { openLb(d.id, { note: 1, list, i }); break; }
         if (!S.agendas[d.ag]) break;
-        openLb(d.id, { ag: d.ag, key: d.key }); break;
+        openLb(d.id, { ag: d.ag, key: d.key, list, i }); break;
       }
       case 'menu': U.ret = focusSel(b); openSettings('settings'); break;
       case 'tut': closeSettings(); setTimeout(() => openTutorial(), 300); break;
@@ -3795,6 +4331,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   document.addEventListener('keydown', (e) => {
     if (PHO.lb) {
       if (e.key === 'Escape') { closeLb(); e.stopPropagation(); return; }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); lbGo(e.key === 'ArrowLeft' ? -1 : 1); return; }
       if (e.key === 'Tab') { const bs = [...PHO.lb.el.querySelectorAll('button')], a = document.activeElement, i = bs.indexOf(a); e.preventDefault(); bs[(i + (e.shiftKey ? -1 : 1) + bs.length) % bs.length].focus(); }
       return;
     }
@@ -3831,10 +4368,17 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
 
   $('#impFile').addEventListener('change', async (e) => {
     const f = e.target.files && e.target.files[0]; e.target.value = ''; if (!f) return;
-    let res = null;
-    try { if (f.size > 5e6) throw new Error('big'); const sb = sanitizeBackup(JSON.parse(await f.text())); if (!sb) throw new Error('bad'); res = importData(sb, true); }
-    catch (err) { toast(tt('importBad')); return; }
-    if (res.n || res.a) { touch(); render(); if (U.set) paintSettings(); okTick(tt('importDone', { n: res.n, a: res.a })); } else toast(tt('importNone'));
+    let res = null, ph = { p: 0, skipped: 0 };
+    try {
+      if (f.size > BK_MAX_FILE) throw new Error('big');
+      const bk = await readBackup(await f.text()); if (!bk) return;
+      const sb = sanitizeBackup(bk.core); if (!sb && !bk.photos.length) throw new Error('bad');
+      toast(tt('bkBusy'));
+      res = sb ? importData(sb, true) : { n: 0, a: 0 };
+      if (res.n || res.a) { touch(); render(); }
+      ph = await restorePhotos(bk.photos);
+    } catch (err) { toast(tt(err && err.message === 'pw' ? 'bkWrongPw' : err && err.message === 'sum' ? 'bkTamper' : 'importBad')); return; }
+    if (res.n || res.a || ph.p) { touch(); render(); if (U.set) paintSettings(); okTick(tt(ph.p ? 'importDoneP' : 'importDone', { n: res.n, a: res.a, p: ph.p })); } else toast(tt('importNone'));
   });
 
   let noClickUntil = 0;
@@ -4037,7 +4581,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     if (!list.length) return `<p class="empty">${esc(tt((U.nq || '').trim() ? 'ntNoMatch' : 'ntEmpty'))}</p>`;
     return list.map((n) => {
       const p = noteParts(n.t);
-      return `<article class="nt${n.pin ? ' pinned' : ''}" data-id="${n.id}"><button class="nt-open" data-act="note-open" data-id="${n.id}"><span class="nt-t">${esc(p.title || tt('ntBlank'))}</span>${p.rest ? `<span class="nt-p">${p.restH !== p.rest ? hlHTML(p.restH, false) : esc(p.rest)}</span>` : ''}<span class="nt-m">${PHO.ids.has(n.id) ? `<i class="nt-cam">${ic('cam')}</i>` : ''}${n.pin ? `<i class="nt-pin">${ic('pushpin')}</i>` : ''}<span>${esc(noteDate(n.u))}</span></span></button></article>`;
+      return `<article class="nt${n.pin ? ' pinned' : ''}" data-id="${n.id}"><button class="nt-open" data-act="note-open" data-id="${n.id}"><span class="nt-t">${esc(p.title || (AU.ids.has(n.id) ? tt('auNote') : tt('ntBlank')))}</span>${p.rest ? `<span class="nt-p">${p.restH !== p.rest ? hlHTML(p.restH, false) : esc(p.rest)}</span>` : ''}<span class="nt-m">${PHO.ids.has(n.id) ? `<i class="nt-cam">${ic('cam')}</i>` : ''}${AU.ids.has(n.id) ? `<i class="nt-cam">${ic('mic')}</i>` : ''}${n.pin ? `<i class="nt-pin">${ic('pushpin')}</i>` : ''}<span>${esc(noteDate(n.u))}</span></span></button></article>`;
     }).join('');
   }
   function notesHTML() {
@@ -4055,20 +4599,84 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     el.innerHTML = `<form class="ask-c ntf"><div class="nt-bar"><button type="button" class="chip" data-f="pin" aria-pressed="${pin}">${ic('pushpin')}<span></span></button><span class="sp"></span><button type="button" class="dt" data-f="close" aria-label="${esc(tt('close'))}">${ic('x')}</button></div>
       <div class="hlbar" role="toolbar" aria-label="${esc(tt('hlLbl'))}"><span class="hl-ic">${ic('hl')}</span>${[1, 2, 3, 4].map((k) => `<button type="button" class="hl-d c${k}" data-f="hl" data-c="${k}" aria-label="${esc(tt('hlLbl'))} ${k}"></button>`).join('')}<button type="button" class="hl-x" data-f="hlx" aria-label="${esc(tt('hlClear'))}" title="${esc(tt('hlClear'))}">${ic('eraser')}</button></div>
       <div class="ntw"><div class="ntm" aria-hidden="true"><div class="ntm-i"></div></div><textarea id="ntText" class="ntx" maxlength="4800" placeholder="${esc(tt('ntPh'))}" aria-label="${esc(tt('ntPh'))}">${esc(cur ? cur.t : '')}</textarea></div>
-      <div class="nph" id="ntPh"></div>
+      <div class="nmd"><div class="nph" id="ntPh"></div><div class="nau-b" id="ntAuB"></div></div>
+      <div class="nau" id="ntAu"></div>
       <div class="nt-bar"><button type="button" class="ghost" data-f="task">${esc(tt('ntToTask'))}</button><button type="button" class="ghost dng ico" data-f="del" aria-label="${esc(tt('remove'))}">${ic('trash')}</button></div></form>`;
     ntEl = el; $('#sheet').inert = true; $('#set').inert = true; app.inert = true; document.body.appendChild(el);
-    const ta = el.querySelector('#ntText'), mi = el.querySelector('.ntm-i'), hbar = el.querySelector('.hlbar'), pb = el.querySelector('[data-f="pin"]'), pl = () => { pb.setAttribute('aria-pressed', String(pin)); pb.classList.toggle('on', pin); pb.querySelector('span').textContent = tt(pin ? 'ntUnpin' : 'ntPin'); };
+    const ta = el.querySelector('#ntText'), mi = el.querySelector('.ntm-i'), hbar = el.querySelector('.hlbar'), pb = el.querySelector('[data-f="pin"]'), pl = () => { pb.setAttribute('aria-pressed', String(pin)); pb.classList.toggle('on', pin); pb.querySelector('span').textContent = ''; pb.setAttribute('aria-label', tt(pin ? 'ntUnpin' : 'ntPin')); pb.title = tt(pin ? 'ntUnpin' : 'ntPin'); };
     pl();
     const phBox = el.querySelector('#ntPh');
     const paintPh = () => {
       if (!PHO.db) { phBox.innerHTML = ''; return; }
-      phBox.innerHTML = cur && PHO.ids.has(cur.id)
-        ? `<button type="button" class="nph-th" data-f="phv" aria-label="${esc(tt('photoView'))}"><img alt="" data-pid="${cur.id}"></button><button type="button" class="ghost dng ico" data-f="phd" aria-label="${esc(tt('photoDel'))}">${ic('trash')}</button>`
-        : `<button type="button" class="ph-add" data-f="pha">${ic('cam')}<span>${esc(tt('photoAdd'))}</span></button>`;
+      const ks = cur ? phKeys(cur.id) : [];
+      phBox.innerHTML = ks.map((k) => `<span class="nph-i${phSeen.has(k) ? '' : ' new'}"><button type="button" class="nph-th" data-f="phv" data-k="${k}" aria-label="${esc(tt('photoView'))}"><img alt="" data-pid="${k}"></button><button type="button" class="nph-x" data-f="phd" data-k="${k}" aria-label="${esc(tt('photoDel'))}">${ic('x')}</button></span>`).join('')
+        + `<button type="button" class="ph-add ico" data-f="pha" aria-label="${esc(tt('photoAdd'))}" title="${esc(tt('photoAdd'))}">${ic('cam')}</button>`;
       phFill(phBox);
     };
     ntPhHook = paintPh; paintPh();
+    const auBox = el.querySelector('#ntAu');
+    const auFmt = (ms) => { const t = Math.max(0, Math.round(ms / 1000)); return Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0'); };
+    let auClips = [], auAudio = null, auUrl = '', auId = '';
+    const auStopPlay = () => { if (auAudio) { auAudio.pause(); auAudio.src = ''; auAudio = null; } if (auUrl) { URL.revokeObjectURL(auUrl); auUrl = ''; } auId = ''; };
+    const auRows = () => auClips.map((c) => `<div class="au-row${c.id === auId ? ' playing' : ''}" data-cid="${c.id}"><button type="button" class="au-pp" data-f="aup" aria-label="${esc(tt('auPlay'))}"><span class="au-i1">${ic('apl')}</span><span class="au-i2">${ic('apa')}</span></button><div class="au-bw" data-f="aus"><div class="au-bar"><i></i></div></div><span class="au-t">${auFmt(c.dur)}</span><button type="button" class="au-x" data-f="aud" aria-label="${esc(tt('auDel'))}">${ic('trash')}</button></div>`).join('');
+    const auLive = () => `<div class="au-live"><i class="au-dot"></i><span class="au-tm">0:00</span><span class="sp"></span><button type="button" class="au-x" data-f="auc" aria-label="${esc(tt('auCancel'))}" title="${esc(tt('auCancel'))}">${ic('x')}</button><button type="button" class="au-stop" data-f="aus2" aria-label="${esc(tt('auStop'))}" title="${esc(tt('auStop'))}">${ic('ast')}</button></div>`;
+    const auSeen = new Set();
+    const paintAu = async (keep) => {
+      if (!AU.db) { auBox.innerHTML = ''; return; }
+      if (!keep) { auStopPlay(); const r = cur ? await auGet(cur.id) : null; auClips = (r && r.clips) || []; auSeen.clear(); }
+      const lv = auBox.querySelector('.au-live');
+      if (lv && !AU.rec && !lv.classList.contains('out') && !REDUCED()) { lv.classList.add('out'); await new Promise((ok) => setTimeout(ok, 380)); if (ntEl !== el) return; }
+      const rows = auRows().replace(/class="au-row([^"]*)" data-cid="([^"]+)"/g, (m, c, id) => { const n = !auSeen.has(id); auSeen.add(id); return `class="au-row${c}${n ? ' new' : ''}" data-cid="${id}"`; });
+      const playing = auBox.querySelector('.au-row.on'), pw = playing && playing.querySelector('.au-bar i') ? playing.querySelector('.au-bar i').style.width : '';
+      auBox.innerHTML = rows + (AU.rec ? auLive() : '');
+      if (auId) { const r2 = auBox.querySelector(`.au-row[data-cid="${auId}"]`); if (r2) { r2.classList.add('on'); if (auAudio && !auAudio.paused) r2.classList.add('playing'); const bi = r2.querySelector('.au-bar i'); if (bi) bi.style.width = pw; } }
+      const ab = el.querySelector('#ntAuB');
+      if (ab) {
+        let bt = ab.querySelector('.au-rec');
+        if (!bt) { ab.innerHTML = `<button type="button" class="ph-add ico au-rec">${ic('mic')}</button>`; bt = ab.querySelector('.au-rec'); }
+        bt.classList.toggle('rec', !!AU.rec); bt.dataset.f = AU.rec ? 'aus2' : 'aur';
+        const lb = tt(AU.rec ? 'auStop' : 'auRec'); bt.setAttribute('aria-label', lb); bt.title = lb;
+      }
+    };
+    paintAu();
+    const auTick = () => { const t = auBox.querySelector('.au-tm'); if (t && AU.rec) t.textContent = auFmt(Date.now() - AU.rec.t0); };
+    const auFinish = async (rec, save_) => {
+      clearInterval(rec.tick); rec.stream.getTracks().forEach((t) => t.stop()); if (AU.rec === rec) AU.rec = null;
+      if (!save_ || !rec.chunks.length) { paintAu(true); return; }
+      const blob = new Blob(rec.chunks, { type: rec.mime || 'audio/mp4' }), dur = Date.now() - rec.t0;
+      if (!cur || !S.notes[cur.id]) { const u = nextU(), nid = uid(); cur = S.notes[nid] = { id: nid, t: '', pin: pin ? 1 : 0, c: u, u, tr: 0 }; touch(); }
+      const r = await auGet(cur.id), clips = (r && r.clips) || []; clips.push({ id: uid(), blob, mime: blob.type, dur, t: Date.now() });
+      if (!(await auPut(cur.id, { clips }))) { toast(tt('auFail')); paintAu(true); return; }
+      auClips = clips; if (ntEl === el) paintAu(true); paintNotes();
+    };
+    const auStart = async () => {
+      if (AU.rec) return;
+      if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder)) { toast(tt('auNo')); return; }
+      let stream; try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); } catch (e) { toast(tt('auNo')); return; }
+      const mime = ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm', 'audio/ogg;codecs=opus'].find((m) => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(m)) || '';
+      let mr; try { mr = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined); } catch (e) { stream.getTracks().forEach((t) => t.stop()); toast(tt('auNo')); return; }
+      auStopPlay();
+      const rec = { mr, stream, chunks: [], t0: Date.now(), mime: mr.mimeType || mime, tick: 0, save: true };
+      mr.ondataavailable = (e) => { if (e.data && e.data.size) rec.chunks.push(e.data); };
+      mr.onstop = () => auFinish(rec, rec.save);
+      AU.rec = rec; rec.tick = setInterval(() => { auTick(); if (Date.now() - rec.t0 > 30 * 60 * 1000) { try { mr.stop(); } catch (e) {} } }, 250);
+      try { mr.start(); } catch (e) { rec.save = false; auFinish(rec, false); toast(tt('auNo')); return; }
+      paintAu(true);
+    };
+    const auToggle = (cid) => {
+      const c = auClips.find((x) => x.id === cid); if (!c) return;
+      if (auId === cid && auAudio) { if (auAudio.paused) auAudio.play().catch(() => {}); else auAudio.pause(); return; }
+      auStopPlay(); auId = cid; auUrl = URL.createObjectURL(c.blob); auAudio = new Audio(auUrl);
+      const row = () => auBox.querySelector(`.au-row[data-cid="${cid}"]`);
+      auBox.querySelectorAll('.au-row').forEach((r) => { r.classList.remove('playing', 'on'); const b = r.querySelector('.au-bar i'); if (b) b.style.width = '0%'; });
+      const rw = row(); if (rw) rw.classList.add('on', 'playing');
+      const a = auAudio;
+      a.addEventListener('play', () => { const r = row(); if (r) r.classList.add('playing'); });
+      a.addEventListener('pause', () => { const r = row(); if (r) r.classList.remove('playing'); });
+      a.addEventListener('timeupdate', () => { const r = row(), d = c.dur / 1000 || a.duration || 1; if (r) r.querySelector('.au-bar i').style.width = Math.min(100, a.currentTime / d * 100) + '%'; });
+      a.addEventListener('ended', () => { const r = row(); if (r) { r.classList.remove('playing'); r.querySelector('.au-bar i').style.width = '100%'; } setTimeout(() => { if (auAudio === a) { auStopPlay(); const r2 = row(); if (r2) { r2.classList.remove('on'); r2.querySelector('.au-bar i').style.width = '0%'; } } }, 500); });
+      a.play().catch(() => { toast(tt('auNo')); });
+    };
     let fxR = null, unR = null, fxT = 0;
     const mirror = (raw, fx, un) => { mi.innerHTML = hlHTML(raw == null ? ta.value : raw, true, fx, un); mi.style.transform = `translateY(${-ta.scrollTop}px)`; };
     mirror();
@@ -4103,7 +4711,9 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     };
     const close = () => {
       save();
-      if (cur && !hlStrip(cur.t).trim() && S.notes[cur.id] && !PHO.ids.has(cur.id)) purgeNote(cur.id), touch();
+      if (AU.rec) { AU.rec.save = true; try { AU.rec.mr.stop(); } catch (x) {} }
+      auStopPlay();
+      if (cur && !hlStrip(cur.t).trim() && S.notes[cur.id] && !PHO.ids.has(cur.id) && !AU.ids.has(cur.id) && !AU.rec) purgeNote(cur.id), touch();
       ntPhHook = null; fadeOut(el); ntEl = null; $('#sheet').inert = false; $('#set').inert = false; app.inert = appInert();
       if (U.view === 'home' || DK()) render();
       if (cur && S.notes[cur.id] && !cur.tr) phoneCheck(hlStrip(cur.t), '');
@@ -4117,11 +4727,27 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
       if (k === 'close') close();
       else if (k === 'hl') hlApply(+f.dataset.c);
       else if (k === 'hlx') hlApply(0);
-      else if (k === 'pin') { if (!pin && !hlStrip(ta.value).trim() && !(cur && PHO.ids.has(cur.id))) { f.classList.remove('shk'); void f.offsetWidth; f.classList.add('shk'); setTimeout(() => f.classList.remove('shk'), 450); return; } pin = !pin; pl(); save(); }
+      else if (k === 'pin') { if (!pin && !hlStrip(ta.value).trim() && !(cur && (PHO.ids.has(cur.id) || AU.ids.has(cur.id)))) { f.classList.remove('shk'); void f.offsetWidth; f.classList.add('shk'); setTimeout(() => f.classList.remove('shk'), 450); return; } pin = !pin; pl(); save(); }
       else if (k === 'task') { save(); if (cur && hlStrip(cur.t).trim()) openNoteTask(cur); }
-      else if (k === 'pha') { save(); if (!cur) { const u = nextU(), nid = uid(); cur = S.notes[nid] = { id: nid, t: '', pin: pin ? 1 : 0, c: u, u, tr: 0 }; touch(); } U.phT = { id: cur.id, note: true }; phIn.click(); }
-      else if (k === 'phv') { if (cur) openLb(cur.id, { note: 1 }); }
-      else if (k === 'phd') { if (cur) { phDel(cur.id); paintPh(); render(); } }
+      else if (k === 'pha') { save(); if (!cur) { const u = nextU(), nid = uid(); cur = S.notes[nid] = { id: nid, t: '', pin: pin ? 1 : 0, c: u, u, tr: 0 }; touch(); } U.phT = { id: cur.id, note: true }; phPick(); }
+      else if (k === 'phv') { if (cur) { const ks = phKeys(cur.id), kk = f.dataset.k || cur.id; openLb(kk, { note: 1, list: ks.map((x) => ({ id: x, note: 1 })), i: Math.max(0, ks.indexOf(kk)) }); } }
+      else if (k === 'phd') { if (cur) { const kk = f.dataset.k || cur.id, sp = f.closest('.nph-i'); if (sp) sp.classList.add('out'); setTimeout(async () => { await phRemove(kk); phSeen.delete(kk); paintPh(); render(); }, REDUCED() ? 0 : 340); } }
+      else if (k === 'aur') { if (!cur) { save(); } auStart(); }
+      else if (k === 'aus2') { if (AU.rec) { AU.rec.save = true; try { AU.rec.mr.stop(); } catch (x) {} } }
+      else if (k === 'auc') { if (AU.rec) { AU.rec.save = false; try { AU.rec.mr.stop(); } catch (x) {} } }
+      else if (k === 'aup') { auToggle(f.closest('.au-row').dataset.cid); }
+      else if (k === 'aus') {
+        const row = f.closest('.au-row'), c = auClips.find((x) => x.id === row.dataset.cid); if (!c) return;
+        if (auId !== c.id) auToggle(c.id);
+        const bw = f.getBoundingClientRect(), ratio = Math.max(0, Math.min(1, (e.clientX - bw.left) / bw.width));
+        if (auAudio) { try { auAudio.currentTime = ratio * (c.dur / 1000 || auAudio.duration || 0); } catch (x) {} }
+      }
+      else if (k === 'aud') {
+        const row = f.closest('.au-row'), cid = row.dataset.cid; if (auId === cid) auStopPlay();
+        auClips = auClips.filter((x) => x.id !== cid); row.classList.add('out');
+        (auClips.length ? auPut(cur.id, { clips: auClips }) : auDel(cur.id)).then(() => { paintNotes(); });
+        setTimeout(() => { if (ntEl === el) paintAu(true); }, REDUCED() ? 0 : 380);
+      }
       else if (k === 'del') { save(); if (!cur) { close(); return; } askConfirm('cfTrash', () => { const n = cur; fadeOut(el); ntEl = null; $('#sheet').inert = false; $('#set').inert = false; app.inert = appInert(); noteToTrash(n.id); }); }
     });
     el.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !cfEl) { e.preventDefault(); e.stopPropagation(); close(); } });
@@ -4162,7 +4788,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   const ctAgLabel = (c) => { const g = c.a && S.agendas[c.a]; return g && !g.tr ? agLabel(g) : ''; };
   function ctList() {
     const tokens = foldQ((U.cq || '').trim()).split(/\s+/).filter(Boolean);
-    return Object.keys(S.contacts).map((id) => S.contacts[id]).filter((c) => !c.tr && (!tokens.length || matchRanges(c.nm + ' ' + c.ph + ' ' + (c.em || '') + ' ' + ctAgLabel(c), tokens)))
+    return Object.keys(S.contacts).map((id) => S.contacts[id]).filter((c) => !c.tr && (!tokens.length || matchRanges(c.nm + ' ' + c.ph + ' ' + (c.ph2 || []).join(' ') + ' ' + (c.em || '') + ' ' + (c.em2 || []).join(' ') + ' ' + ctAgLabel(c), tokens)))
       .sort((a, b) => (a.nm || a.ph || a.em || '').localeCompare(b.nm || b.ph || b.em || '', LANG === 'zh' ? 'zh-CN' : LANG));
   }
   function ctListHTML() {
@@ -4170,7 +4796,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     if (!list.length) return `<p class="empty">${esc(tt((U.cq || '').trim() ? 'ctNoMatch' : 'ctEmpty'))}</p>`;
     return list.map((c) => {
       const nm = c.nm || c.ph || c.em || tt('ctBlank'), ag = ctAgLabel(c);
-      return `<article class="ct" data-id="${c.id}"><button class="ct-open" data-act="ct-open" data-id="${c.id}"><span class="ct-av" aria-hidden="true">${c.k === 'o' ? ic('building') : esc(Array.from(nm)[0].toLocaleUpperCase(LANG === 'zh' ? 'zh-CN' : LANG))}</span><span class="ct-b"><span class="ct-n">${esc(nm)}</span>${c.nm && c.ph ? `<span class="ct-p">${esc(c.ph)}</span>` : ''}${c.em && (c.nm || c.ph) ? `<span class="ct-p">${esc(c.em)}</span>` : ''}${ag ? `<span class="ct-a">${esc(ag)}</span>` : ''}</span></button></article>`;
+      return `<article class="ct" data-id="${c.id}"><button class="ct-open" data-act="ct-open" data-id="${c.id}"><span class="ct-av${c.co ? ' c' + c.co : ''}" aria-hidden="true">${ctAvIn(c)}</span><span class="ct-b"><span class="ct-n">${esc(nm)}</span>${c.nm && c.ph ? `<span class="ct-p">${esc(c.ph)}</span>` : ''}${c.em && (c.nm || c.ph) ? `<span class="ct-p">${esc(c.em)}</span>` : ''}${ag ? `<span class="ct-a">${esc(ag)}</span>` : ''}</span>${(c.ph2 || []).length + (c.em2 || []).length ? `<span class="ct-more" aria-hidden="true">+${(c.ph2 || []).length + (c.em2 || []).length}</span>` : ''}</button></article>`;
     }).join('');
   }
   const MAILS = [['Gmail', 'https://mail.google.com/'], ['iCloud', 'https://www.icloud.com/mail'], ['Outlook · Hotmail · Live', 'https://outlook.live.com/mail/'], ['Microsoft 365', 'https://outlook.office.com/mail/'], ['Yahoo', 'https://mail.yahoo.com/']];
@@ -4184,6 +4810,8 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
 
   /* tel:/mailto: açılamazsa (ör. sınırlı önizleme) adresi gösterip kopyalatır */
   function openExt(href) { try { location.href = href; } catch (e) {} }
+  const mfRows = (g, vals) => { const v = (vals && vals.length ? vals : ['']).map((x) => x || ''); return v.map((x) => mfRow(g, x, true)).join(''); };
+  const mfRow = (g, val, init) => `<div class="mf-row${init ? ' init' : ''}"><input class="fld mf-i" data-g="${g}" type="${g === 'ph' ? 'tel' : 'email'}" inputmode="${g === 'ph' ? 'tel' : 'email'}" maxlength="${g === 'ph' ? 30 : 80}" autocomplete="off"${g === 'em' ? ' autocapitalize="off" spellcheck="false"' : ''} placeholder="${esc(tt(g === 'ph' ? 'ctPhonePh' : 'ctEmailPh'))}" aria-label="${esc(tt(g === 'ph' ? 'ctPhonePh' : 'ctEmailPh'))}" value="${esc(val)}"><button type="button" class="mf-x" data-f="rm-row" aria-label="${esc(tt('remove'))}">${ic('x')}</button></div>`;
   function openContact(id) {
     if (ntEl || cfEl || rsEl || askEl || agfEl || ncEl || ctEl || pcEl) return;
     let cur = id ? S.contacts[id] : null; if (id && (!cur || cur.tr)) return;
@@ -4191,41 +4819,67 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
     const el = document.createElement('div'); el.className = 'ask'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', tt('ctNew'));
     el.innerHTML = `<form class="ask-c ntf"><div class="nt-bar"><h3 class="ct-h">${esc(tt('ctNew'))}</h3><span class="sp"></span><button type="button" class="dt" data-f="close" aria-label="${esc(tt('close'))}">${ic('x')}</button></div>
       <div class="seg mini th" role="radiogroup" style="grid-template-columns:repeat(2,minmax(0,1fr));--n:2;--i:${cur && cur.k === 'o' ? 1 : 0}"><i class="thumb"></i><button type="button" role="radio" data-f="kp" aria-checked="${!cur || cur.k !== 'o'}">${esc(tt('ctPerson'))}</button><button type="button" role="radio" data-f="ko" aria-checked="${!!cur && cur.k === 'o'}">${esc(tt('ctOrg'))}</button></div>
+      <div class="csy-row"><button type="button" class="ct-av csy-pv" data-f="csy" aria-expanded="false" aria-label="${esc(tt('ctSym'))}"></button><div class="cpal" role="radiogroup" aria-label="${esc(tt('hlLbl'))}">${[1, 2, 3, 4].map((k) => `<button type="button" class="hl-d c${k}" role="radio" data-co="${k}" aria-label="${esc(tt('hlLbl'))} ${k}"></button>`).join('')}</div></div>
+      <div class="csy-w"><div class="csy-gi"><div class="icg csy-g" role="radiogroup" aria-label="${esc(tt('ctSym'))}"></div></div></div>
       <input id="ctNm" class="fld" type="text" maxlength="60" autocomplete="off" enterkeyhint="next" placeholder="${esc(tt('ctNamePh'))}" aria-label="${esc(tt('ctNamePh'))}" value="${esc(cur ? cur.nm : '')}">
-      <input id="ctPh" class="fld" type="tel" inputmode="tel" maxlength="30" autocomplete="off" placeholder="${esc(tt('ctPhonePh'))}" aria-label="${esc(tt('ctPhonePh'))}" value="${esc(cur ? cur.ph : '')}">
-      <input id="ctEm" class="fld" type="email" inputmode="email" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(tt('ctEmailPh'))}" aria-label="${esc(tt('ctEmailPh'))}" value="${esc(cur ? (cur.em || '') : '')}">
+      <div class="mf" data-g="ph">${mfRows('ph', cur ? [cur.ph, ...(cur.ph2 || [])] : [''])}<button type="button" class="mf-add" data-f="add-ph">${ic('plus')}<span>${esc(tt('ctAddPh'))}</span></button></div>
+      <div class="mf" data-g="em">${mfRows('em', cur ? [cur.em, ...(cur.em2 || [])] : [''])}<button type="button" class="mf-add" data-f="add-em">${ic('plus')}<span>${esc(tt('ctAddEm'))}</span></button></div>
       <label class="agf-l" for="ctAg">${esc(tt('ctAg'))}</label><select id="ctAg" class="fld">${agOptions(cur ? cur.a : '')}</select>
       <div class="nt-bar"><a class="ghost ico cm mail" data-f="mail" href="#" aria-label="${esc(tt('ctMail'))}" title="${esc(tt('ctMail'))}" ${cur && cur.em ? '' : 'hidden'}>${ic('mail')}</a><span class="sp"></span><button type="button" class="ghost dng ico" data-f="del" aria-label="${esc(tt('remove'))}">${ic('trash')}</button></div></form>`;
     ctEl = el; $('#sheet').inert = true; $('#set').inert = true; app.inert = true; document.body.appendChild(el);
     let kind = cur && cur.k === 'o' ? 'o' : 'p';
-    const nm = el.querySelector('#ctNm'), ph = el.querySelector('#ctPh'), em = el.querySelector('#ctEm'), ag = el.querySelector('#ctAg'), call = el.querySelector('.call'), mail = el.querySelector('.mail');
-    const callUp = () => { const n = ph.value.replace(/[^\d+]/g, ''); if (call) { call.hidden = !n; call.href = n ? 'tel:' + n : '#'; } };
-    const mailUp = () => { const e = em.value.trim(); mail.hidden = !e; mail.href = e ? 'mailto:' + e : '#'; };
-    callUp(); mailUp();
+    let sy = cur ? csyOk(cur.sy, kind) : '', co = cur ? cCo(cur.co) : 0;
+    const pv = el.querySelector('.csy-pv'), gr = el.querySelector('.csy-g');
+    const csyPaint = (full) => {
+      pv.classList.remove('pop'); void pv.offsetWidth; if (!full || pv.dataset.on) pv.classList.add('pop'); pv.dataset.on = '1';
+      pv.className = 'ct-av csy-pv pop' + (co ? ' c' + co : ''); pv.innerHTML = ctAvIn({ sy, k: kind, nm: (el.querySelector('#ctNm') || {}).value || '' });
+      el.querySelectorAll('.cpal .hl-d').forEach((b) => { const on = +b.dataset.co === (co || 1); b.classList.toggle('on', on); b.setAttribute('aria-checked', String(on)); });
+      if (full) { gr.classList.remove('swap'); void gr.offsetWidth; gr.classList.add('swap'); }
+      if (full) gr.innerHTML = ['', ...Object.keys(csySet(kind))].map((k) => `<button type="button" class="icb${k ? '' : ' none'}" role="radio" aria-checked="${k === sy}" data-sy="${k}" title="${esc(k ? csyLab(k) : '–')}" aria-label="${esc(k ? csyLab(k) : '–')}">${k ? csic(k) : '<span aria-hidden="true">–</span>'}</button>`).join('');
+      else gr.querySelectorAll('.icb').forEach((b) => b.setAttribute('aria-checked', String(b.dataset.sy === sy)));
+    };
+    const nm = el.querySelector('#ctNm'), ag = el.querySelector('#ctAg'), mail = el.querySelector('.mail');
+    const vals = (g) => [...el.querySelectorAll(`.mf[data-g="${g}"] .mf-i`)].map((i) => i.value.trim().slice(0, g === 'ph' ? 30 : 80)).filter(Boolean);
+    const mfOne = () => el.querySelectorAll('.mf').forEach((m) => m.classList.toggle('one', m.querySelectorAll('.mf-row:not(.out)').length < 2));
+    const mailUp = () => { const e = vals('em')[0] || ''; mail.hidden = !e; mail.href = e ? 'mailto:' + e : '#'; };
+    mailUp(); mfOne(); csyPaint(true);
     const save = () => {
-      clearTimeout(saveT3); saveT3 = 0;
-      const n = nm.value.trim().slice(0, 60), p = ph.value.trim().slice(0, 30), e = em.value.trim().slice(0, 80), a = ag.value;
-      if (!cur) { if (!n && !p && !e) return; const u = nextU(), cid = uid(); cur = S.contacts[cid] = { id: cid, nm: n, ph: p, em: e, a, k: kind, u, tr: 0 }; }
-      else if (cur.nm !== n || cur.ph !== p || (cur.em || '') !== e || (cur.a || '') !== a || (cur.k || 'p') !== kind) { cur.nm = n; cur.ph = p; cur.em = e; cur.a = a; cur.k = kind; cur.u = nextU(); }
+      clearTimeout(saveT3); saveT3 = 0; let look = false;
+      const n = nm.value.trim().slice(0, 60), pv_ = vals('ph'), ev_ = vals('em'), p = pv_[0] || '', e = ev_[0] || '', p2 = pv_.slice(1), e2 = ev_.slice(1), a = ag.value;
+      if (!cur) { if (!n && !p && !e) return; const u = nextU(), cid = uid(); cur = S.contacts[cid] = { id: cid, nm: n, ph: p, em: e, ph2: p2, em2: e2, a, k: kind, sy, co, u, tr: 0 }; }
+      else if (cur.nm !== n || cur.ph !== p || (cur.em || '') !== e || (cur.a || '') !== a || (cur.k || 'p') !== kind || (cur.sy || '') !== sy || (cur.co || 0) !== co || JSON.stringify(cur.ph2 || []) !== JSON.stringify(p2) || JSON.stringify(cur.em2 || []) !== JSON.stringify(e2)) { look = (cur.sy || '') !== sy || (cur.co || 0) !== co; cur.nm = n; cur.ph = p; cur.em = e; cur.ph2 = p2; cur.em2 = e2; cur.a = a; cur.k = kind; cur.sy = sy; cur.co = co; cur.u = nextU(); }
       else return;
       touch(); paintCts();
+      if (look) { const av = document.querySelector(`.ct[data-id="${cur.id}"] .ct-av`); if (av) { av.classList.add('pop'); } }
     };
     const close = () => {
       save();
-      if (cur && !cur.nm && !cur.ph && !cur.em && S.contacts[cur.id]) { purgeContact(cur.id); touch(); }
+      if (cur && !cur.nm && !cur.ph && !cur.em && !(cur.ph2 || []).length && !(cur.em2 || []).length && S.contacts[cur.id]) { purgeContact(cur.id); touch(); }
       fadeOut(el); ctEl = null; $('#sheet').inert = false; $('#set').inert = false; app.inert = appInert();
       if (U.view === 'home' || DK()) render();
       try { if (ret && ret.isConnected) ret.focus({ preventScroll: true }); } catch (e) {}
     };
     const sched = () => { clearTimeout(saveT3); saveT3 = setTimeout(save, 500); };
-    nm.addEventListener('input', sched); ph.addEventListener('input', () => { callUp(); sched(); }); em.addEventListener('input', () => { mailUp(); sched(); }); ag.addEventListener('change', save);
+    nm.addEventListener('input', () => { if (!sy) csyPaint(false); sched(); }); el.addEventListener('input', (e) => { if (e.target.classList && e.target.classList.contains('mf-i')) { mailUp(); sched(); } }); ag.addEventListener('change', save);
     el.addEventListener('click', (e) => {
+      const sb = e.target.closest('[data-sy]'); if (sb) { sy = sb.dataset.sy; csyPaint(false); save(); return; }
+      const cb = e.target.closest('[data-co]'); if (cb) { co = +cb.dataset.co; csyPaint(false); save(); return; }
       const f = e.target.closest('[data-f]');
       if (!f) return;
       const k = f.dataset.f;
       if (k === 'close') close();
-      else if (k === 'kp' || k === 'ko') { kind = k === 'ko' ? 'o' : 'p'; el.querySelectorAll('.seg [data-f]').forEach((b) => b.setAttribute('aria-checked', String(b === f))); el.querySelector('.seg').style.setProperty('--i', kind === 'o' ? 1 : 0); save(); }
-      else if (k === 'call' || k === 'mail') { e.preventDefault(); const h = f.getAttribute('href'); if (h && h !== '#') openExt(h, k === 'mail' ? em.value.trim() : ph.value.trim()); }
+      else if (k === 'csy') { const w = el.querySelector('.csy-w'); w.classList.toggle('open'); pv.setAttribute('aria-expanded', String(w.classList.contains('open'))); }
+      else if (k === 'add-ph' || k === 'add-em') {
+        const g = k === 'add-ph' ? 'ph' : 'em', m = f.closest('.mf'); f.insertAdjacentHTML('beforebegin', mfRow(g, '', false)); mfOne();
+        const inp = [...m.querySelectorAll('.mf-i')].pop(); if (inp) inp.focus({ preventScroll: false });
+      }
+      else if (k === 'rm-row') {
+        const row = f.closest('.mf-row'), m = row.closest('.mf'); const live = m.querySelectorAll('.mf-row:not(.out)');
+        if (live.length < 2) { row.querySelector('.mf-i').value = ''; } else { row.classList.add('out'); row.querySelector('.mf-i').disabled = true; setTimeout(() => { row.remove(); mailUp(); save(); }, REDUCED() ? 0 : 440); }
+        mfOne(); mailUp(); sched();
+      }
+      else if (k === 'kp' || k === 'ko') { kind = k === 'ko' ? 'o' : 'p'; sy = csyOk(sy, kind); csyPaint(true); el.querySelectorAll('.seg [data-f]').forEach((b) => b.setAttribute('aria-checked', String(b === f))); el.querySelector('.seg').style.setProperty('--i', kind === 'o' ? 1 : 0); save(); }
+      else if (k === 'call' || k === 'mail') { e.preventDefault(); const h = f.getAttribute('href'); if (h && h !== '#') openExt(h, vals('em')[0] || ''); }
       else if (k === 'del') { save(); if (!cur) { close(); return; } askConfirm('cfTrash', () => { const c = cur; fadeOut(el); ctEl = null; $('#sheet').inert = false; $('#set').inert = false; app.inert = appInert(); contactToTrash(c.id); }); }
     });
     el.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !cfEl) { e.preventDefault(); e.stopPropagation(); close(); } });
@@ -4252,8 +4906,8 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   }
   function phoneFind(text) {
     const out = [], seen = new Set(); text = String(text || '');
-    const known = new Set(Object.values(S.contacts).map((c) => phKey(c.ph)));
-    const knownE = new Set(Object.values(S.contacts).map((c) => String(c.em || '').trim().toLowerCase()).filter(Boolean));
+    const known = new Set(Object.values(S.contacts).flatMap((c) => [c.ph, ...(c.ph2 || [])]).map((x) => phKey(x)));
+    const knownE = new Set(Object.values(S.contacts).flatMap((c) => [c.em, ...(c.em2 || [])]).map((x) => String(x || '').trim().toLowerCase()).filter(Boolean));
     const EM_RE = /(?<![\p{L}\p{N}._%+\-])[\p{L}\p{N}._%+\-]+@[\p{L}\p{N}\-]+(?:\.[\p{L}\p{N}\-]+)*\.\p{L}{2,}(?![\p{L}\p{N}])/giu, spans = [], emails = []; { let q; while ((q = EM_RE.exec(text))) { spans.push([q.index, q.index + q[0].length]); emails.push(q); } }
     const re = /(?<![\p{L}\p{N}_])(\+?\(?\d[\d  ().\-\/·]{5,}\d)(?:\s?((?:ext\.?|x|dahili|int\.?|ramal|poste|dw\.?|доб\.?)\s?\d{1,6}))?/giu; let m, prevEnd = 0;
     while ((m = re.exec(text))) {
@@ -4381,7 +5035,7 @@ html.desk .dttop .gear.sc, html.desk .mainp .topin .tr .gear.sc { background: co
   document.body.appendChild(rg);
   const paintRot = () => { rg.lastChild.textContent = ROT[LANG] || ROT.en; };
   paintRot(); addEventListener('orientationchange', paintRot); addEventListener('resize', paintRot);
-  phInit();
+  phInit(); auInit();
   remInit(); checkDue();
   try { if ('serviceWorker' in navigator && /^https?:/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(() => {}); } catch (e) {}
 })();
