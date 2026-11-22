@@ -1896,6 +1896,8 @@ html.desk .mainp .top, html.desk .foot { background-color: var(--bg); background
 .lg { min-height: 72px; }
 .lg .lgk { top: 3px; right: auto; left: 33px; width: 16px; height: 16px; padding: 2px; box-sizing: border-box; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--accent); stroke-width: 3.5; }
 html[dir="rtl"] .lg .lgk { left: auto; right: 33px; }
+.lg[aria-checked="true"] { box-shadow: 0 0 0 1px var(--accent); }
+.lg .lgk { display: none; }
 </style>
 
 <div id="app"></div>
@@ -4342,7 +4344,7 @@ html[dir="rtl"] .lg .lgk { left: auto; right: 33px; }
       const cur = PAL[THEME];
       const ci = PAL_IDS.indexOf(THEME);
       const th = `<div class="tsw" id="tsw" role="slider" tabindex="0" aria-label="${esc(tt('theme'))}" aria-valuemin="0" aria-valuemax="${PAL_IDS.length - 1}" aria-valuenow="${ci}" aria-valuetext="${esc(T.themes[ci])}"><div class="tst" id="tst">${PAL_IDS.map((id, i) => `<button type="button" class="tc" tabindex="-1" aria-hidden="true" data-i="${i}" style="--b:${PAL[id].bg};--f:${PAL[id].fg}"></button>`)[LANG === 'ar' ? 'reduceRight' : 'reduce']((a, x) => a + x, '')}</div><i class="tmk"></i></div><div class="tnm" id="tnm" aria-hidden="true">${esc(T.themes[ci])}</div>`;
-      const lg = LANGS.map(([c, n], i) => `<button class="lg" role="radio" aria-checked="${c === LANG}" data-act="pick-lang" data-id="${c}" lang="${LOCM[c] || c}" style="--i:${i}"><span class="lgl" aria-hidden="true">${LGLYPH[c]}</span><span class="lgt"><b>${n.replace(/ \((.*)\)$/,'<small>$1</small>')}</b><i>${LGREET[c]}</i></span><svg class="lgk" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4 8-9"/></svg></button>`).join('');
+      const lg = LANGS.map(([c, n], i) => `<button class="lg" role="radio" aria-checked="${c === LANG}" data-act="pick-lang" data-id="${c}" lang="${LOCM[c] || c}" style="--i:${i}"><span class="lgl" aria-hidden="true">${LGLYPH[c]}</span><span class="lgt"><b>${n.replace(/ \((.*)\)$/,'<small>$1</small>')}</b><i>${LGREET[c]}</i></span></button>`).join('');
       body = `<section class="sgroup"><h4>${esc(tt('theme'))}</h4>${th}<p class="snote">${esc(tt('autoNote'))}</p></section>
         <section class="sgroup"><h4>${esc(tt('lang'))}</h4><div class="langs" role="radiogroup" aria-label="${esc(tt('lang'))}">${lg}</div></section>
         <section class="sgroup"><h4>${esc(tt('cal2Lbl'))}</h4><div class="chips" role="radiogroup" aria-label="${esc(tt('cal2Lbl'))}">${[['auto', 'cal2Auto'], ['off', 'cal2Off'], ['hijri', 'cal2Hijri'], ['lunar', 'cal2Lunar']].map(([c, k]) => `<button class="lchip" role="radio" aria-checked="${CAL2 === c}" data-act="pick-cal2" data-id="${c}">${esc(tt(k))}</button>`).join('')}</div><p class="snote tight">${esc(tt('cal2Note'))}</p></section>
