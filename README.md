@@ -11,7 +11,7 @@ A minimal agenda for every day of the year — tasks, notes, contacts, photos, r
 4. Optional: install it — Chrome/Edge "Install app", or Safari → Share → Add to Home Screen.
 
 ## Features
-- 12 languages, 9 colour themes, light and dark
+- 17 languages, 7 colour themes (some with regional patterns), light and dark
 - Desktop dashboard and phone layout
 - Reminders with alarm-style repeating sound and snooze
 - Notes with a 4-colour highlighter, contacts with symbols, multi-photo notes, voice notes
